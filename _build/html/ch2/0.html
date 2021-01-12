@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 2 Intro &#8212; New Jupyter-Book Template</title>
+    <title>Things I’ve Learned &#8212; New Jupyter-Book Template</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -55,7 +55,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.1 Section One" href="1.html" />
+    <link rel="next" title="2.1 Engines and Environments" href="1.html" />
     <link rel="prev" title="1.3 JupyterBooks" href="../ch1/3.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -120,12 +120,12 @@
  </li>
  <li class="toctree-l1 current active collapsible-parent">
   <a class="current reference internal" href="#">
-   Chapter 2 Intro
+   Things I’ve Learned
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="1.html">
-     2.1 Section One
+     2.1 Engines and Environments
     </a>
    </li>
   </ul>
@@ -214,6 +214,20 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#this-page-is-still-under-construction">
+   This page is still under construction.
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -221,10 +235,35 @@
         
               <div>
                 
-  <div class="section" id="chapter-2-intro">
-<h1>Chapter 2 Intro<a class="headerlink" href="#chapter-2-intro" title="Permalink to this headline">¶</a></h1>
-<p>Test page for template. Put your content here.</p>
+  <div class="section" id="things-i-ve-learned">
+<h1>Things I’ve Learned<a class="headerlink" href="#things-i-ve-learned" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="this-page-is-still-under-construction">
+<h2>This page is still under construction.<a class="headerlink" href="#this-page-is-still-under-construction" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Don’t leave a blank cell at the bottom of your JupyterLab notebook. If the JupyterBook compiler interprets it as an un-executed code block, your book will fail to compile. Which brings up a good point, before debugging and bunch of code, always try re-executing all code blocks from top to bottom first to see if the book will compile. If not, then start debugging.</p></li>
+<li><p>Config file</p></li>
+<li><p>Edit using Jupyterlab</p></li>
+<li><p>Set recompile to “auto,” not “force,” so that only files that have changed get compiled. Speeds up the process.</p></li>
+<li><p>Control logo file by finding a pic or creating a graphic and saving a logo.png file. Add this line in the config.yml file below your name.</p></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
+logo: logo.png
+```
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Content folder</p></li>
+<li><p>Only the config.yml file exists at the root, everything else goes inside the content folder.</p></li>
+<li><p>Content folder structure: toc.yml, logo.png, introduction.ipynb, and chapter folders.</p></li>
+<li><p>Using git at the command shell, you will be asked for your password when you are first linking or pushing content from your laptop out to github. YOU WON’T SEE YOUR PASSWORD AS YOU TYPE. In fact, nothing happens at all. It’s a security feature of the command prompt to not show your password. It would be really helpful if it showed the typical **** as you were typing so you could know your keystrokes were making a difference, but it doesn’t. Trust the force.</p></li>
+<li><p>Your online html will be MUCH easier to find after several hours. Initially, you have type the EXACT URL to see anything (use the Introduction.html page url for best results initially).</p></li>
+<li><p>The chapter and section file titles are a pain – they work correctly in JupyterBooks if you use something 1.1 for chapter 1, section 1.</p></li>
+<li><p>Since the / key escapes characters in MYST, leaving a / on the tail end of a URL will cause the link to display improperly</p></li>
+<li><p>The broader community has embraced LaTeX so much that they’ve given it a hip new hacker name: dollar sign math (DSM). When using double-dollar sign math (DDSM) in MYST markdown, put two hard returns above and below the DDSM code. If not, it tends to display incorrectly.</p></li>
+<li><p>Don’t get freaked out by using the command prompt with admin privileges. You probbly won’t create a rift in the time-space continuum. No guarantees, though.</p></li>
+</ol>
 <div class="toctree-wrapper compound">
+</div>
 </div>
 </div>
 
@@ -237,16 +276,16 @@
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "matlab"
+            mode: "python"
         },
         kernelOptions: {
-            kernelName: "matlab",
+            kernelName: "python3",
             path: "./ch2"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'matlab'</script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
@@ -257,7 +296,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../ch1/3.html" title="previous page">1.3 JupyterBooks</a>
-    <a class='right-next' id="next-link" href="1.html" title="next page">2.1 Section One</a>
+    <a class='right-next' id="next-link" href="1.html" title="next page">2.1 Engines and Environments</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

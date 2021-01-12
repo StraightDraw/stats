@@ -13,6 +13,8 @@
 # Anaconda is often abbreviated *conda*. *Repo* stands for repository.
 # ````
 # 
+# I have created a set of template files that you can copy-paste into your repo. Since I've compiled them already, I know that they will work when you run JupyterBook and not throw error codes. At the moment, you should email me if you'd like them. I plan to have them linked online soon.
+# 
 # ````{margin}
 # Numbered lists in MYST are far easier than LaTeX or HTML.
 # ````
