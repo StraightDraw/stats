@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1.2 Section Two &#8212; New Jupyter-Book Template</title>
+    <title>1.2 GitHub &#8212; New Jupyter-Book Template</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -55,8 +55,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.3 Section Three" href="3.html" />
-    <link rel="prev" title="1.1 Section One" href="1.html" />
+    <link rel="next" title="1.3 JupyterBooks" href="3.html" />
+    <link rel="prev" title="1.1 Conda" href="1.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -96,22 +96,22 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="0.html">
-   Chapter 1 Overview
+   Building Blocks
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="1.html">
-     1.1 Section One
+     1.1 Conda
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     1.2 Section Two
+     1.2 GitHub
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3.html">
-     1.3 Section Three
+     1.3 JupyterBooks
     </a>
    </li>
   </ul>
@@ -214,6 +214,39 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cloning-and-branching">
+   Cloning and Branching
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cloning">
+     Cloning
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#branching">
+     Branching
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#add-commit-and-push">
+       Add, Commit and Push
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -221,9 +254,93 @@
         
               <div>
                 
-  <div class="section" id="section-two">
-<h1>1.2 Section Two<a class="headerlink" href="#section-two" title="Permalink to this headline">¶</a></h1>
-<p>Test page for template. Put your content here.</p>
+  <div class="section" id="github">
+<h1>1.2 GitHub<a class="headerlink" href="#github" title="Permalink to this headline">¶</a></h1>
+<p>I found dealing with GitHub intimidating. I didn’t understand all the pushing, pulling, cloning and forking. I didn’t know where to go to do any of that Tug-of-War crap. Turns out, the solution is rather simple. We have two dozen easy ways to accomplish things on GitHub which makes GitHub confusing for the novice, and difficult to Google. It’s hard to understand what you read online since everyone’s doing the same simple thing but in several different ways.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>MYST produces the <em>definition styling</em> you see here using a specially placed colon. That’s it.</p>
+</div>
+<dl class="simple myst">
+<dt>Clone</dt><dd><p>Create a repo on your local machine that is both linked to and an exact copy of a GitHub repo (online).</p>
+</dd>
+<dt>Add, Commit, Push</dt><dd><p>Three step process that updates a repo’s files, synchs up with its linked repo and pushes the changes over.</p>
+</dd>
+<dt>GitHub Pages</dt><dd><p>Feature that allows GitHub repos to be compiled as HTML web pages.</p>
+</dd>
+</dl>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Tweak special code blocks like tip, warning and <em>see also</em> by using an <em>admonition</em>. Here, we’ve hijacked the <em>note</em> special code block and inserted our title “wow.”</p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Wow!</p>
+<p>GitHub Pages is totally free. Yep, web hosting for zero cost.</p>
+</div>
+<p>Programmers use GitHub branches differently than we will which again creates confusion, especially when trying to Google up some help.</p>
+<dl class="simple myst">
+<dt>Branch</dt><dd><p>A secondary set of files where changes can be made and tested before updating the main (live) files.</p>
+</dd>
+</dl>
+<p>Create a branch in your GitHub repo called <strong>gh-pages</strong>, and GitHub knows you’re planning to publish web pages. GitHub automatically configures the branch for HTML and links it all to a URL.</p>
+<div class="section" id="cloning-and-branching">
+<h2>Cloning and Branching<a class="headerlink" href="#cloning-and-branching" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Use one asterisk on either side to italicize a word or phrase. Double it up for bold. Hashtags create headings. One hashtag creates an HTML H1 class heading, two hashtags creates H2, and so on. We also have another example of the <em>tip</em> special code block.</p>
+</div>
+<p>If you don’t have a GitHub account, now’s the time. Skip the “Hello World” tutorial. Just create a new repository with a easy name like “newbook.” Do <strong>not</strong> add the “ReadMe” file, and be sure it’s public.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The name of your repo on GitHub will match the file folder where you edit things locally, so keep it short and sweet. Avoid special characters that are hard to type.</p>
+</div>
+<div class="section" id="cloning">
+<h3>Cloning<a class="headerlink" href="#cloning" title="Permalink to this headline">¶</a></h3>
+<p>In Conda (running as admin), open a CMD.exe Prompt. Use the change director command <strong>cd</strong> to navigate to the where you want your book to live:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">documents</span><span class="o">/</span><span class="n">conda</span>
+</pre></div>
+</div>
+<p>The example is based on my experience. In my Documents folder, I have a folder called “conda” where I store everything Conda-related: JupyterLabs, JuypterBooks, notes and projects.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Straightdraw</span><span class="o">/</span><span class="n">newbook</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When trying to enter your GitHub password in the command prompt environment, beware! The cursor doesn’t move when you type. It’s hiding your password for security, but not with the normal **** format. It feels weird, but type your password and hit Enter.</p>
+</div>
+<p>The cloning process creates a new folder called “newbook.” It’s linked and synched with your GitHub repo. Don’t copy it or paste it. That usually breaks the link. If it ended up in the wrong place (and mine have), just delete the misplaced folder and reclone from the correct spot.</p>
+</div>
+<div class="section" id="branching">
+<h3>Branching<a class="headerlink" href="#branching" title="Permalink to this headline">¶</a></h3>
+<p>You cannot branch an empty repo, so let’s put some files in it. Download the template files and copy-paste them into your <em>newbook</em> folder. We’ll go over the configuration files later. For now, just trust me that this template will compile properly. The structure should be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">documents</span><span class="o">/</span><span class="n">conda</span><span class="o">/</span><span class="n">newbook</span><span class="o">/</span><span class="n">content</span>
+</pre></div>
+</div>
+<p>You will also see a <strong>config.yml</strong> file in the newbook folder along with the content folder.</p>
+<div class="section" id="add-commit-and-push">
+<h4>Add, Commit and Push<a class="headerlink" href="#add-commit-and-push" title="Permalink to this headline">¶</a></h4>
+<p>Even though we have copied the files into the newbook folder, the repo that lives there is clueless. We have to wake it up and show it the files we want to push in.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Four ticks create special code blocks. Three ticks create the copyable code blocks we’re using here.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">./*</span>
+</pre></div>
+</div>
+<p>Now the local repo is updated with <em>everything</em> in the folder, so remember not to clutter it up with extra stuff.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;Adding first files&quot;</span>
+</pre></div>
+</div>
+<p>The local repo has now contacted the mother ship and said, “Hey, new files incoming.” Don’t bother trying to commit without the -m and a comment. It’s possible, but it’s far easier just to add a brief note about what’s being updated.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span>
+</pre></div>
+</div>
+<p>Now the files are out on the GitHub repo and updated. You can check. You will also now have the option to branch your repo. The main branch now has a drop-down menu where you can add a branch.</p>
+<a class="reference internal image-reference" href="https://docs.github.com/assets/images/help/branch/branch-selection-dropdown.png"><img alt="Branching GitHub repo" src="https://docs.github.com/assets/images/help/branch/branch-selection-dropdown.png" style="width: 35%;" /></a>
+<p>Create a branch called <strong>gh-pages</strong>. You have to use that exact name. You should check your settings, but GitHub is pretty good at guessing what you want. In settings, scroll to the GitHub Pages section and verify that your website is using the gh-pages branch, not the main branch. You also need the folder option to be <strong>/root</strong> which is the default. Don’t select a theme. We’re not building our website with Jekyll and GitHub. We’re building our website with JupyterBook on our local machine and shoving it over.</p>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -235,16 +352,16 @@
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "matlab"
+            mode: "python"
         },
         kernelOptions: {
-            kernelName: "matlab",
+            kernelName: "python3",
             path: "./ch1"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'matlab'</script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
@@ -254,8 +371,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="1.html" title="previous page">1.1 Section One</a>
-    <a class='right-next' id="next-link" href="3.html" title="next page">1.3 Section Three</a>
+    <a class='left-prev' id="prev-link" href="1.html" title="previous page">1.1 Conda</a>
+    <a class='right-next' id="next-link" href="3.html" title="next page">1.3 JupyterBooks</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
