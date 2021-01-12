@@ -45,6 +45,12 @@
 # 
 # The **ghp-import** script is a wonderful tool. While building a website on GitHub using Jekyll isn't impossible, it can be tricky to get all the settings exactly right. Not for us, though.
 # 
+# ````{margin}
+# ```{warning}
+# My Norton firewall prevented this command from executing, and I had to click on the pop-up warning and create an exception. Depending on your settings, you firewall may object earlier or later.
+# ```
+# ````
+# 
 # ```
 # ghp-import -n -p -f _build/html
 # ```
@@ -63,12 +69,7 @@
 # For the first few minutes your website is live, you will have to locate it using the Introduction.html page. Since my username is Straightdraw, the URL looks like this:
 # 
 # ```
-# []
+# https://straightdraw.github.io/newbook/Introduction.html
 # ```
 # 
-# 
-# 
-# 
-# 
-# 
-# 
+# Tweak the username, and copy-paste into your web browser. Congratulations! You now have a live JupyterBook published on the interwebs.
