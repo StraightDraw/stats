@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; New Jupyter-Book Template</title>
+    <title>2.1 Embedding with &lt;iframe&gt; &#8212; New Jupyter-Book Template</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -55,7 +55,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.2 Engines and Environments" href="2.html" />
+    <link rel="next" title="2.2 Different Engines in JupyterBooks" href="2.html" />
     <link rel="prev" title="Things I’ve Learned" href="0.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -93,7 +93,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../ch1/0.html">
    Building Blocks
@@ -118,14 +118,24 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="0.html">
    Things I’ve Learned
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2.1 Embedding with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       &lt;iframe&gt;
+      </span>
+     </code>
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2.html">
-     2.2 Engines and Environments
+     2.2 Different Engines in JupyterBooks
     </a>
    </li>
   </ul>
@@ -192,6 +202,23 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/ch2/1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -201,7 +228,17 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            <ul class="simple nav section-nav flex-column">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geogebra-embedding-example">
+   Geogebra Embedding Example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-code-it">
+   How to Code It
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -213,7 +250,70 @@
         
               <div>
                 
-  
+  <div class="section" id="embedding-with-iframe">
+<h1>2.1 Embedding with <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code><a class="headerlink" href="#embedding-with-iframe" title="Permalink to this headline">¶</a></h1>
+<p>Embedding with <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code> is easy for YouTube. Click to play the video, and down near the bottom right you’ll see a “share” button. Click there, and the whole <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code> code pops up. Just paste that into your HTML, and <em>viola</em>!</p>
+<p>Geogebra is a powerful tool for creating animations and dynamic figures, and the <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code> will embed them anywhere a YouTube video can be embedded:</p>
+<ul class="simple">
+<li><p>LMS software (e.g. D2L)</p></li>
+<li><p>In a blog</p></li>
+<li><p>In your new JupyterBook</p></li>
+</ul>
+<div class="section" id="geogebra-embedding-example">
+<h2>Geogebra Embedding Example<a class="headerlink" href="#geogebra-embedding-example" title="Permalink to this headline">¶</a></h2>
+<p>First let’s show a nice animation that visually describes the definition of convex polygons.</p>
+<iframe scrolling="no" title="Convex"
+src="https://www.geogebra.org/material/iframe/id/yevmvetn/width/1180/height/360/border/888888/ai/false/ctl/falseld/false/rc/false/sdz/true/sfsb/true/smb/false/sri/false/stb/false/stbh/false/" width="100%" height="100%" style="display:block;" allowfullscreen=""> </iframe>
+</div>
+<div class="section" id="how-to-code-it">
+<h2>How to Code It<a class="headerlink" href="#how-to-code-it" title="Permalink to this headline">¶</a></h2>
+<p>The code below is broken into sections to better illustrate what produced the animation above. One key point to understand is the two height/width arguments. The first pair sets the viewing window on Geogebra in your actual drawing itself. Play around with these until you get the viewing rectangle you want. The baseline point is the top-left corner of the Geogebra window. Increase width to more content to the right. Increase height to more content at the bottom.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">iframe</span> <span class="n">scrolling</span><span class="o">=</span><span class="s2">&quot;no&quot;</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Convex&quot;</span>
+<span class="n">src</span><span class="o">=</span><span class="s2">&quot;https://www.geogebra.org/material/iframe/id/yevmvetn/</span>
+<span class="n">width</span><span class="o">/</span><span class="mi">1180</span><span class="o">/</span><span class="n">height</span><span class="o">/</span><span class="mi">360</span><span class="o">/</span><span class="n">border</span><span class="o">/</span><span class="mi">888888</span><span class="o">/</span>
+<span class="n">ai</span><span class="o">/</span><span class="n">false</span><span class="o">/</span>
+<span class="n">ctl</span><span class="o">/</span><span class="n">false</span>
+<span class="n">ld</span><span class="o">/</span><span class="n">false</span><span class="o">/</span>
+<span class="n">rc</span><span class="o">/</span><span class="n">false</span><span class="o">/</span>
+<span class="n">sdz</span><span class="o">/</span><span class="n">true</span><span class="o">/</span>
+<span class="n">sfsb</span><span class="o">/</span><span class="n">true</span><span class="o">/</span>
+<span class="n">smb</span><span class="o">/</span><span class="n">false</span><span class="o">/</span>
+<span class="n">sri</span><span class="o">/</span><span class="n">false</span><span class="o">/</span>
+<span class="n">stb</span><span class="o">/</span><span class="n">false</span><span class="o">/</span>
+<span class="n">stbh</span><span class="o">/</span><span class="n">false</span><span class="o">/</span><span class="s2">&quot; </span>
+<span class="n">width</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;display:block;&quot;</span> <span class="n">allowfullscreen</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">&gt;</span> <span class="o">&lt;/</span><span class="n">iframe</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Every Geogebra file saved online has an 8-letter ID code which, in the example, is shown at the end of the 2nd line: <code class="docutils literal notranslate"><span class="pre">id/yevmvetn</span></code>. You can get one animation working, then just copy it’s code in where you want a new one. Just swap out the 8-letter ID for a new one, and <em>viola</em>!</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">888888</span></code> controls the color of the border. I leave the default alone, but you can enter a different hexadecimal color code if you’d like. I found out how to use the following features using the <a class="reference external" href="https://wiki.geogebra.org/en/Reference:Material_Embedding_(Iframe)">Geogebra help file for Embedding</a>.</p>
+<dl class="simple myst">
+<dt>ai</dt><dd><p>Activiate input bar</p>
+</dd>
+<dt>ctl</dt><dd><p>Show play button that starts/pauses animation</p>
+</dd>
+<dt>ld</dt><dd><p>Enables label-dragging</p>
+</dd>
+<dt>rc</dt><dd><p>Enables right-clicking</p>
+</dd>
+<dt>sdz</dt><dd><p>Enable shift-drag and zoom</p>
+</dd>
+<dt>sfsb</dt><dd><p>Show full screen button</p>
+</dd>
+<dt>smb</dt><dd><p>Show menu bar</p>
+</dd>
+<dt>sri</dt><dd><p>Show reset icon (top-right)</p>
+</dd>
+<dt>stb</dt><dd><p>Show tool bar</p>
+</dd>
+<dt>stbh</dt><dd><p>Show tool bar help</p>
+</dd>
+<dt>szb</dt><dd><p>Show zoom button</p>
+</dd>
+</dl>
+<p>Set them true or false yourself and see what happens. It’s trial and error, and you get to decide what you want.</p>
+</div>
+</div>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -243,7 +343,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="0.html" title="previous page">Things I’ve Learned</a>
-    <a class='right-next' id="next-link" href="2.html" title="next page">2.2 Engines and Environments</a>
+    <a class='right-next' id="next-link" href="2.html" title="next page">2.2 Different Engines in JupyterBooks</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

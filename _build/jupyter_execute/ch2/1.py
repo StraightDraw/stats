@@ -1,87 +1,71 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 2.1 Embedding using `<iframe>`
+# # 2.1 Embedding with `<iframe>`
 
-<<<<<<< HEAD
-# Embedding YouTube videos using the `<iframe>` tag is easy. Just go to [YouTube](YouTube.com) and start playing your video. At the bottom, click share, and the entire `<iframe>` code you need is in the pop-up window complete with a "copy" button. Paste that code in between two paragraphs of text with a blank line above and below, and viola!
-
-# For Geogebra animations, life is good, but it takes a bit more work. Here's the animation I'll work with.
+# Embedding with `<iframe>` is easy for YouTube. Click to play the video, and down near the bottom right you'll see a "share" button. Click there, and the whole `<iframe>` code pops up. Just paste that into your HTML, and *viola*!
 # 
-# <iframe scrolling="no" title="Convex" src="https://www.geogebra.org/material/iframe/id/yevmvetn/width/1280/height/360/border/888888/rc/false/ai/false/sdz/true/smb/false/stb/false/stbh/false/ld/false/sri/false/ctl/false/sfsb/true/szb/false/" width="100%" height="100%" style="display:block;" allowfullscreen=""> </iframe>
+# Geogebra is a powerful tool for creating animations and dynamic figures, and the `<iframe>` will embed them anywhere a YouTube video can be embedded:
 # 
-# ````{margin}
-# ```{seealso}
-# Check out Geogebra.org's help center where they explain each codeword option below and what features it controls: [Embedding Using `<iframe>`](https://wiki.geogebra.org/en/Reference:Material_Embedding_(Iframe))
-# ```
-# ````
+# * LMS software (e.g. D2L)
+# * In a blog
+# * In your new JupyterBook
 # 
-# ## Code for the Imbedding
+# ## Geogebra Embedding Example
 # 
-# ````{margin}
-# ```{Tip}
-# The same code will work in D2L. Go full screen to show extended menu. Type some text (helps place `<iframe>` accurately), then click on the `<code>` button bottom right. Paste the `<iframe>` and *voila*!
-# ```
-# ````
+# First let's show a nice animation that visually describes the definition of convex polygons.
 # 
+# <iframe scrolling="no" title="Convex"
+# src="https://www.geogebra.org/material/iframe/id/yevmvetn/width/1180/height/360/border/888888/ai/false/ctl/falseld/false/rc/false/sdz/true/sfsb/true/smb/false/sri/false/stb/false/stbh/false/" width="100%" height="100%" style="display:block;" allowfullscreen=""> </iframe>
 # 
-# Below, we have a URL inside quotes. I have broken it across multiple lines to explain what parts mean what.
+# ## How to Code It
+# 
+# The code below is broken into sections to better illustrate what produced the animation above. One key point to understand is the two height/width arguments. The first pair sets the viewing window on Geogebra in your actual drawing itself. Play around with these until you get the viewing rectangle you want. The baseline point is the top-left corner of the Geogebra window. Increase width to more content to the right. Increase height to more content at the bottom.
 # 
 # ```
 # <iframe scrolling="no" title="Convex"
 # src="https://www.geogebra.org/material/iframe/id/yevmvetn/
-# width/1280/height/360/border/888888/
-# rc/false/
+# width/1180/height/360/border/888888/
 # ai/false/
-# sdz/true/
-# smb/false/
-# stb/false/
-# stbh/false/
+# ctl/false
 # ld/false/
-# sri/false/
-# ctl/false/ 
+# rc/false/
+# sdz/true/
 # sfsb/true/
-# szb/false"
+# smb/false/
+# sri/false/
+# stb/false/
+# stbh/false/" 
 # width="100%" height="100%" style="display:block;" allowfullscreen=""> </iframe>
 # ```
 # 
+# Every Geogebra file saved online has an 8-letter ID code which, in the example, is shown at the end of the 2nd line: `id/yevmvetn`. You can get one animation working, then just copy it's code in where you want a new one. Just swap out the 8-letter ID for a new one, and *viola*!
 # 
-
-# ## Explanations
-# 
-# There is an 8-letter ID for each Geogebra drawing shown at the end of the code block below. To create a new embedding, just copy-paste one that you already got to work.
-# 
-# ````{margin}
-# ```{seealso}
-# Check out Geogebra.org's help center where they explain each codeword option below and what features it controls: [Embedding Using `<iframe>`](https://wiki.geogebra.org/en/Reference:Material_Embedding_(Iframe))
-# ```
-# ````
-# 
-# ```
-# src="https://www.geogebra.org/material/iframe/id/yevmvetn/
-# ```
-# 
-# Choose your height and width to match what your drew. This takes some exprimenting. Geogebra starts at the Top-Left corner of your drawing window and expands the "width" number of pixels right and "height" number of pixels down. Play around with these unitl you get zoomed in on exactly what you want to show.
-# 
-# ```
-# width/1280/height/360/border/888888/
-# ```
-# 
-# The width and height options at the **end** of the `<iframe>` call are what determine how it displays. Use percents to keep it mobile-optimized. Things can get funky if you try using something different than 100%. You'll have to have someone else tell you why.
-# 
-# The 8's at the end are a color code in hexadecimal allowing to set the border color. Here are the options. You can see my preferences above.
-# 
-# rc
-# : Right-click enabled
+# The `888888` controls the color of the border. I leave the default alone, but you can enter a different hexadecimal color code if you'd like. I found out how to use the following features using the [Geogebra help file for Embedding](https://wiki.geogebra.org/en/Reference:Material_Embedding_(Iframe)).
 # 
 # ai
-# : Allow input bar
+# : Activiate input bar
+# 
+# ctl
+# : Show play button that starts/pauses animation
+# 
+# ld
+# : Enables label-dragging
+# 
+# rc
+# : Enables right-clicking
 # 
 # sdz
-# : Shift-drag and zoom enabled
+# : Enable shift-drag and zoom
+# 
+# sfsb
+# : Show full screen button
 # 
 # smb
 # : Show menu bar
+# 
+# sri
+# : Show reset icon (top-right)
 # 
 # stb
 # : Show tool bar
@@ -89,35 +73,13 @@
 # stbh
 # : Show tool bar help
 # 
-# ld
-# : Label-dragging enabled
-# 
-# sri
-# : Show reset icon top-right
-# 
-# ctl
-# : Enabled play button to start animation. If set to false, animation starts automatically.
-# ````{margin}
-# ```{warning}
-# If you set "show full-screen button" to true, make sure to put an `allowfullscreen` in your `<iframe>` call, too.
-# ```
-# ````
-# 
-# sfsb
-# : Show full-screen button
-# 
 # szb
-# : Show zoom buttons
+# : Show zoom button
 # 
-# ## Why is there Five Inches of White Space below my `<iframe>`?
+# Set them true or false yourself and see what happens. It's trial and error, and you get to decide what you want.
 # 
-# That's the purpose of this happy little piece of the call. For whatever reason, the default puts a **ton** of white space below an embedding, and this piece of code is just the ticket.
 # 
-# ```
-# style="display:block;"
-# ```
-=======
-# This page is under construction.
-
-# This page is under construction.
->>>>>>> bedd08bf58dc0784b78d4927145c97d5d9ed7da7
+# 
+# 
+# 
+# 
