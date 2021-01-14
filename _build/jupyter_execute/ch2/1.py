@@ -3,6 +3,7 @@
 
 # # 2.1 Embedding using `<iframe>`
 
+<<<<<<< HEAD
 # Embedding YouTube videos using the `<iframe>` tag is easy. Just go to [YouTube](YouTube.com) and start playing your video. At the bottom, click share, and the entire `<iframe>` code you need is in the pop-up window complete with a "copy" button. Paste that code in between two paragraphs of text with a blank line above and below, and viola!
 
 # For Geogebra animations, life is good, but it takes a bit more work. Here's the animation I'll work with.
@@ -115,3 +116,8 @@
 # ```
 # style="display:block;"
 # ```
+=======
+# This page is under construction.
+
+# This page is under construction.
+>>>>>>> bedd08bf58dc0784b78d4927145c97d5d9ed7da7

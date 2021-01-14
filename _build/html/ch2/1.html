@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2.1 Embedding using &lt;iframe&gt; &#8212; New Jupyter-Book Template</title>
+    <title>&lt;no title&gt; &#8212; New Jupyter-Book Template</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -93,7 +93,7 @@
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../ch1/0.html">
    Building Blocks
@@ -118,21 +118,11 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 current active collapsible-parent">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="0.html">
    Things I’ve Learned
   </a>
-  <ul class="current collapse-ul">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     2.1 Embedding using
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       &lt;iframe&gt;
-      </span>
-     </code>
-    </a>
-   </li>
+  <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="2.html">
      2.2 Engines and Environments
@@ -202,23 +192,6 @@
 
         <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/ch2/1.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
     </div>
 
     <!-- Table of contents -->
@@ -228,28 +201,7 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#code-for-the-imbedding">
-   Code for the Imbedding
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#explanations">
-   Explanations
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#why-is-there-five-inches-of-white-space-below-my-iframe">
-   Why is there Five Inches of White Space below my
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     &lt;iframe&gt;
-    </span>
-   </code>
-   ?
-  </a>
- </li>
+            <ul class="simple nav section-nav flex-column">
 </ul>
 
         </nav>
@@ -261,108 +213,7 @@
         
               <div>
                 
-  <div class="section" id="embedding-using-iframe">
-<h1>2.1 Embedding using <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code><a class="headerlink" href="#embedding-using-iframe" title="Permalink to this headline">¶</a></h1>
-<p>Embedding YouTube videos using the <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code> tag is easy. Just go to <span class="xref myst">YouTube</span> and start playing your video. At the bottom, click share, and the entire <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code> code you need is in the pop-up window complete with a “copy” button. Paste that code in between two paragraphs of text with a blank line above and below, and viola!</p>
-<p>For Geogebra animations, life is good, but it takes a bit more work. Here’s the animation I’ll work with.</p>
-<iframe scrolling="no" title="Convex" src="https://www.geogebra.org/material/iframe/id/yevmvetn/width/1280/height/360/border/888888/rc/false/ai/false/sdz/true/smb/false/stb/false/stbh/false/ld/false/sri/false/ctl/false/sfsb/true/szb/false/" width="100%" height="100%" style="display:block;" allowfullscreen=""> </iframe>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Check out Geogebra.org’s help center where they explain each codeword option below and what features it controls: <a class="reference external" href="https://wiki.geogebra.org/en/Reference:Material_Embedding_(Iframe)">Embedding Using <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code></a></p>
-</div>
-</div>
-<div class="section" id="code-for-the-imbedding">
-<h2>Code for the Imbedding<a class="headerlink" href="#code-for-the-imbedding" title="Permalink to this headline">¶</a></h2>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The same code will work in D2L. Go full screen to show extended menu. Type some text (helps place <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code> accurately), then click on the <code class="docutils literal notranslate"><span class="pre">&lt;code&gt;</span></code> button bottom right. Paste the <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code> and <em>voila</em>!</p>
-</div>
-</div>
-<p>Below, we have a URL inside quotes. I have broken it across multiple lines to explain what parts mean what.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">iframe</span> <span class="n">scrolling</span><span class="o">=</span><span class="s2">&quot;no&quot;</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Convex&quot;</span>
-<span class="n">src</span><span class="o">=</span><span class="s2">&quot;https://www.geogebra.org/material/iframe/id/yevmvetn/</span>
-<span class="n">width</span><span class="o">/</span><span class="mi">1280</span><span class="o">/</span><span class="n">height</span><span class="o">/</span><span class="mi">360</span><span class="o">/</span><span class="n">border</span><span class="o">/</span><span class="mi">888888</span><span class="o">/</span>
-<span class="n">rc</span><span class="o">/</span><span class="n">false</span><span class="o">/</span>
-<span class="n">ai</span><span class="o">/</span><span class="n">false</span><span class="o">/</span>
-<span class="n">sdz</span><span class="o">/</span><span class="n">true</span><span class="o">/</span>
-<span class="n">smb</span><span class="o">/</span><span class="n">false</span><span class="o">/</span>
-<span class="n">stb</span><span class="o">/</span><span class="n">false</span><span class="o">/</span>
-<span class="n">stbh</span><span class="o">/</span><span class="n">false</span><span class="o">/</span>
-<span class="n">ld</span><span class="o">/</span><span class="n">false</span><span class="o">/</span>
-<span class="n">sri</span><span class="o">/</span><span class="n">false</span><span class="o">/</span>
-<span class="n">ctl</span><span class="o">/</span><span class="n">false</span><span class="o">/</span> 
-<span class="n">sfsb</span><span class="o">/</span><span class="n">true</span><span class="o">/</span>
-<span class="n">szb</span><span class="o">/</span><span class="n">false</span><span class="s2">&quot;</span>
-<span class="n">width</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;display:block;&quot;</span> <span class="n">allowfullscreen</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">&gt;</span> <span class="o">&lt;/</span><span class="n">iframe</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="explanations">
-<h2>Explanations<a class="headerlink" href="#explanations" title="Permalink to this headline">¶</a></h2>
-<p>There is an 8-letter ID for each Geogebra drawing shown at the end of the code block below. To create a new embedding, just copy-paste one that you already got to work.</p>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Check out Geogebra.org’s help center where they explain each codeword option below and what features it controls: <a class="reference external" href="https://wiki.geogebra.org/en/Reference:Material_Embedding_(Iframe)">Embedding Using <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code></a></p>
-</div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">src</span><span class="o">=</span><span class="s2">&quot;https://www.geogebra.org/material/iframe/id/yevmvetn/</span>
-</pre></div>
-</div>
-<p>Choose your height and width to match what your drew. This takes some exprimenting. Geogebra starts at the Top-Left corner of your drawing window and expands the “width” number of pixels right and “height” number of pixels down. Play around with these unitl you get zoomed in on exactly what you want to show.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">width</span><span class="o">/</span><span class="mi">1280</span><span class="o">/</span><span class="n">height</span><span class="o">/</span><span class="mi">360</span><span class="o">/</span><span class="n">border</span><span class="o">/</span><span class="mi">888888</span><span class="o">/</span>
-</pre></div>
-</div>
-<p>The width and height options at the <strong>end</strong> of the <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code> call are what determine how it displays. Use percents to keep it mobile-optimized. Things can get funky if you try using something different than 100%. You’ll have to have someone else tell you why.</p>
-<p>The 8’s at the end are a color code in hexadecimal allowing to set the border color. Here are the options. You can see my preferences above.</p>
-<dl class="simple myst">
-<dt>rc</dt><dd><p>Right-click enabled</p>
-</dd>
-<dt>ai</dt><dd><p>Allow input bar</p>
-</dd>
-<dt>sdz</dt><dd><p>Shift-drag and zoom enabled</p>
-</dd>
-<dt>smb</dt><dd><p>Show menu bar</p>
-</dd>
-<dt>stb</dt><dd><p>Show tool bar</p>
-</dd>
-<dt>stbh</dt><dd><p>Show tool bar help</p>
-</dd>
-<dt>ld</dt><dd><p>Label-dragging enabled</p>
-</dd>
-<dt>sri</dt><dd><p>Show reset icon top-right</p>
-</dd>
-<dt>ctl</dt><dd><p>Enabled play button to start animation. If set to false, animation starts automatically.</p>
-</dd>
-</dl>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If you set “show full-screen button” to true, make sure to put an <code class="docutils literal notranslate"><span class="pre">allowfullscreen</span></code> in your <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code> call, too.</p>
-</div>
-</div>
-<dl class="simple myst">
-<dt>sfsb</dt><dd><p>Show full-screen button</p>
-</dd>
-<dt>szb</dt><dd><p>Show zoom buttons</p>
-</dd>
-</dl>
-</div>
-<div class="section" id="why-is-there-five-inches-of-white-space-below-my-iframe">
-<h2>Why is there Five Inches of White Space below my <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code>?<a class="headerlink" href="#why-is-there-five-inches-of-white-space-below-my-iframe" title="Permalink to this headline">¶</a></h2>
-<p>That’s the purpose of this happy little piece of the call. For whatever reason, the default puts a <strong>ton</strong> of white space below an embedding, and this piece of code is just the ticket.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;display:block;&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
-
+  
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
