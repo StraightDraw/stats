@@ -17,6 +17,13 @@
 # 
 # ## Code for the Imbedding
 # 
+# ````{margin}
+# ```{Tip}
+# The same code will work in D2L. Go full screen to show extended menu. Type some text (helps place `<iframe>` accurately), then click on the `<code>` button bottom right. Paste the `<iframe>` and *voila*!
+# ```
+# ````
+# 
+# 
 # Below, we have a URL inside quotes. I have broken it across multiple lines to explain what parts mean what.
 # 
 # ```
@@ -42,6 +49,12 @@
 # ## Explanations
 # 
 # There is an 8-letter ID for each Geogebra drawing shown at the end of the code block below. To create a new embedding, just copy-paste one that you already got to work.
+# 
+# ````{margin}
+# ```{seealso}
+# Check out Geogebra.org's help center where they explain each codeword option below and what features it controls: [Embedding Using `<iframe>`](https://wiki.geogebra.org/en/Reference:Material_Embedding_(Iframe))
+# ```
+# ````
 # 
 # ```
 # src="https://www.geogebra.org/material/iframe/id/yevmvetn/
