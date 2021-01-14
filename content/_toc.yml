@@ -8,3 +8,4 @@ sections:
 - file: ch2/0
   sections:
   - file: ch2/1
+  - file: ch2/2
