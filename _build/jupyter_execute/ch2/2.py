@@ -17,25 +17,19 @@
 # ```
 # cd program files/matlab/r2019b
 # ```
-# opening the File Explorer, clicking on `ThisComputer,` then `ProgramFiles`, then `MATLAB` and finally `2019b` which is the version I'm running. No, I didn't want a 2020 version.
+# No, I didn't want a 2020 version. Believe it or not.
 # 
 # ````{warning}
 # MATLAB is not compatible with the latest releases of Python. I had to create an environment in Conda with a Python 3.6 kernel. Then I used the Python 3.6 environment to install the MATLAB engine. For reference, that was in January, 2021.
 # ````
-# 
-# Now that we've found the program files, we have to get there from the `CMD.exe Prompt`. Use `cd..` to get back to the `c:/>` prompt (essentially `ThisComputer`). Then my trip looked like this:
-# 
-# ```
-# cd program files/matlab/r2019b
-# ```
-# 
-# Now that I'm at the MATLAB root for my version, I can find my way to the Python engine.
+
+# Now I can find my way through my MATLAB files to the Python engine. This should work if you're at the version root directory for your MATLAB program files.
 # 
 # ```
 # cd extern/engines/python
 # ```
 # 
-# If you type `dir` and Enter, you'll see the directory includes a file called `setup.py`. This what we came here for, to install MATLAB's python API and engine using this file.
+# If you type `dir` and Enter, you'll see the directory includes a file called `setup.py` which is what we came here for.
 # 
 # ```
 # pip install setup.py
@@ -47,7 +41,7 @@
 # pip install matlab_kernel
 # ```
 # Now, when you open a new JupyterLab file, you will have the option to run either the Python kernel or the MATLAB kernel, whichever works best for your current project.
+
+# ## Installing the SciLab Engine
 # 
-# ## 
-# 
-# 
+# This page is still under construction.

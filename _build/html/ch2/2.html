@@ -234,7 +234,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
+  <a class="reference internal nav-link" href="#installing-the-scilab-engine">
+   Installing the SciLab Engine
   </a>
  </li>
 </ul>
@@ -261,20 +262,16 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">program</span> <span class="n">files</span><span class="o">/</span><span class="n">matlab</span><span class="o">/</span><span class="n">r2019b</span>
 </pre></div>
 </div>
-<p>opening the File Explorer, clicking on <code class="docutils literal notranslate"><span class="pre">ThisComputer,</span></code> then <code class="docutils literal notranslate"><span class="pre">ProgramFiles</span></code>, then <code class="docutils literal notranslate"><span class="pre">MATLAB</span></code> and finally <code class="docutils literal notranslate"><span class="pre">2019b</span></code> which is the version I’m running. No, I didn’t want a 2020 version.</p>
+<p>No, I didn’t want a 2020 version. Believe it or not.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>MATLAB is not compatible with the latest releases of Python. I had to create an environment in Conda with a Python 3.6 kernel. Then I used the Python 3.6 environment to install the MATLAB engine. For reference, that was in January, 2021.</p>
 </div>
-<p>Now that we’ve found the program files, we have to get there from the <code class="docutils literal notranslate"><span class="pre">CMD.exe</span> <span class="pre">Prompt</span></code>. Use <code class="docutils literal notranslate"><span class="pre">cd..</span></code> to get back to the <code class="docutils literal notranslate"><span class="pre">c:/&gt;</span></code> prompt (essentially <code class="docutils literal notranslate"><span class="pre">ThisComputer</span></code>). Then my trip looked like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">program</span> <span class="n">files</span><span class="o">/</span><span class="n">matlab</span><span class="o">/</span><span class="n">r2019b</span>
-</pre></div>
-</div>
-<p>Now that I’m at the MATLAB root for my version, I can find my way to the Python engine.</p>
+<p>Now I can find my way through my MATLAB files to the Python engine. This should work if you’re at the version root directory for your MATLAB program files.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">extern</span><span class="o">/</span><span class="n">engines</span><span class="o">/</span><span class="n">python</span>
 </pre></div>
 </div>
-<p>If you type <code class="docutils literal notranslate"><span class="pre">dir</span></code> and Enter, you’ll see the directory includes a file called <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>. This what we came here for, to install MATLAB’s python API and engine using this file.</p>
+<p>If you type <code class="docutils literal notranslate"><span class="pre">dir</span></code> and Enter, you’ll see the directory includes a file called <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> which is what we came here for.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
@@ -284,8 +281,9 @@
 </div>
 <p>Now, when you open a new JupyterLab file, you will have the option to run either the Python kernel or the MATLAB kernel, whichever works best for your current project.</p>
 </div>
-<div class="section" id="id1">
-<h2><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installing-the-scilab-engine">
+<h2>Installing the SciLab Engine<a class="headerlink" href="#installing-the-scilab-engine" title="Permalink to this headline">¶</a></h2>
+<p>This page is still under construction.</p>
 </div>
 </div>
 
