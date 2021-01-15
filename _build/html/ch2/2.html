@@ -253,7 +253,15 @@
 <p>The three programs (engines) in the name Jupyter are Julie, Python and R. For data science, Python and R are by far the most popular choices over the past few years. But mathematicians may prefer using other engines that produce the same features as Mathematica, Maple and MATLAB. This section is about how to install engines for MATLAB and SciLab, two math-science programming languages that support courses from programming to physics, math to chemistry, calculus to PDE’s, linear algebra to numerical analysis.</p>
 <div class="section" id="installing-matlab-api-for-python">
 <h2>Installing MATLAB API for Python<a class="headerlink" href="#installing-matlab-api-for-python" title="Permalink to this headline">¶</a></h2>
-<p>MATLAB comes with a Python engine installer, but we have to get there to activate it. That means we have to find the MATLAB root. I found mine by opening the File Explorer, clicking on <code class="docutils literal notranslate"><span class="pre">ThisComputer,</span></code> then <code class="docutils literal notranslate"><span class="pre">ProgramFiles</span></code>, then <code class="docutils literal notranslate"><span class="pre">MATLAB</span></code> and finally <code class="docutils literal notranslate"><span class="pre">2019b</span></code> which is the version I’m running. No, I didn’t want a 2020 version.</p>
+<p>MATLAB comes with a Python engine installer, but we have to get there to activate it. That means we have to find the MATLAB root. I found mine clicking through File Explorer. After using the</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span><span class="o">..</span>
+</pre></div>
+</div>
+<p>command half a dozen times to return to the <code class="docutils literal notranslate"><span class="pre">c:\&gt;</span></code> prompt, the following path led my MATLAB root.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">program</span> <span class="n">files</span><span class="o">/</span><span class="n">matlab</span><span class="o">/</span><span class="n">r2019b</span>
+</pre></div>
+</div>
+<p>opening the File Explorer, clicking on <code class="docutils literal notranslate"><span class="pre">ThisComputer,</span></code> then <code class="docutils literal notranslate"><span class="pre">ProgramFiles</span></code>, then <code class="docutils literal notranslate"><span class="pre">MATLAB</span></code> and finally <code class="docutils literal notranslate"><span class="pre">2019b</span></code> which is the version I’m running. No, I didn’t want a 2020 version.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>MATLAB is not compatible with the latest releases of Python. I had to create an environment in Conda with a Python 3.6 kernel. Then I used the Python 3.6 environment to install the MATLAB engine. For reference, that was in January, 2021.</p>

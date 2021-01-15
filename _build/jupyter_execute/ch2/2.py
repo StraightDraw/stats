@@ -7,7 +7,17 @@
 
 # ## Installing MATLAB API for Python
 
-# MATLAB comes with a Python engine installer, but we have to get there to activate it. That means we have to find the MATLAB root. I found mine by opening the File Explorer, clicking on `ThisComputer,` then `ProgramFiles`, then `MATLAB` and finally `2019b` which is the version I'm running. No, I didn't want a 2020 version.
+# MATLAB comes with a Python engine installer, but we have to get there to activate it. That means we have to find the MATLAB root. I found mine clicking through File Explorer. After using the
+# 
+# ```
+# cd..
+# ```
+# command half a dozen times to return to the `c:\>` prompt, the following path led my MATLAB root.
+# 
+# ```
+# cd program files/matlab/r2019b
+# ```
+# opening the File Explorer, clicking on `ThisComputer,` then `ProgramFiles`, then `MATLAB` and finally `2019b` which is the version I'm running. No, I didn't want a 2020 version.
 # 
 # ````{warning}
 # MATLAB is not compatible with the latest releases of Python. I had to create an environment in Conda with a Python 3.6 kernel. Then I used the Python 3.6 environment to install the MATLAB engine. For reference, that was in January, 2021.
