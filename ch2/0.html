@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Things I’ve Learned &#8212; New Jupyter-Book Template</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.1 Embedding with &lt;iframe&gt;" href="1.html" />
+    <link rel="prev" title="1.3 JupyterBooks" href="../ch1/3.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/UNG.logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">New Jupyter-Book Template</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Template for New JupyterBook
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../ch1/0.html">
+   Building Blocks
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/1.html">
+     1.1 Conda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/2.html">
+     1.2 GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/3.html">
+     1.3 JupyterBooks
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="current reference internal" href="#">
+   Things I’ve Learned
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1.html">
+     2.1 Embedding with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       &lt;iframe&gt;
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2.html">
+     2.2 Different Engines in JupyterBooks
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/ch2/0.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/ch2/0.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tips-and-tricks">
+   Tips and Tricks
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="things-i-ve-learned">
+<h1>Things I’ve Learned<a class="headerlink" href="#things-i-ve-learned" title="Permalink to this headline">¶</a></h1>
+<p>JupyterBooks are great, but the documentation is sparse and high level, perfect for data science junkies who already use GitHub, Python and Jupyter. The compiler is opaque, especially the <code class="docutils literal notranslate"><span class="pre">build-a-book</span></code> commmand and the <code class="docutils literal notranslate"><span class="pre">ghp-import</span></code> command. If they fail, it can be difficult to decode why.</p>
+<p>My plan is to post a couple of interesting tools in this chapter. First up is using the &lt;iframe&gt; call to embed YouTube videos and Geogebra Animations. After that, I want to post about how to add different engines to JupyterLab and JupyterBooks. SciLab is an engine I’m dying to work with, an open-source equivalent to Mathematica or Maple, and I’ve already got a MATLAB engine for Linear Algebra.</p>
+<div class="section" id="tips-and-tricks">
+<h2>Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>Never leave an empty code block at the bottom of your JupyterLab notebook. The JupyterBook compiler often interprets that as an un-executed code block, and won’t compile for you.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Before spending long minutes debugging a bunch of code, always try re-executing all code blocks from top to bottom. See if the book will compile. Unexecuted code blocks are the number one reason JupyterBooks don’t compile.</p>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Use single ticks to create mini-code blocks in a line of text. We can use it to highlight commands or files, as in <code class="docutils literal notranslate"><span class="pre">config.yml</span></code>.</p>
+</div>
+</li>
+<li><p>Edit your <code class="docutils literal notranslate"><span class="pre">config.yml</span></code> directly in JupyterLab. Just be careful about the spacing. The indents control what chpaters and sections go where.</p></li>
+<li><p>To speed up the compiler, set the recompile option to “auto,” not “force,” in your <code class="docutils literal notranslate"><span class="pre">config.yml</span></code> file. That setting means only files that have changed get compiled. Saves a ton of time.</p></li>
+<li><p>Control your logo file by finding a pic or creating a graphic and saving it as <code class="docutils literal notranslate"><span class="pre">logo.png</span></code> in your content folder. Then add this line in the config.yml file below your name.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">logo</span><span class="p">:</span> <span class="n">logo</span><span class="o">.</span><span class="n">png</span>
+</pre></div>
+</div>
+</li>
+<li><p>Only the <code class="docutils literal notranslate"><span class="pre">config.yml</span></code> file exists at the root, everything else goes inside the content folder, including your <code class="docutils literal notranslate"><span class="pre">toc.yml</span></code> file, your <code class="docutils literal notranslate"><span class="pre">Introduction.ipynb</span></code> file, your chapter folders and your logo picture.</p></li>
+<li><p>When using <code class="docutils literal notranslate"><span class="pre">git</span></code> at the command shell, you will be asked for your password to push or update content from your laptop out to GitHub. YOU WON’T SEE YOUR PASSWORD AS YOU TYPE. In fact, nothing happens at all. It’s a security feature of the command prompt to not show your password. It would be really helpful if it showed the typical **** as you were typing so you could know your keystrokes were making a difference, but it doesn’t. Trust the force, Luke.</p></li>
+<li><p>Your online html will be MUCH easier to find after several hours. Initially, you have type the EXACT URL to see anything (use the Introduction.html page url for best results initially). Later, URL’s will less case sensitive, and shorthand URL’s (like those without the https) will work. It takes 2-3 hours for a new URL to propogate onto the interwebs.</p></li>
+<li><p>Don’t use <strong>periods</strong> in your file names. They will not work correctly in JupyterBooks if you use something Chap1.1 for chapter 1, section 1.</p></li>
+<li><p>The broader community has embraced LaTeX so much that they’ve given it a hip new hacker name: dollar sign math (DSM). When using double-dollar sign math (DDSM) in MYST markdown, put two hard returns above and below the DDSM code. If not there is no empty line between text and DDSM, it tends to display incorrectly.</p></li>
+</ol>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ch2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../ch1/3.html" title="previous page">1.3 JupyterBooks</a>
+    <a class='right-next' id="next-link" href="1.html" title="next page">2.1 Embedding with <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code></a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Nigel Nighthawk<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
