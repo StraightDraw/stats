@@ -1,11 +1,5 @@
 file: Introduction
 sections:
-- file: ch1/0
+- file: sb/0
   sections:
-  - file: ch1/1
-  - file: ch1/2
-  - file: ch1/3
-- file: ch2/0
-  sections:
-  - file: ch2/1
-  - file: ch2/2
+  - file: sb/1
