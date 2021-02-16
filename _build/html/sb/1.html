@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1.1 Page under construction &#8212; Intro to Applied Statistics</title>
+    <title>1.1 Narcissism &#8212; Intro to Applied Statistics</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -100,7 +100,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   1.1 Page under construction
+   1.1 Narcissism
   </a>
  </li>
  <li class="toctree-l1">
@@ -202,8 +202,8 @@
         
               <div>
                 
-  <div class="section" id="page-under-construction">
-<h1>1.1 Page under construction<a class="headerlink" href="#page-under-construction" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="narcissism">
+<h1>1.1 Narcissism<a class="headerlink" href="#narcissism" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datascience</span> <span class="kn">import</span> <span class="o">*</span>
@@ -216,15 +216,236 @@
 </div>
 </div>
 </div>
+<p>I keep some data frames in CSV format accessible from my website. One of them is called <code class="docutils literal notranslate"><span class="pre">personality.csv</span></code> and has, as you might imagine, personality variables. In this case, we will compare the narcissism levels based upon the grouping variable of biological sex.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bitcoin</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;http://faculty.ung.edu/rsinn/bitcoin.csv&#39;</span><span class="p">)</span>
-<span class="n">bitcoin</span><span class="o">.</span><span class="n">num_rows</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;http://faculty.ung.edu/rsinn/personality.csv&#39;</span><span class="p">)</span>
+<span class="n">pers</span><span class="o">.</span><span class="n">num_rows</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1236
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>165
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span><span class="o">.</span><span class="n">labels</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Age&#39;,
+ &#39;Yr&#39;,
+ &#39;Sex&#39;,
+ &#39;G21&#39;,
+ &#39;Corps&#39;,
+ &#39;Res&#39;,
+ &#39;Greek&#39;,
+ &#39;VarsAth&#39;,
+ &#39;Honor&#39;,
+ &#39;GPA&#39;,
+ &#39;Sleep&#39;,
+ &#39;Caff&#39;,
+ &#39;SitClass&#39;,
+ &#39;AccDate&#39;,
+ &#39;Friends&#39;,
+ &#39;TxRel&#39;,
+ &#39;Stress1&#39;,
+ &#39;Stress2&#39;,
+ &#39;CHS&#39;,
+ &#39;Thrill&#39;,
+ &#39;Eat&#39;,
+ &#39;TypeA&#39;,
+ &#39;Anx&#39;,
+ &#39;Opt&#39;,
+ &#39;SE&#39;,
+ &#39;Neuro&#39;,
+ &#39;Perf&#39;,
+ &#39;OCD&#39;,
+ &#39;Play&#39;,
+ &#39;Extro&#39;,
+ &#39;Narc&#39;,
+ &#39;HSAF&#39;,
+ &#39;HSSE&#39;,
+ &#39;HSAG&#39;,
+ &#39;HSSD&#39;,
+ &#39;PHS&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Age</th> <th>Yr</th> <th>Sex</th> <th>G21</th> <th>Corps</th> <th>Res</th> <th>Greek</th> <th>VarsAth</th> <th>Honor</th> <th>GPA</th> <th>Sleep</th> <th>Caff</th> <th>SitClass</th> <th>AccDate</th> <th>Friends</th> <th>TxRel</th> <th>Stress1</th> <th>Stress2</th> <th>CHS</th> <th>Thrill</th> <th>Eat</th> <th>TypeA</th> <th>Anx</th> <th>Opt</th> <th>SE</th> <th>Neuro</th> <th>Perf</th> <th>OCD</th> <th>Play</th> <th>Extro</th> <th>Narc</th> <th>HSAF</th> <th>HSSE</th> <th>HSAG</th> <th>HSSD</th> <th>PHS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>22  </td> <td>4   </td> <td>M   </td> <td>Y   </td> <td>N    </td> <td>2   </td> <td>N    </td> <td>Y      </td> <td>N    </td> <td>3.01</td> <td>5    </td> <td>1   </td> <td>M       </td> <td>N      </td> <td>E      </td> <td>22   </td> <td>17     </td> <td>18     </td> <td>33  </td> <td>23    </td> <td>13  </td> <td>30   </td> <td>25  </td> <td>26  </td> <td>62  </td> <td>34   </td> <td>104 </td> <td>11  </td> <td>143 </td> <td>10   </td> <td>9   </td> <td>51  </td> <td>54  </td> <td>46  </td> <td>21  </td> <td>AG  </td>
+        </tr>
+        <tr>
+            <td>19  </td> <td>2   </td> <td>F   </td> <td>N   </td> <td>N    </td> <td>1   </td> <td>N    </td> <td>N      </td> <td>N    </td> <td>3.75</td> <td>7.5  </td> <td>0   </td> <td>M       </td> <td>N      </td> <td>E      </td> <td>28   </td> <td>9      </td> <td>7      </td> <td>20  </td> <td>15    </td> <td>21  </td> <td>28   </td> <td>28  </td> <td>21  </td> <td>65  </td> <td>41   </td> <td>99  </td> <td>11  </td> <td>141 </td> <td>14   </td> <td>3   </td> <td>44  </td> <td>35  </td> <td>19  </td> <td>17  </td> <td>AF  </td>
+        </tr>
+        <tr>
+            <td>23  </td> <td>1   </td> <td>F   </td> <td>Y   </td> <td>N    </td> <td>1   </td> <td>N    </td> <td>N      </td> <td>N    </td> <td>3.2 </td> <td>8.5  </td> <td>2   </td> <td>F       </td> <td>Y      </td> <td>S      </td> <td>24   </td> <td>11     </td> <td>13     </td> <td>27  </td> <td>14    </td> <td>39  </td> <td>29   </td> <td>27  </td> <td>19  </td> <td>65  </td> <td>28   </td> <td>86  </td> <td>6   </td> <td>98  </td> <td>7    </td> <td>2   </td> <td>31  </td> <td>36  </td> <td>21  </td> <td>19  </td> <td>SE  </td>
+        </tr>
+        <tr>
+            <td>19  </td> <td>3   </td> <td>F   </td> <td>N   </td> <td>N    </td> <td>2   </td> <td>Y    </td> <td>N      </td> <td>N    </td> <td>4   </td> <td>6    </td> <td>2   </td> <td>F       </td> <td>N      </td> <td>S      </td> <td>27   </td> <td>15     </td> <td>14     </td> <td>26  </td> <td>13    </td> <td>45  </td> <td>28   </td> <td>33  </td> <td>24  </td> <td>63  </td> <td>30   </td> <td>118 </td> <td>3   </td> <td>121 </td> <td>8    </td> <td>4   </td> <td>34  </td> <td>36  </td> <td>30  </td> <td>33  </td> <td>SD  </td>
+        </tr>
+        <tr>
+            <td>22  </td> <td>4   </td> <td>M   </td> <td>Y   </td> <td>Y    </td> <td>3   </td> <td>Y    </td> <td>N      </td> <td>Y    </td> <td>3.42</td> <td>6    </td> <td>3   </td> <td>B       </td> <td>Y      </td> <td>S      </td> <td>20   </td> <td>9      </td> <td>9      </td> <td>32  </td> <td>16    </td> <td>32  </td> <td>30   </td> <td>29  </td> <td>18  </td> <td>41  </td> <td>47   </td> <td>103 </td> <td>9   </td> <td>124 </td> <td>6    </td> <td>4   </td> <td>50  </td> <td>42  </td> <td>37  </td> <td>34  </td> <td>AG  </td>
+        </tr>
+        <tr>
+            <td>18  </td> <td>1   </td> <td>F   </td> <td>N   </td> <td>N    </td> <td>3   </td> <td>N    </td> <td>N      </td> <td>N    </td> <td>3.7 </td> <td>2.5  </td> <td>1   </td> <td>F       </td> <td>Y      </td> <td>E      </td> <td>21   </td> <td>16     </td> <td>15     </td> <td>25  </td> <td>18    </td> <td>32  </td> <td>30   </td> <td>46  </td> <td>19  </td> <td>48  </td> <td>53   </td> <td>113 </td> <td>16  </td> <td>131 </td> <td>6    </td> <td>2   </td> <td>33  </td> <td>32  </td> <td>29  </td> <td>33  </td> <td>SD  </td>
+        </tr>
+        <tr>
+            <td>19  </td> <td>2   </td> <td>M   </td> <td>N   </td> <td>N    </td> <td>3   </td> <td>N    </td> <td>N      </td> <td>N    </td> <td>2.8 </td> <td>7    </td> <td>0   </td> <td>B       </td> <td>N      </td> <td>E      </td> <td>23   </td> <td>13     </td> <td>15     </td> <td>25  </td> <td>15    </td> <td>19  </td> <td>nan  </td> <td>nan </td> <td>nan </td> <td>nan </td> <td>nan  </td> <td>105 </td> <td>16  </td> <td>121 </td> <td>5    </td> <td>5   </td> <td>nan </td> <td>nan </td> <td>nan </td> <td>nan </td> <td>nan </td>
+        </tr>
+        <tr>
+            <td>20  </td> <td>3   </td> <td>M   </td> <td>N   </td> <td>Y    </td> <td>1   </td> <td>Y    </td> <td>N      </td> <td>N    </td> <td>3.34</td> <td>6.5  </td> <td>3   </td> <td>B       </td> <td>N      </td> <td>E      </td> <td>29   </td> <td>12     </td> <td>10     </td> <td>21  </td> <td>18    </td> <td>32  </td> <td>32   </td> <td>30  </td> <td>23  </td> <td>62  </td> <td>23   </td> <td>95  </td> <td>4   </td> <td>104 </td> <td>11   </td> <td>6   </td> <td>35  </td> <td>32  </td> <td>30  </td> <td>32  </td> <td>SD  </td>
+        </tr>
+        <tr>
+            <td>21  </td> <td>3   </td> <td>F   </td> <td>Y   </td> <td>N    </td> <td>2   </td> <td>Y    </td> <td>N      </td> <td>N    </td> <td>3.47</td> <td>5.5  </td> <td>2   </td> <td>F       </td> <td>Y      </td> <td>E      </td> <td>19   </td> <td>18     </td> <td>16     </td> <td>8   </td> <td>18    </td> <td>18  </td> <td>25   </td> <td>42  </td> <td>18  </td> <td>57  </td> <td>70   </td> <td>126 </td> <td>9   </td> <td>128 </td> <td>9    </td> <td>nan </td> <td>20  </td> <td>23  </td> <td>19  </td> <td>25  </td> <td>SD  </td>
+        </tr>
+        <tr>
+            <td>24  </td> <td>2   </td> <td>F   </td> <td>Y   </td> <td>Y    </td> <td>3   </td> <td>N    </td> <td>N      </td> <td>N    </td> <td>2.05</td> <td>2.5  </td> <td>0   </td> <td>F       </td> <td>Y      </td> <td>E      </td> <td>25   </td> <td>17     </td> <td>17     </td> <td>22  </td> <td>30    </td> <td>40  </td> <td>30   </td> <td>36  </td> <td>18  </td> <td>55  </td> <td>50   </td> <td>107 </td> <td>14  </td> <td>108 </td> <td>9    </td> <td>8   </td> <td>31  </td> <td>32  </td> <td>33  </td> <td>32  </td> <td>AG  </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (155 rows omitted)</p></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">narc</span> <span class="o">=</span> <span class="n">pers</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Narc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">narc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Sex</th> <th>Narc</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>M   </td> <td>9   </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>3   </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>2   </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>4   </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>4   </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>2   </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>5   </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>6   </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>nan </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>8   </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (155 rows omitted)</p></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integer_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">narc</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s1">&#39;Narc&#39;</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">integer_bins</span><span class="p">)</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Narcissism by Sex&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\robbs\anaconda3\envs\datasci\lib\site-packages\datascience\tables.py:920: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
+  values = np.array(tuple(values))
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Narcissism by Sex&#39;)
+</pre></div>
+</div>
+<img alt="../_images/1_8_2.png" src="../_images/1_8_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">males_narcissism</span> <span class="o">=</span> <span class="n">narc</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s2">&quot;M&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Narc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">females_narcissism</span> <span class="o">=</span> <span class="n">narc</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s2">&quot;F&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Narc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The average narcissism level for males is &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">males_narcissism</span><span class="p">),</span>
+      <span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+      <span class="s1">&#39;and the average narcissism level for females is &#39;</span> <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">females_narcissism</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The average narcissism level for males is  5.571428571428571 
+ and the average narcissism level for females is  3.8117647058823527
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">males_narcissism</span><span class="p">,</span> <span class="n">females_narcissism</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+                <span class="n">equal_var</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                <span class="n">nan_policy</span><span class="o">=</span><span class="s1">&#39;omit&#39;</span><span class="p">,</span> 
+                <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;two-sided&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=4.043565981367274, pvalue=8.492076949117668e-05)
 </pre></div>
 </div>
 </div>
