@@ -1,16 +1,15 @@
-#!/usr/bin/env python
-# coding: utf-8
+# Introduction to Applied Statistics
 
-# # Intro to Applied Statistics
+A work in progress using Python's datascience package to perform applied statistics visualizations and data analyses.
 
-# A work in progress using Python's `datascience` package to perform applied statistics visualizations and data analyses.
 
-# 
-# ```{toctree}
-# :hidden:
-# :titlesonly:
-# 
-# 
-# sb/0
-# ```
-# 
+
+```{toctree}
+:hidden:
+:titlesonly:
+
+
+sb/0
+sb/1
+sb/2
+```

@@ -1,5 +1,5 @@
 file: Introduction
 sections:
 - file: sb/0
-  sections:
-  - file: sb/1
+- file: sb/1
+- file: sb/2
