@@ -12,4 +12,5 @@ A work in progress using Python's datascience package to perform applied statist
 sb/0
 sb/1
 sb/2
+sb/3
 ```
