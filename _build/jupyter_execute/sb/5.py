@@ -7,11 +7,11 @@ import numpy as np
 import matplotlib.pyplot as plots
 plots.style.use('fivethirtyeight')
 
-#airports = Table.read_table('http://faculty.ung.edu/rsinn/airports.csv')
-#airports.num_rows
+````{warning}
+The `airports.csv` file takes 10 - 15 seconds to load on residential wifi and has 57,421 rows.
+````
 
-airports = Table.read_table('airports.csv')
-
+airports = Table.read_table('http://faculty.ung.edu/rsinn/airports.csv')
 airports.num_rows
 
 airports.labels
@@ -27,7 +27,7 @@ us
 milehigh = us.where('elevation_ft',are.above(5280))
 milehigh
 
-Circle.map_table(milehigh.select('lat', 'long', 'code'), radius=1)
+Circle.map_table(milehigh.select('lat', 'long', 'name'), area=2)
 
 ga = us.where('region', are.containing('GA'))
 ga
