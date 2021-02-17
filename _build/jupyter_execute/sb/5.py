@@ -24,6 +24,10 @@ us
 # Do NOT execute this code block unless you're prepared to wait 2+ minutes for it to load.
 #Circle.map_table(us.select('lat', 'long', 'code'), radius=2)
 
+## What airports are north of $70^\circ$?
+
+us.where('lat', are.above(70)).sort('lat', descending = True)
+
 milehigh = us.where('elevation_ft',are.above(5280))
 milehigh
 

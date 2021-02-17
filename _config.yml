@@ -64,11 +64,11 @@ latex:
 # Launch button settings
 launch_buttons:
   notebook_interface        : jupyterlab  # The interface interactive links will activate ["classic", "jupyterlab"]
-  binderhub_url             : https://mybinder.org/  # The URL of the BinderHub
+  binderhub_url             : https://mybinder.org  # The URL of the BinderHub
 
 repository:
   url                       : https://github.com/StraightDraw/stats  # The URL to your book's repository
-  path_to_book              : "content"  # A path to your book's folder, relative to the repository root.
+  path_to_book              : content  # A path to your book's folder, relative to the repository root.
   branch                    : master  # Which branch of the repository should be used when creating links
 
 #######################################################################################
