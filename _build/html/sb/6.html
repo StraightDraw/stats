@@ -252,16 +252,16 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">citie</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;http://faculty.ung.edu/rsinn/worldcities.csv&#39;</span><span class="p">)</span>
-<span class="n">cities</span><span class="o">.</span><span class="n">num_rows</span>
+<span class="n">cities</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">UnicodeDecodeError</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">70</span><span class="n">a2d99e1144</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">cec6dd70bcbc</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">citie</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;http://faculty.ung.edu/rsinn/worldcities.csv&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">cities</span><span class="o">.</span><span class="n">num_rows</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">cities</span>
 
 <span class="nn">~\anaconda3\envs\datasci\lib\site-packages\datascience\tables.py</span> in <span class="ni">read_table</span><span class="nt">(cls, filepath_or_buffer, *args, **vargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">143</span>         <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
@@ -313,7 +313,7 @@
 
 <span class="nn">pandas\_libs\parsers.pyx</span> in <span class="ni">pandas._libs.parsers.raise_parser_error</span><span class="nt">()</span>
 
-<span class="ne">UnicodeDecodeError</span>: &#39;utf-8&#39; codec can&#39;t decode byte 0xe3 in position 403: invalid continuation byte
+<span class="ne">UnicodeDecodeError</span>: &#39;utf-8&#39; codec can&#39;t decode byte 0xf4 in position 6032: invalid continuation byte
 </pre></div>
 </div>
 </div>

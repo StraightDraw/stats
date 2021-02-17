@@ -1,5 +1,5 @@
 datascience==0.17.0
-jupyterlab==2.2.6
+jupyterlab
 matplotlib==3.3.4
 numpy==1.20.1
 pandas==1.2.2

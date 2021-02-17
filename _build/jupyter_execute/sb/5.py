@@ -8,7 +8,7 @@ import matplotlib.pyplot as plots
 plots.style.use('fivethirtyeight')
 
 ````{warning}
-The `airports.csv` file takes 10 - 15 seconds to load on residential wifi and has 57,421 rows.
+The `airports.csv` file takes 10 - 15 seconds to load on residential wifi and has 57,420 rows.
 ````
 
 airports = Table.read_table('http://faculty.ung.edu/rsinn/airports.csv')
@@ -24,19 +24,26 @@ us
 # Do NOT execute this code block unless you're prepared to wait 2+ minutes for it to load.
 #Circle.map_table(us.select('lat', 'long', 'code'), radius=2)
 
-## What airports are north of $70^\circ$?
+## What airports are north of $65^\circ$?
 
-us.where('lat', are.above(70)).sort('lat', descending = True)
+north65 = us.where('lat', are.above(65)).sort('lat', descending = True)
+north65
+
+Marker.map_table(north65.select('lat', 'long', 'name'))
+
+## What airports are at least 1 mile above sea level?
 
 milehigh = us.where('elevation_ft',are.above(5280))
 milehigh
 
 Circle.map_table(milehigh.select('lat', 'long', 'name'), area=2)
 
+## Airports and heliports in Georgia
+
 ga = us.where('region', are.containing('GA'))
 ga
 
-Circle.map_table(ga.select('lat', 'long', 'code'), radius=2)
+Circle.map_table(ga.select('lat', 'long', 'code'), area=2)
 
 ga.group('type')
 

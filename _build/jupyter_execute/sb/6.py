@@ -14,4 +14,5 @@ Getting an error when table loads. Will repair and repost.
 ````
 
 citie = Table.read_table('http://faculty.ung.edu/rsinn/worldcities.csv')
-cities.num_rows
+cities
+
