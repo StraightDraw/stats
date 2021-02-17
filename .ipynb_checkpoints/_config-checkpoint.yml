@@ -39,6 +39,7 @@ parse:
   myst_url_schemes: [mailto, http, https]  # URI schemes that will be recognised as external URLs in Markdown links
 
 #######################################################################################
+
 # HTML-specific settings
 html:
   favicon                   : ""  # A path to a favicon image
@@ -58,5 +59,16 @@ html:
 # LaTeX-specific settings
 latex:
   latex_engine              : pdflatex  # one of 'pdflatex', 'xelatex' (recommended for unicode), 'luatex', 'platex', 'uplatex'
+
+#######################################################################################
+# Launch button settings
+launch_buttons:
+  notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url             : https://mybinder.org/v2/gh/StraightDraw/stats/master  # The URL of the BinderHub
+
+repository:
+  url                       : https://github.com/StraightDraw/stats  # The URL to your book's repository
+  path_to_book              : "_build/html"  # A path to your book's folder, relative to the repository root.
+  branch                    : master  # Which branch of the repository should be used when creating links
 
 #######################################################################################

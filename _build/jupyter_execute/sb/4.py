@@ -1,4 +1,4 @@
-# Historical Stock Prices
+# 1.4 Historical Stock Prices
 
 from datascience import *
 import numpy as np
