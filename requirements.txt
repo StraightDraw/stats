@@ -1,4 +1,4 @@
-python==3.7.6
+python==3.7
 datascience==0.17.0
 jupyterlab==2.2.6
 matplotlib==3.3.4
