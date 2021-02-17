@@ -64,7 +64,7 @@ latex:
 # Launch button settings
 launch_buttons:
   notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
-  binderhub_url             : https://mybinder.org/v2/gh/StraightDraw/stats/master  # The URL of the BinderHub
+  binderhub_url             : https://mybinder.org/v2/gh/StraightDraw/stats/main  # The URL of the BinderHub
 
 repository:
   url                       : https://github.com/StraightDraw/stats  # The URL to your book's repository
