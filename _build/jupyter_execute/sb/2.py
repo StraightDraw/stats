@@ -12,7 +12,7 @@ bitcoin.num_rows
 
 bitcoin
 
-# Investment Analysis
+## Investment Analysis
 
 Suppose you were to buy $100 of bitcoin, hold for exactly 90 days, then sell it. How often would you have made money over the last four years?
 
