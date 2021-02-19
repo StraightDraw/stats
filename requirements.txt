@@ -1,4 +1,4 @@
-datascience==0.15.7
+datascience
 jupyterlab
 matplotlib
 numpy==1.20.1
