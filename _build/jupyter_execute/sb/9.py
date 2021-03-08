@@ -217,9 +217,9 @@ chat_near_dahlonega
 
 Circle.map_table(chat_near_dahlonega.select('lat','lon','name'))
 
-# Create a map of all recreation areas in Lumpkin and White counties.
+# Create a map of all recreation areas in White County.
 
 
 
-# Create a map of all trailheads in Rabun or Union County
+# Create a map of all trailheads in Rabun County.
 
