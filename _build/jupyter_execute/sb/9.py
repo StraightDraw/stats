@@ -1,4 +1,4 @@
-# 1.9 Chatahoochee
+# 1.9 Chattahoochee
 
 from datascience import *
 import numpy as np
@@ -223,3 +223,25 @@ Circle.map_table(chat_near_dahlonega.select('lat','lon','name'))
 
 # Create a map of all trailheads in Rabun County.
 
+
+
+
+
+
+
+## Advanced `.where` techniques
+
+What if we want to find all recreation areas within nearby counties? The basic `.where` method only allows us to filter based on one county name at a time. But if we create a truth array that evaluates True for Lupkin and White but False for all other counties, then amazing things can happen.
+
+### Task: create a map of all recreation areas in Lumkin and White counties.
+
+yes_Lumpkin = chat.column('county') == 'LUMPKIN'
+
+yes_White = chat.column('county') == 'WHITE'
+
+truth_array = yes_Lumpkin + yes_White
+truth_array
+
+chat.where(truth_array)
+
+# Create a map of all Chattahoochee trailheads in Lumpkin, White, Rabun and Union counties.
