@@ -1,0 +1,813 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10 Traditional Hypothesis Tests &#8212; Intro to Applied Statistics</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="1.9 Chattahoochee" href="../sb/9.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/UNG.logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Intro to Applied Statistics</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Introduction to Applied Statistics
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/0.html">
+   Sandboxes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/1.html">
+   1.1 Narcissism
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/2.html">
+   1.2 Bitcoin
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/3.html">
+   1.3 Functions and Cubes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/4.html">
+   1.4 Historical Stock Prices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/5.html">
+   1.5 Airports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/6.html">
+   1.6 World Cities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/7.html">
+   1.7 National Parks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/8.html">
+   1.8 Caffeine and Sleep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/9.html">
+   1.9 Chattahoochee
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   10 Traditional Hypothesis Tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#two-sample-t-test">
+   Two Sample T-test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#matched-pairs-t-test">
+   Matched Pairs T-test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#chi-squared-test-for-independence">
+   Chi-squared test for Independence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#chi-squared-test-for-goodness-of-fit">
+   Chi-squared Test for Goodness-of-Fit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#binomial-test">
+   Binomial Test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#correlation-and-linear-regression">
+   Correlation and Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#one-sample-t-test">
+   One Sample T-test
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/lab/06.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/StraightDraw/stats/master?urlpath=tree/content/lab/06.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   10 Traditional Hypothesis Tests
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#and-how-to-run-them-in-python">
+     And How to Run Them in Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#two-sample-t-test">
+   Two Sample T-test
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matched-pairs-t-test">
+   Matched Pairs T-test
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chi-squared-test-for-independence">
+   Chi-squared test for Independence
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chi-squared-test-for-goodness-of-fit">
+   Chi-squared Test for Goodness-of-Fit
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binomial-test">
+   Binomial Test
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#correlation-and-linear-regression">
+   Correlation and Linear Regression
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#one-sample-t-test">
+   One Sample T-test
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="traditional-hypothesis-tests">
+<h1>10 Traditional Hypothesis Tests<a class="headerlink" href="#traditional-hypothesis-tests" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="and-how-to-run-them-in-python">
+<h2>And How to Run Them in Python<a class="headerlink" href="#and-how-to-run-them-in-python" title="Permalink to this headline">¶</a></h2>
+<p>Below you will find examples of the traditional hypothesis tests and analyses typically taught in an Intro Stat course.  Each cell is self-contained, which means that I reload the modules necessary for each test over and over again.  However, it also means that you can simply copy &amp; paste an entire cell when you try to replicate something that is demonstrated here.</p>
+<p>This is just a guide with some code for you to copy.  No explanations are given here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datascience</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plots</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+
+<span class="c1">## Need some data to use in examples</span>
+
+<span class="n">births</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;baby.csv&#39;</span><span class="p">)</span>
+<span class="n">counties</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;counties.csv&#39;</span><span class="p">)</span>
+<span class="n">crime</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;crime_rates.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">98</span><span class="n">ffd19c25ed</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1">## Need some data to use in examples</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">births</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;baby.csv&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">counties</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;counties.csv&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">crime</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;crime_rates.csv&#39;</span><span class="p">)</span>
+
+<span class="nn">~\anaconda3\envs\datasci\lib\site-packages\datascience\tables.py</span> in <span class="ni">read_table</span><span class="nt">(cls, filepath_or_buffer, *args, **vargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">143</span>         <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span>             <span class="k">pass</span>
+<span class="ne">--&gt; </span><span class="mi">145</span>         <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">vargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_df</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span> 
+
+<span class="nn">~\anaconda3\envs\datasci\lib\site-packages\pandas\io\parsers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">608</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">609</span> 
+<span class="ne">--&gt; </span><span class="mi">610</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">611</span> 
+<span class="g g-Whitespace">    </span><span class="mi">612</span> 
+
+<span class="nn">~\anaconda3\envs\datasci\lib\site-packages\pandas\io\parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">460</span> 
+<span class="g g-Whitespace">    </span><span class="mi">461</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">462</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">463</span> 
+<span class="g g-Whitespace">    </span><span class="mi">464</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="nn">~\anaconda3\envs\datasci\lib\site-packages\pandas\io\parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">817</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">818</span> 
+<span class="ne">--&gt; </span><span class="mi">819</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">820</span> 
+<span class="g g-Whitespace">    </span><span class="mi">821</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~\anaconda3\envs\datasci\lib\site-packages\pandas\io\parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1048</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1049</span>         <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1050</span>         <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1051</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1052</span>     <span class="k">def</span> <span class="nf">_failover_to_python</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~\anaconda3\envs\datasci\lib\site-packages\pandas\io\parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1865</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1866</span>         <span class="c1"># open handles</span>
+<span class="ne">-&gt; </span><span class="mi">1867</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1868</span>         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1869</span>         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="s2">&quot;compression&quot;</span><span class="p">):</span>
+
+<span class="nn">~\anaconda3\envs\datasci\lib\site-packages\pandas\io\parsers.py</span> in <span class="ni">_open_handles</span><span class="nt">(self, src, kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1366</span>             <span class="n">compression</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1367</span>             <span class="n">memory_map</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="ne">-&gt; </span><span class="mi">1368</span>             <span class="n">storage_options</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1369</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1370</span> 
+
+<span class="nn">~\anaconda3\envs\datasci\lib\site-packages\pandas\io\common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">645</span>                 <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">646</span>                 <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">647</span>                 <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">648</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">649</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;baby.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="two-sample-t-test">
+<h1>Two Sample T-test<a class="headerlink" href="#two-sample-t-test" title="Permalink to this headline">¶</a></h1>
+<p>Used to compare means of two samples.</p>
+<p>Accepts directed alternatives.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Two Sample T-test</span>
+
+<span class="n">group1</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;Maternal Smoker&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Birth Weight&quot;</span><span class="p">)</span>
+<span class="n">group2</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;Maternal Smoker&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Birth Weight&quot;</span><span class="p">)</span>
+
+<span class="n">Results</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">group1</span><span class="p">,</span> <span class="n">group2</span><span class="p">,</span> <span class="n">equal_var</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>  <span class="c1"># Default is two-tailed test</span>
+
+<span class="c1"># For a directed alternative, uncomment the one below with the correct direction.</span>
+
+<span class="c1">#Results = scipy.stats.ttest_ind(group1, group2, equal_var = False, alternative =&quot;greater&quot;)</span>
+
+<span class="c1">#Results = scipy.stats.ttest_ind(group1, group2, equal_var = False, alternative =&quot;less&quot;)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Results of 2-Sample T-test&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The test statistic is t = </span><span class="si">{</span><span class="n">Results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">, and p-value = </span><span class="si">{</span><span class="n">Results</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">760691518</span><span class="n">a61</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Two Sample T-test</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">group1</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;Maternal Smoker&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Birth Weight&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">group2</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;Maternal Smoker&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Birth Weight&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">NameError</span>: name &#39;births&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="matched-pairs-t-test">
+<h1>Matched Pairs T-test<a class="headerlink" href="#matched-pairs-t-test" title="Permalink to this headline">¶</a></h1>
+<p>Used to look for differences when sampling the same group twice.</p>
+<p>Accepts a directed alternative.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Matched Pairs T-test</span>
+
+<span class="n">GA</span> <span class="o">=</span> <span class="n">crime</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;State&quot;</span><span class="p">,</span> <span class="s2">&quot;Georgia&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Murder Rate&quot;</span><span class="p">)</span>  <span class="c1">## In this example</span>
+<span class="n">AL</span> <span class="o">=</span> <span class="n">crime</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;State&quot;</span><span class="p">,</span> <span class="s2">&quot;Alabama&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Murder Rate&quot;</span><span class="p">)</span>  <span class="c1">## they are matched by year</span>
+
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="n">Results</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_rel</span><span class="p">(</span><span class="n">GA</span><span class="p">,</span> <span class="n">AL</span><span class="p">)</span>  <span class="c1"># Change to groups defined above</span>
+
+<span class="c1"># For a directed alternative, uncomment the one below with the correct direction.</span>
+
+<span class="c1">#Results = scipy.stats.ttest_rel(GA, AL, alternative = &quot;greater&quot;)</span>
+
+<span class="c1">#Results = scipy.stats.ttest_rel(GA, AL, alternative = &quot;less&quot;)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Results of Matched Pairs T-test&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The test statistic is t = </span><span class="si">{</span><span class="n">Results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">, and p-value = </span><span class="si">{</span><span class="n">Results</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">c10e1de37fce</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Matched Pairs T-test</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">GA</span> <span class="o">=</span> <span class="n">crime</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;State&quot;</span><span class="p">,</span> <span class="s2">&quot;Georgia&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Murder Rate&quot;</span><span class="p">)</span>  <span class="c1">## In this example</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">AL</span> <span class="o">=</span> <span class="n">crime</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;State&quot;</span><span class="p">,</span> <span class="s2">&quot;Alabama&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Murder Rate&quot;</span><span class="p">)</span>  <span class="c1">## they are matched by year</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">NameError</span>: name &#39;crime&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="chi-squared-test-for-independence">
+<h1>Chi-squared test for Independence<a class="headerlink" href="#chi-squared-test-for-independence" title="Permalink to this headline">¶</a></h1>
+<p>Used to look for associations between categorical data.  Data must be arranged in an array, as a two-way table.</p>
+<p>Suppose you wanted to run a <span class="math notranslate nohighlight">\(\chi^2\)</span> test for independence on this table:</p>
+ <table> 
+    <tr>
+        <th>14 </th>
+        <th>2 </th>
+    </tr>
+    <tr>
+        <th>6 </th>
+        <th>9 </th>
+    </tr>
+        </table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chi-squared test for independence</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">obs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>  <span class="c1"># Put data into array structure</span>
+
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="n">Results</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">chi2_contingency</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+
+<span class="c1">## Don&#39;t change anything below this line</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Chi-Square = &quot;</span><span class="p">,</span> <span class="n">Results</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p-value = &quot;</span><span class="p">,</span> <span class="n">Results</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;degrees of freedom = &quot;</span><span class="p">,</span> <span class="n">Results</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Expected Table = &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Results</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reminder: No zero cells, and not more than 20% with counts below 5 in Expected Table.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chi-Square =  5.696396780303031
+p-value =  0.016999777502603477
+degrees of freedom =  1
+Expected Table = 
+[[10.32258065  5.67741935]
+ [ 9.67741935  5.32258065]]
+Reminder: No zero cells, and not more than 20% with counts below 5 in Expected Table.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="chi-squared-test-for-goodness-of-fit">
+<h1>Chi-squared Test for Goodness-of-Fit<a class="headerlink" href="#chi-squared-test-for-goodness-of-fit" title="Permalink to this headline">¶</a></h1>
+<p>Used to test is sample counts fit an expected count based on assumed population proportions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chi-squared goodness-of-fit</span>
+
+<span class="n">obs_counts</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Test is expecting COUNTS!</span>
+<span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">obs_counts</span><span class="p">)</span>
+
+<span class="n">pred_counts</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="o">.</span><span class="mi">24</span><span class="p">,</span> <span class="o">.</span><span class="mi">20</span><span class="p">,</span> <span class="o">.</span><span class="mi">15</span><span class="p">,</span> <span class="o">.</span><span class="mi">13</span><span class="p">,</span> <span class="o">.</span><span class="mi">13</span><span class="p">,</span> <span class="o">.</span><span class="mi">05</span><span class="p">)</span><span class="o">*</span><span class="n">total</span>  <span class="c1"># Turn proportions into COUNTS!</span>
+
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="n">Results</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">obs_counts</span><span class="p">,</span> <span class="n">pred_counts</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Results of Chi-squared GoF Test&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The test statistic is Chi^2 = </span><span class="si">{</span><span class="n">Results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">, and p-value = </span><span class="si">{</span><span class="n">Results</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results of Chi-squared GoF Test
+The test statistic is Chi^2 = 12.823076923076922, and p-value = 0.025094358777833156.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="binomial-test">
+<h1>Binomial Test<a class="headerlink" href="#binomial-test" title="Permalink to this headline">¶</a></h1>
+<p>Used to test for differences in proportions with two groups.</p>
+<p>To run this test, you designate one group “success” and count successes as well as trials.</p>
+<p>Accepts a directed alternative.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span>
+
+<span class="n">successes</span> <span class="o">=</span> <span class="mi">150</span>
+
+<span class="n">trials</span> <span class="o">=</span> <span class="mi">200</span>
+
+<span class="n">null_probability</span> <span class="o">=</span> <span class="mf">0.7</span>
+
+<span class="n">pval</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">binom_test</span><span class="p">(</span><span class="n">successes</span><span class="p">,</span> <span class="n">trials</span><span class="p">,</span> <span class="n">null_probability</span><span class="p">)</span>
+
+<span class="c1"># For a directed alternative, uncomment the one below with the correct direction.</span>
+
+<span class="c1">#pval = scipy.stats.binom_test(successes, trials, null_probability, alternative = &quot;greater&quot;)</span>
+
+<span class="c1">#pval = scipy.stats.binom_test(successes, trials, null_probability, alternative = &quot;less&quot;)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Binomial Test Results: The p-value = </span><span class="si">{</span><span class="n">pval</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Binomial Test Results: The p-value = 0.14233173709397484
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="correlation-and-linear-regression">
+<h1>Correlation and Linear Regression<a class="headerlink" href="#correlation-and-linear-regression" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Correlation</span>
+
+<span class="n">mom_weight</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Maternal Pregnancy Weight&quot;</span><span class="p">)</span>  <span class="c1"># Make two arrays of numbers</span>
+<span class="n">baby_weight</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Birth Weight&quot;</span><span class="p">)</span>              <span class="c1"># one for x and one for y</span>
+
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="n">Results</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">mom_weight</span><span class="p">,</span> <span class="n">baby_weight</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Correlation = </span><span class="si">{</span><span class="n">Results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="n">c658146af0ff</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Correlation</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">mom_weight</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Maternal Pregnancy Weight&quot;</span><span class="p">)</span>  <span class="c1"># Make two arrays of numbers</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">baby_weight</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Birth Weight&quot;</span><span class="p">)</span>              <span class="c1"># one for x and one for y</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">NameError</span>: name &#39;births&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Linear Regression</span>
+
+<span class="n">mom_weight</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Maternal Pregnancy Weight&quot;</span><span class="p">)</span>  <span class="c1"># Make two arrays of numbers</span>
+<span class="n">baby_weight</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Birth Weight&quot;</span><span class="p">)</span>              <span class="c1"># one for x and one for y</span>
+
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="n">Results</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">mom_weight</span><span class="p">,</span> <span class="n">baby_weight</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Intercept = </span><span class="si">{</span><span class="n">Results</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> and slope = </span><span class="si">{</span><span class="n">Results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P-value for Slope =</span><span class="si">{</span><span class="n">Results</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Correlation = </span><span class="si">{</span><span class="n">Results</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="n">c59f22f8cace</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Linear Regression</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">mom_weight</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Maternal Pregnancy Weight&quot;</span><span class="p">)</span>  <span class="c1"># Make two arrays of numbers</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">baby_weight</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Birth Weight&quot;</span><span class="p">)</span>              <span class="c1"># one for x and one for y</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">NameError</span>: name &#39;births&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>A scatterplot featuring the linear regression line is often included with linear regression analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mom_weight</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Maternal Pregnancy Weight&quot;</span><span class="p">)</span>  <span class="c1"># Make two arrays of numbers</span>
+<span class="n">baby_weight</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Birth Weight&quot;</span><span class="p">)</span>              <span class="c1"># one for x and one for y</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plots</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">datascience</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">Weights</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="s2">&quot;Mothers Weight&quot;</span><span class="p">,</span> <span class="n">mom_weight</span><span class="p">,</span> <span class="s2">&quot;Babys Weight&quot;</span><span class="p">,</span> <span class="n">baby_weight</span><span class="p">)</span>
+
+<span class="n">Weights</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s2">&quot;Mothers Weight&quot;</span><span class="p">,</span> <span class="n">fit_line</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="mi">381174</span><span class="n">f75181</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">mom_weight</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Maternal Pregnancy Weight&quot;</span><span class="p">)</span>  <span class="c1"># Make two arrays of numbers</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">baby_weight</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Birth Weight&quot;</span><span class="p">)</span>              <span class="c1"># one for x and one for y</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;inline&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plots</span>
+
+<span class="ne">NameError</span>: name &#39;births&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="one-sample-t-test">
+<h1>One Sample T-test<a class="headerlink" href="#one-sample-t-test" title="Permalink to this headline">¶</a></h1>
+<p>Used to compare the mean of a single sample to an assumed population mean.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># One Sample T-test</span>
+
+<span class="n">sample</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Birth Weight&quot;</span><span class="p">)</span>
+<span class="n">null_mean</span> <span class="o">=</span> <span class="mi">120</span>
+
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="n">Results</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_1samp</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">null_mean</span><span class="p">)</span>
+
+<span class="c1"># For a directed alternative uncomment the appropriate line below</span>
+
+<span class="c1">#Results = scipy.stats.ttest_1samp(sample, null_mean, alternative =&quot;greater&quot;)</span>
+
+<span class="c1">#Results = scipy.stats.ttest_1samp(sample, null_mean, alternative =&quot;less&quot;)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Results of 1-Sample T-test&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The test statistic is t = </span><span class="si">{</span><span class="n">Results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">, and p-value = </span><span class="si">{</span><span class="n">Results</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="n">ebd48671f7ce</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># One Sample T-test</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">sample</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;Birth Weight&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">null_mean</span> <span class="o">=</span> <span class="mi">120</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">NameError</span>: name &#39;births&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lab"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../sb/9.html" title="previous page">1.9 Chattahoochee</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Robb Sinn<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,771 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.4 Historical Stock Prices &#8212; Intro to Applied Statistics</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.5 Airports" href="05.html" />
+    <link rel="prev" title="1.3 Functions and Cubes" href="03.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/UNG.logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Intro to Applied Statistics</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Introduction to Applied Statistics
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0.html">
+   Sandboxes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01.html">
+   1.1 Narcissism
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02.html">
+   1.2 Bitcoin
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03.html">
+   1.3 Functions and Cubes
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1.4 Historical Stock Prices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05.html">
+   1.5 Airports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.html">
+   1.6 World Cities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.html">
+   1.7 National Parks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.html">
+   1.8 Caffeine and Sleep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.html">
+   1.9 Chattahoochee
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.html">
+   10. Lab 6
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/sb/04.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/StraightDraw/stats/master?urlpath=tree/content/sb/04.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#warning-do-not-execute-code-block-below-unless-you-have-a-good-bandwidth-connection-and-are-prepared-to-wait-60-seconds">
+   Warning!! Do not execute code block below unless you have a good bandwidth connection and are prepared to wait 60+ seconds.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#to-create-a-csv-file-from-a-table-and-store-in-current-directory">
+     To create a CSV file from a table and store in current directory
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     To create a CSV file from a table and store in current directory
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="historical-stock-prices">
+<h1>1.4 Historical Stock Prices<a class="headerlink" href="#historical-stock-prices" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datascience</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plots</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="warning-do-not-execute-code-block-below-unless-you-have-a-good-bandwidth-connection-and-are-prepared-to-wait-60-seconds">
+<h2>Warning!! Do not execute code block below unless you have a good bandwidth connection and are prepared to wait 60+ seconds.<a class="headerlink" href="#warning-do-not-execute-code-block-below-unless-you-have-a-good-bandwidth-connection-and-are-prepared-to-wait-60-seconds" title="Permalink to this headline">¶</a></h2>
+<p>The file <code class="docutils literal notranslate"><span class="pre">stocks.csv</span></code> includes thousands of historical stock prices from 1970 to 2018. The file is 2GB of data which, given time, Python can read into this notebook. I have created some subsets of the table, however, which you may want to work with first before downloading the big daddy table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#stocks =  Table.read_table(&#39;http://faculty.ung.edu/rsinn/stocks.csv&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### The following subsets are much smaller files</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">microsoft</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;http://faculty.ung.edu/rsinn/msft.csv&#39;</span><span class="p">)</span>
+<span class="n">microsoft</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>ticker</th> <th>open</th> <th>close</th> <th>adj_close</th> <th>low</th> <th>high</th> <th>volume</th> <th>date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>MSFT  </td> <td>0.0885417</td> <td>0.0972222</td> <td>0.0708597</td> <td>0.0885417</td> <td>0.101562 </td> <td>1031788800</td> <td>1986-03-13</td>
+        </tr>
+        <tr>
+            <td>MSFT  </td> <td>0.0972222</td> <td>0.100694 </td> <td>0.0733905</td> <td>0.0972222</td> <td>0.102431 </td> <td>308160000 </td> <td>1986-03-14</td>
+        </tr>
+        <tr>
+            <td>MSFT  </td> <td>0.100694 </td> <td>0.102431 </td> <td>0.0746558</td> <td>0.100694 </td> <td>0.103299 </td> <td>133171200 </td> <td>1986-03-17</td>
+        </tr>
+        <tr>
+            <td>MSFT  </td> <td>0.102431 </td> <td>0.0998264</td> <td>0.0727578</td> <td>0.0989583</td> <td>0.103299 </td> <td>67766400  </td> <td>1986-03-18</td>
+        </tr>
+        <tr>
+            <td>MSFT  </td> <td>0.0998264</td> <td>0.0980903</td> <td>0.0714925</td> <td>0.0972222</td> <td>0.100694 </td> <td>47894400  </td> <td>1986-03-19</td>
+        </tr>
+        <tr>
+            <td>MSFT  </td> <td>0.0980903</td> <td>0.0954861</td> <td>0.0695944</td> <td>0.0946181</td> <td>0.0980903</td> <td>58435200  </td> <td>1986-03-20</td>
+        </tr>
+        <tr>
+            <td>MSFT  </td> <td>0.0954861</td> <td>0.0928819</td> <td>0.0676964</td> <td>0.0911458</td> <td>0.0972222</td> <td>59990400  </td> <td>1986-03-21</td>
+        </tr>
+        <tr>
+            <td>MSFT  </td> <td>0.0928819</td> <td>0.0902778</td> <td>0.0657983</td> <td>0.0894097</td> <td>0.0928819</td> <td>65289600  </td> <td>1986-03-24</td>
+        </tr>
+        <tr>
+            <td>MSFT  </td> <td>0.0902778</td> <td>0.0920139</td> <td>0.0670637</td> <td>0.0894097</td> <td>0.0920139</td> <td>32083200  </td> <td>1986-03-25</td>
+        </tr>
+        <tr>
+            <td>MSFT  </td> <td>0.0920139</td> <td>0.0946181</td> <td>0.0689617</td> <td>0.0911458</td> <td>0.0954861</td> <td>22752000  </td> <td>1986-03-26</td>
+        </tr>
+    </tbody>
+</table>
+<p>... (8172 rows omitted)</p></div></div>
+</div>
+<div class="section" id="to-create-a-csv-file-from-a-table-and-store-in-current-directory">
+<h3>To create a CSV file from a table and store in current directory<a class="headerlink" href="#to-create-a-csv-file-from-a-table-and-store-in-current-directory" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># microsoft.to_csv(&#39;msft.csv&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">faang</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;http://faculty.ung.edu/rsinn/faang.csv&#39;</span><span class="p">)</span>
+<span class="n">faang</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>ticker</th> <th>open</th> <th>close</th> <th>adj_close</th> <th>low</th> <th>high</th> <th>volume</th> <th>date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>AAPL  </td> <td>0.513393</td> <td>0.513393</td> <td>0.0231864</td> <td>0.513393</td> <td>0.515625</td> <td>117258400</td> <td>1980-12-12</td>
+        </tr>
+        <tr>
+            <td>AAPL  </td> <td>0.488839</td> <td>0.486607</td> <td>0.0219766</td> <td>0.486607</td> <td>0.488839</td> <td>43971200 </td> <td>1980-12-15</td>
+        </tr>
+        <tr>
+            <td>AAPL  </td> <td>0.453125</td> <td>0.450893</td> <td>0.0203637</td> <td>0.450893</td> <td>0.453125</td> <td>26432000 </td> <td>1980-12-16</td>
+        </tr>
+        <tr>
+            <td>AAPL  </td> <td>0.462054</td> <td>0.462054</td> <td>0.0208677</td> <td>0.462054</td> <td>0.464286</td> <td>21610400 </td> <td>1980-12-17</td>
+        </tr>
+        <tr>
+            <td>AAPL  </td> <td>0.475446</td> <td>0.475446</td> <td>0.0214726</td> <td>0.475446</td> <td>0.477679</td> <td>18362400 </td> <td>1980-12-18</td>
+        </tr>
+        <tr>
+            <td>AAPL  </td> <td>0.504464</td> <td>0.504464</td> <td>0.0227831</td> <td>0.504464</td> <td>0.506696</td> <td>12157600 </td> <td>1980-12-19</td>
+        </tr>
+        <tr>
+            <td>AAPL  </td> <td>0.529018</td> <td>0.529018</td> <td>0.023892 </td> <td>0.529018</td> <td>0.53125 </td> <td>9340800  </td> <td>1980-12-22</td>
+        </tr>
+        <tr>
+            <td>AAPL  </td> <td>0.551339</td> <td>0.551339</td> <td>0.0249001</td> <td>0.551339</td> <td>0.553571</td> <td>11737600 </td> <td>1980-12-23</td>
+        </tr>
+        <tr>
+            <td>AAPL  </td> <td>0.580357</td> <td>0.580357</td> <td>0.0262107</td> <td>0.580357</td> <td>0.582589</td> <td>12000800 </td> <td>1980-12-24</td>
+        </tr>
+        <tr>
+            <td>AAPL  </td> <td>0.633929</td> <td>0.633929</td> <td>0.0286301</td> <td>0.633929</td> <td>0.636161</td> <td>13893600 </td> <td>1980-12-26</td>
+        </tr>
+    </tbody>
+</table>
+<p>... (24055 rows omitted)</p></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">facebook</span> <span class="o">=</span> <span class="n">faang</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;ticker&#39;</span><span class="p">,</span><span class="s1">&#39;FB&#39;</span><span class="p">)</span>
+<span class="n">apple</span> <span class="o">=</span> <span class="n">faang</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;ticker&#39;</span><span class="p">,</span><span class="s1">&#39;AAPL&#39;</span><span class="p">)</span>
+<span class="n">amazon</span> <span class="o">=</span> <span class="n">faang</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;ticker&#39;</span><span class="p">,</span><span class="s1">&#39;AMZN&#39;</span><span class="p">)</span>
+<span class="n">netflix</span> <span class="o">=</span> <span class="n">faang</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;ticker&#39;</span><span class="p">,</span><span class="s1">&#39;NFLX&#39;</span><span class="p">)</span>
+<span class="n">google</span> <span class="o">=</span> <span class="n">faang</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;ticker&#39;</span><span class="p">,</span><span class="s1">&#39;GOOGL&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">facebook</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>ticker</th> <th>open</th> <th>close</th> <th>adj_close</th> <th>low</th> <th>high</th> <th>volume</th> <th>date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>FB    </td> <td>42.05</td> <td>38.23</td> <td>38.23    </td> <td>38   </td> <td>45   </td> <td>573576400</td> <td>2012-05-18</td>
+        </tr>
+        <tr>
+            <td>FB    </td> <td>36.53</td> <td>34.03</td> <td>34.03    </td> <td>33   </td> <td>36.66</td> <td>168192700</td> <td>2012-05-21</td>
+        </tr>
+        <tr>
+            <td>FB    </td> <td>32.61</td> <td>31   </td> <td>31       </td> <td>30.94</td> <td>33.59</td> <td>101786600</td> <td>2012-05-22</td>
+        </tr>
+        <tr>
+            <td>FB    </td> <td>31.37</td> <td>32   </td> <td>32       </td> <td>31.36</td> <td>32.5 </td> <td>73600000 </td> <td>2012-05-23</td>
+        </tr>
+        <tr>
+            <td>FB    </td> <td>32.95</td> <td>33.03</td> <td>33.03    </td> <td>31.77</td> <td>33.21</td> <td>50237200 </td> <td>2012-05-24</td>
+        </tr>
+        <tr>
+            <td>FB    </td> <td>32.9 </td> <td>31.91</td> <td>31.91    </td> <td>31.11</td> <td>32.95</td> <td>37149800 </td> <td>2012-05-25</td>
+        </tr>
+        <tr>
+            <td>FB    </td> <td>31.48</td> <td>28.84</td> <td>28.84    </td> <td>28.65</td> <td>31.69</td> <td>78063400 </td> <td>2012-05-29</td>
+        </tr>
+        <tr>
+            <td>FB    </td> <td>28.7 </td> <td>28.19</td> <td>28.19    </td> <td>27.86</td> <td>29.55</td> <td>57267900 </td> <td>2012-05-30</td>
+        </tr>
+        <tr>
+            <td>FB    </td> <td>28.55</td> <td>29.6 </td> <td>29.6     </td> <td>26.83</td> <td>29.67</td> <td>111639200</td> <td>2012-05-31</td>
+        </tr>
+        <tr>
+            <td>FB    </td> <td>28.89</td> <td>27.72</td> <td>27.72    </td> <td>27.39</td> <td>29.15</td> <td>41855500 </td> <td>2012-06-01</td>
+        </tr>
+    </tbody>
+</table>
+<p>... (1568 rows omitted)</p></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">apple</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>ticker</th> <th>open</th> <th>close</th> <th>adj_close</th> <th>low</th> <th>high</th> <th>volume</th> <th>date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>AAPL  </td> <td>0.513393</td> <td>0.513393</td> <td>0.0231864</td> <td>0.513393</td> <td>0.515625</td> <td>117258400</td> <td>1980-12-12</td>
+        </tr>
+        <tr>
+            <td>AAPL  </td> <td>0.488839</td> <td>0.486607</td> <td>0.0219766</td> <td>0.486607</td> <td>0.488839</td> <td>43971200 </td> <td>1980-12-15</td>
+        </tr>
+        <tr>
+            <td>AAPL  </td> <td>0.453125</td> <td>0.450893</td> <td>0.0203637</td> <td>0.450893</td> <td>0.453125</td> <td>26432000 </td> <td>1980-12-16</td>
+        </tr>
+        <tr>
+            <td>AAPL  </td> <td>0.462054</td> <td>0.462054</td> <td>0.0208677</td> <td>0.462054</td> <td>0.464286</td> <td>21610400 </td> <td>1980-12-17</td>
+        </tr>
+        <tr>
+            <td>AAPL  </td> <td>0.475446</td> <td>0.475446</td> <td>0.0214726</td> <td>0.475446</td> <td>0.477679</td> <td>18362400 </td> <td>1980-12-18</td>
+        </tr>
+        <tr>
+            <td>AAPL  </td> <td>0.504464</td> <td>0.504464</td> <td>0.0227831</td> <td>0.504464</td> <td>0.506696</td> <td>12157600 </td> <td>1980-12-19</td>
+        </tr>
+        <tr>
+            <td>AAPL  </td> <td>0.529018</td> <td>0.529018</td> <td>0.023892 </td> <td>0.529018</td> <td>0.53125 </td> <td>9340800  </td> <td>1980-12-22</td>
+        </tr>
+        <tr>
+            <td>AAPL  </td> <td>0.551339</td> <td>0.551339</td> <td>0.0249001</td> <td>0.551339</td> <td>0.553571</td> <td>11737600 </td> <td>1980-12-23</td>
+        </tr>
+        <tr>
+            <td>AAPL  </td> <td>0.580357</td> <td>0.580357</td> <td>0.0262107</td> <td>0.580357</td> <td>0.582589</td> <td>12000800 </td> <td>1980-12-24</td>
+        </tr>
+        <tr>
+            <td>AAPL  </td> <td>0.633929</td> <td>0.633929</td> <td>0.0286301</td> <td>0.633929</td> <td>0.636161</td> <td>13893600 </td> <td>1980-12-26</td>
+        </tr>
+    </tbody>
+</table>
+<p>... (9497 rows omitted)</p></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amazon</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>ticker</th> <th>open</th> <th>close</th> <th>adj_close</th> <th>low</th> <th>high</th> <th>volume</th> <th>date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>AMZN  </td> <td>2.4375 </td> <td>1.95833</td> <td>1.95833  </td> <td>1.92708</td> <td>2.5    </td> <td>72156000</td> <td>1997-05-15</td>
+        </tr>
+        <tr>
+            <td>AMZN  </td> <td>1.96875</td> <td>1.72917</td> <td>1.72917  </td> <td>1.70833</td> <td>1.97917</td> <td>14700000</td> <td>1997-05-16</td>
+        </tr>
+        <tr>
+            <td>AMZN  </td> <td>1.76042</td> <td>1.70833</td> <td>1.70833  </td> <td>1.625  </td> <td>1.77083</td> <td>6106800 </td> <td>1997-05-19</td>
+        </tr>
+        <tr>
+            <td>AMZN  </td> <td>1.72917</td> <td>1.63542</td> <td>1.63542  </td> <td>1.63542</td> <td>1.75   </td> <td>5467200 </td> <td>1997-05-20</td>
+        </tr>
+        <tr>
+            <td>AMZN  </td> <td>1.63542</td> <td>1.42708</td> <td>1.42708  </td> <td>1.375  </td> <td>1.64583</td> <td>18853200</td> <td>1997-05-21</td>
+        </tr>
+        <tr>
+            <td>AMZN  </td> <td>1.4375 </td> <td>1.39583</td> <td>1.39583  </td> <td>1.3125 </td> <td>1.44792</td> <td>11776800</td> <td>1997-05-22</td>
+        </tr>
+        <tr>
+            <td>AMZN  </td> <td>1.40625</td> <td>1.5    </td> <td>1.5      </td> <td>1.33333</td> <td>1.52083</td> <td>15937200</td> <td>1997-05-23</td>
+        </tr>
+        <tr>
+            <td>AMZN  </td> <td>1.51042</td> <td>1.58333</td> <td>1.58333  </td> <td>1.45833</td> <td>1.64583</td> <td>8697600 </td> <td>1997-05-27</td>
+        </tr>
+        <tr>
+            <td>AMZN  </td> <td>1.625  </td> <td>1.53125</td> <td>1.53125  </td> <td>1.53125</td> <td>1.63542</td> <td>4574400 </td> <td>1997-05-28</td>
+        </tr>
+        <tr>
+            <td>AMZN  </td> <td>1.54167</td> <td>1.50521</td> <td>1.50521  </td> <td>1.47917</td> <td>1.54167</td> <td>3472800 </td> <td>1997-05-29</td>
+        </tr>
+    </tbody>
+</table>
+<p>... (5346 rows omitted)</p></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">netflix</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>ticker</th> <th>open</th> <th>close</th> <th>adj_close</th> <th>low</th> <th>high</th> <th>volume</th> <th>date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>NFLX  </td> <td>1.15643</td> <td>1.19643</td> <td>1.19643  </td> <td>1.14571</td> <td>1.24286</td> <td>104790000</td> <td>2002-05-23</td>
+        </tr>
+        <tr>
+            <td>NFLX  </td> <td>1.21429</td> <td>1.21   </td> <td>1.21     </td> <td>1.19714</td> <td>1.225  </td> <td>11104800 </td> <td>2002-05-24</td>
+        </tr>
+        <tr>
+            <td>NFLX  </td> <td>1.21357</td> <td>1.15714</td> <td>1.15714  </td> <td>1.15714</td> <td>1.23214</td> <td>6609400  </td> <td>2002-05-28</td>
+        </tr>
+        <tr>
+            <td>NFLX  </td> <td>1.16429</td> <td>1.10357</td> <td>1.10357  </td> <td>1.08571</td> <td>1.16429</td> <td>6757800  </td> <td>2002-05-29</td>
+        </tr>
+        <tr>
+            <td>NFLX  </td> <td>1.10786</td> <td>1.07143</td> <td>1.07143  </td> <td>1.07143</td> <td>1.10786</td> <td>10154200 </td> <td>2002-05-30</td>
+        </tr>
+        <tr>
+            <td>NFLX  </td> <td>1.07857</td> <td>1.07643</td> <td>1.07643  </td> <td>1.07143</td> <td>1.07857</td> <td>8464400  </td> <td>2002-05-31</td>
+        </tr>
+        <tr>
+            <td>NFLX  </td> <td>1.08   </td> <td>1.12857</td> <td>1.12857  </td> <td>1.07643</td> <td>1.14929</td> <td>3151400  </td> <td>2002-06-03</td>
+        </tr>
+        <tr>
+            <td>NFLX  </td> <td>1.13571</td> <td>1.11786</td> <td>1.11786  </td> <td>1.11071</td> <td>1.14   </td> <td>3105200  </td> <td>2002-06-04</td>
+        </tr>
+        <tr>
+            <td>NFLX  </td> <td>1.11071</td> <td>1.14714</td> <td>1.14714  </td> <td>1.10714</td> <td>1.15929</td> <td>1531600  </td> <td>2002-06-05</td>
+        </tr>
+        <tr>
+            <td>NFLX  </td> <td>1.15   </td> <td>1.18214</td> <td>1.18214  </td> <td>1.14857</td> <td>1.23214</td> <td>2305800  </td> <td>2002-06-06</td>
+        </tr>
+    </tbody>
+</table>
+<p>... (4084 rows omitted)</p></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">google</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>ticker</th> <th>open</th> <th>close</th> <th>adj_close</th> <th>low</th> <th>high</th> <th>volume</th> <th>date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>GOOGL </td> <td>50.05  </td> <td>50.2202</td> <td>50.2202  </td> <td>48.028 </td> <td>52.0821</td> <td>44659000</td> <td>2004-08-19</td>
+        </tr>
+        <tr>
+            <td>GOOGL </td> <td>50.5556</td> <td>54.2092</td> <td>54.2092  </td> <td>50.3003</td> <td>54.5946</td> <td>22834300</td> <td>2004-08-20</td>
+        </tr>
+        <tr>
+            <td>GOOGL </td> <td>55.4304</td> <td>54.7548</td> <td>54.7548  </td> <td>54.5796</td> <td>56.7968</td> <td>18256100</td> <td>2004-08-23</td>
+        </tr>
+        <tr>
+            <td>GOOGL </td> <td>55.6757</td> <td>52.4875</td> <td>52.4875  </td> <td>51.8368</td> <td>55.8559</td> <td>15247300</td> <td>2004-08-24</td>
+        </tr>
+        <tr>
+            <td>GOOGL </td> <td>52.5325</td> <td>53.0531</td> <td>53.0531  </td> <td>51.992 </td> <td>54.0541</td> <td>9188600 </td> <td>2004-08-25</td>
+        </tr>
+        <tr>
+            <td>GOOGL </td> <td>52.5275</td> <td>54.009 </td> <td>54.009   </td> <td>52.3824</td> <td>54.029 </td> <td>7094800 </td> <td>2004-08-26</td>
+        </tr>
+        <tr>
+            <td>GOOGL </td> <td>54.1041</td> <td>53.1281</td> <td>53.1281  </td> <td>52.8979</td> <td>54.3644</td> <td>6211700 </td> <td>2004-08-27</td>
+        </tr>
+        <tr>
+            <td>GOOGL </td> <td>52.6927</td> <td>51.0561</td> <td>51.0561  </td> <td>51.0561</td> <td>52.7978</td> <td>5196700 </td> <td>2004-08-30</td>
+        </tr>
+        <tr>
+            <td>GOOGL </td> <td>51.2012</td> <td>51.2362</td> <td>51.2362  </td> <td>51.1311</td> <td>51.9069</td> <td>4917800 </td> <td>2004-08-31</td>
+        </tr>
+        <tr>
+            <td>GOOGL </td> <td>51.4014</td> <td>50.1752</td> <td>50.1752  </td> <td>49.8849</td> <td>51.5365</td> <td>9138200 </td> <td>2004-09-01</td>
+        </tr>
+    </tbody>
+</table>
+<p>... (3520 rows omitted)</p></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">faang</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">descending</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>ticker</th> <th>open</th> <th>close</th> <th>adj_close</th> <th>low</th> <th>high</th> <th>volume</th> <th>date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>AAPL  </td> <td>216.6  </td> <td>216.16 </td> <td>216.16   </td> <td>215.11 </td> <td>216.9  </td> <td>18469900</td> <td>2018-08-24</td>
+        </tr>
+        <tr>
+            <td>AMZN  </td> <td>1910.51</td> <td>1905.39</td> <td>1905.39  </td> <td>1902.54</td> <td>1916.01</td> <td>2792600 </td> <td>2018-08-24</td>
+        </tr>
+        <tr>
+            <td>NFLX  </td> <td>346    </td> <td>358.82 </td> <td>358.82   </td> <td>344.54 </td> <td>359.15 </td> <td>14711000</td> <td>2018-08-24</td>
+        </tr>
+        <tr>
+            <td>GOOGL </td> <td>1226   </td> <td>1236.75</td> <td>1236.75  </td> <td>1221.42</td> <td>1237.4 </td> <td>1222000 </td> <td>2018-08-24</td>
+        </tr>
+        <tr>
+            <td>FB    </td> <td>173.7  </td> <td>174.65 </td> <td>174.65   </td> <td>172.92 </td> <td>174.82 </td> <td>14617600</td> <td>2018-08-24</td>
+        </tr>
+        <tr>
+            <td>AAPL  </td> <td>214.65 </td> <td>215.49 </td> <td>215.49   </td> <td>214.6  </td> <td>217.05 </td> <td>18883200</td> <td>2018-08-23</td>
+        </tr>
+        <tr>
+            <td>AMZN  </td> <td>1907.17</td> <td>1902.9 </td> <td>1902.9   </td> <td>1900.76</td> <td>1919.5 </td> <td>3563000 </td> <td>2018-08-23</td>
+        </tr>
+        <tr>
+            <td>NFLX  </td> <td>348.11 </td> <td>339.17 </td> <td>339.17   </td> <td>337.65 </td> <td>350.08 </td> <td>11336400</td> <td>2018-08-23</td>
+        </tr>
+        <tr>
+            <td>GOOGL </td> <td>1219.88</td> <td>1221.16</td> <td>1221.16  </td> <td>1219.35</td> <td>1235.17</td> <td>1233300 </td> <td>2018-08-23</td>
+        </tr>
+        <tr>
+            <td>FB    </td> <td>173.09 </td> <td>172.9  </td> <td>172.9    </td> <td>172.83 </td> <td>175.55 </td> <td>18053600</td> <td>2018-08-23</td>
+        </tr>
+    </tbody>
+</table>
+<p>... (24055 rows omitted)</p></div></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>To create a CSV file from a table and store in current directory<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># faang.to_csv(&#39;faang.csv&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./sb"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="03.html" title="previous page">1.3 Functions and Cubes</a>
+    <a class='right-next' id="next-link" href="05.html" title="next page">1.5 Airports</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Robb Sinn<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
