@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sandboxes &#8212; Intro to Applied Statistics</title>
+    <title>1.3 Functions and Cubes &#8212; Intro to Applied Statistics</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,8 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.1 Narcissism" href="01.html" />
-    <link rel="prev" title="Introduction to Applied Statistics" href="../Introduction.html" />
+    <link rel="next" title="1.4 Historical Stock Prices" href="04.html" />
+    <link rel="prev" title="1.2 Bitcoin" href="02.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -93,8 +93,8 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0.html">
    Sandboxes
   </a>
  </li>
@@ -108,8 +108,8 @@
    1.2 Bitcoin
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    1.3 Functions and Cubes
   </a>
  </li>
@@ -188,7 +188,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/sb/0.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/sb/03.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -213,7 +213,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/StraightDraw/stats/master?urlpath=tree/content/sb/0.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/StraightDraw/stats/master?urlpath=tree/content/sb/03.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -237,9 +237,158 @@
         
               <div>
                 
-  <div class="section" id="sandboxes">
-<h1>Sandboxes<a class="headerlink" href="#sandboxes" title="Permalink to this headline">¶</a></h1>
-<p>A sandbox is digital playground, an environment created for experimentation and fun. I’m creating sandbox content for <strong>Intro to Applied Statistics</strong> using Python’s <code class="docutils literal notranslate"><span class="pre">datascience</span></code> package. The notebooks in this section are intended to make class examples using my own datasets easily accessible to my students.</p>
+  <div class="section" id="functions-and-cubes">
+<h1>1.3 Functions and Cubes<a class="headerlink" href="#functions-and-cubes" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datascience</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plots</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s start out by creating a table of integers and their cubes. Then we can see how the <code class="docutils literal notranslate"><span class="pre">.apply</span></code> method works.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ints</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>
+<span class="n">ints</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17,
+       18, 19, 20])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cubes</span> <span class="o">=</span> <span class="n">ints</span> <span class="o">**</span> <span class="mi">3</span>
+<span class="n">cubes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   1,    8,   27,   64,  125,  216,  343,  512,  729, 1000, 1331,
+       1728, 2197, 2744, 3375, 4096, 4913, 5832, 6859, 8000], dtype=int32)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digits</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="s1">&#39;Integers&#39;</span><span class="p">,</span> <span class="n">ints</span><span class="p">,</span>
+                             <span class="s1">&#39;Cubes&#39;</span><span class="p">,</span> <span class="n">cubes</span><span class="p">)</span>
+<span class="n">digits</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Integers</th> <th>Cubes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1       </td> <td>1    </td>
+        </tr>
+        <tr>
+            <td>2       </td> <td>8    </td>
+        </tr>
+        <tr>
+            <td>3       </td> <td>27   </td>
+        </tr>
+        <tr>
+            <td>4       </td> <td>64   </td>
+        </tr>
+        <tr>
+            <td>5       </td> <td>125  </td>
+        </tr>
+        <tr>
+            <td>6       </td> <td>216  </td>
+        </tr>
+        <tr>
+            <td>7       </td> <td>343  </td>
+        </tr>
+        <tr>
+            <td>8       </td> <td>512  </td>
+        </tr>
+        <tr>
+            <td>9       </td> <td>729  </td>
+        </tr>
+        <tr>
+            <td>10      </td> <td>1000 </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (10 rows omitted)</p></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cube_root</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cube_root</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cube_root</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.999999999999998
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digits</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">cube_root</span><span class="p">,</span><span class="s1">&#39;Cubes&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10., 11., 12., 13.,
+       14., 15., 16., 17., 18., 19., 20.])
+</pre></div>
+</div>
+</div>
+</div>
+<p>This can also be accomplished with the <code class="docutils literal notranslate"><span class="pre">.column</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cube_root</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Cubes&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10., 11., 12., 13.,
+       14., 15., 16., 17., 18., 19., 20.])
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -270,8 +419,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../Introduction.html" title="previous page">Introduction to Applied Statistics</a>
-    <a class='right-next' id="next-link" href="01.html" title="next page">1.1 Narcissism</a>
+    <a class='left-prev' id="prev-link" href="02.html" title="previous page">1.2 Bitcoin</a>
+    <a class='right-next' id="next-link" href="04.html" title="next page">1.4 Historical Stock Prices</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
