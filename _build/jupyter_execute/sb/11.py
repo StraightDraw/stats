@@ -4,6 +4,7 @@ from datascience import *
 import numpy as np
 
 %matplotlib inline
+
 import matplotlib.pyplot as plots
 plots.style.use('fivethirtyeight')
 
@@ -91,22 +92,57 @@ def ab_diff(tab):
 
 ab_diff(shuffled_narc)
 
-### Run simulation 5,000 times
+### Run simulation lots of times
 
 diffs = make_array()
 
-reps = 5000
+reps = 1000
 
 for i in range(reps):
     shuffled_tab = ab_shuffle(narc)
     new_diff = ab_diff(shuffled_tab)
     diffs = np.append(diffs, new_diff)
     
-diffs
+# diffs
 
 def ab_hist(myArray, obs_diff):
     tab = Table().with_column('A/B Differencs',myArray)
     tab.hist(0)
-    _ = plots.plot([obs_diff, obs_diff], [0, 1], color='red', lw=2)
+    _ = plots.plot([obs_diff, obs_diff], [0, 0.1], color='red', lw=2)
 
 ab_hist(diffs,observed_difference)
+
+Create a truth array for the number of randomized A/B differences in means that were less than the `observed_difference`
+
+sum(diffs <= observed_difference)
+
+p_val = sum(diffs <= observed_difference) / reps
+p_val
+
+## Example with perfectionism
+
+perf = pers.select('Sex','Perf')
+perf
+
+obs_diff_perf = ab_diff(perf)
+obs_diff_perf
+
+ab_shuffle(perf)
+
+ab_diff(ab_shuffle(perf))
+
+perf_diffs = make_array()
+
+reps = 1000
+
+for i in range(reps):
+    new_diff = ab_diff(ab_shuffle(perf))
+    perf_diffs = np.append(perf_diffs, new_diff)
+
+# perf_diffs    
+
+ab_hist(perf_diffs,obs_diff_perf)
+
+p_value = sum(perf_diffs >= obs_diff_perf) / reps 
+p_value
+
