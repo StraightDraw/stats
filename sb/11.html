@@ -260,11 +260,16 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#run-simulation-5-000-times">
-     Run simulation 5,000 times
+    <a class="reference internal nav-link" href="#run-simulation-lots-of-times">
+     Run simulation lots of times
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-with-perfectionism">
+   Example with perfectionism
+  </a>
  </li>
 </ul>
 
@@ -285,6 +290,7 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
+
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plots</span>
 <span class="n">plots</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
 
@@ -516,18 +522,18 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
-       &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;,
-       &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;,
-       &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;,
-       &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;,
-       &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;,
-       &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
-       &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;,
-       &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;,
-       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
-       &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;,
-       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;], dtype=&#39;&lt;U1&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
+       &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;,
+       &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;,
+       &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
+       &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;,
+       &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
+       &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
+       &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;], dtype=&#39;&lt;U1&#39;)
 </pre></div>
 </div>
 </div>
@@ -548,7 +554,7 @@
     </thead>
     <tbody>
         <tr>
-            <td>M                </td> <td>3   </td>
+            <td>F                </td> <td>3   </td>
         </tr>
         <tr>
             <td>F                </td> <td>2   </td>
@@ -563,19 +569,19 @@
             <td>F                </td> <td>8   </td>
         </tr>
         <tr>
-            <td>M                </td> <td>1   </td>
+            <td>F                </td> <td>1   </td>
         </tr>
         <tr>
             <td>M                </td> <td>4   </td>
         </tr>
         <tr>
-            <td>F                </td> <td>7   </td>
+            <td>M                </td> <td>7   </td>
         </tr>
         <tr>
             <td>F                </td> <td>5   </td>
         </tr>
         <tr>
-            <td>M                </td> <td>1   </td>
+            <td>F                </td> <td>1   </td>
         </tr>
     </tbody>
 </table>
@@ -596,10 +602,10 @@
     </thead>
     <tbody>
         <tr>
-            <td>F                </td> <td>4.30588     </td>
+            <td>F                </td> <td>4.27059     </td>
         </tr>
         <tr>
-            <td>M                </td> <td>4.90476     </td>
+            <td>M                </td> <td>4.95238     </td>
         </tr>
     </tbody>
 </table></div></div>
@@ -627,19 +633,19 @@
     </thead>
     <tbody>
         <tr>
-            <td>F                </td> <td>3   </td>
+            <td>M                </td> <td>3   </td>
         </tr>
         <tr>
             <td>M                </td> <td>2   </td>
         </tr>
         <tr>
-            <td>F                </td> <td>4   </td>
+            <td>M                </td> <td>4   </td>
         </tr>
         <tr>
             <td>F                </td> <td>2   </td>
         </tr>
         <tr>
-            <td>M                </td> <td>8   </td>
+            <td>F                </td> <td>8   </td>
         </tr>
         <tr>
             <td>M                </td> <td>1   </td>
@@ -654,7 +660,7 @@
             <td>F                </td> <td>5   </td>
         </tr>
         <tr>
-            <td>M                </td> <td>1   </td>
+            <td>F                </td> <td>1   </td>
         </tr>
     </tbody>
 </table>
@@ -679,10 +685,10 @@
     </thead>
     <tbody>
         <tr>
-            <td>F                </td> <td>4.30588     </td>
+            <td>F                </td> <td>4.27059     </td>
         </tr>
         <tr>
-            <td>M                </td> <td>4.90476     </td>
+            <td>M                </td> <td>4.95238     </td>
         </tr>
     </tbody>
 </table></div></div>
@@ -695,7 +701,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.305882352941176
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.270588235294118
 </pre></div>
 </div>
 </div>
@@ -708,7 +714,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.904761904761905
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.9523809523809526
 </pre></div>
 </div>
 </div>
@@ -721,7 +727,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.5988795518207288
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.681792717086835
 </pre></div>
 </div>
 </div>
@@ -740,26 +746,26 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.5988795518207288
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.681792717086835
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="run-simulation-5-000-times">
-<h3>Run simulation 5,000 times<a class="headerlink" href="#run-simulation-5-000-times" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="run-simulation-lots-of-times">
+<h3>Run simulation lots of times<a class="headerlink" href="#run-simulation-lots-of-times" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diffs</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
 
-<span class="n">reps</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="mi">1000</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
     <span class="n">shuffled_tab</span> <span class="o">=</span> <span class="n">ab_shuffle</span><span class="p">(</span><span class="n">narc</span><span class="p">)</span>
     <span class="n">new_diff</span> <span class="o">=</span> <span class="n">ab_diff</span><span class="p">(</span><span class="n">shuffled_tab</span><span class="p">)</span>
     <span class="n">diffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">diffs</span><span class="p">,</span> <span class="n">new_diff</span><span class="p">)</span>
     
-<span class="n">diffs</span>
+<span class="c1"># diffs</span>
 </pre></div>
 </div>
 </div>
@@ -769,7 +775,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ab_hist</span><span class="p">(</span><span class="n">myArray</span><span class="p">,</span> <span class="n">obs_diff</span><span class="p">):</span>
     <span class="n">tab</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;A/B Differencs&#39;</span><span class="p">,</span><span class="n">myArray</span><span class="p">)</span>
     <span class="n">tab</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">obs_diff</span><span class="p">,</span> <span class="n">obs_diff</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">obs_diff</span><span class="p">,</span> <span class="n">obs_diff</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">ab_hist</span><span class="p">(</span><span class="n">diffs</span><span class="p">,</span><span class="n">observed_difference</span><span class="p">)</span>
 </pre></div>
@@ -777,6 +783,195 @@
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/11_33_0.png" src="../_images/11_33_0.png" />
+</div>
+</div>
+<p>Create a truth array for the number of randomized A/B differences in means that were less than the <code class="docutils literal notranslate"><span class="pre">observed_difference</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">diffs</span> <span class="o">&lt;=</span> <span class="n">observed_difference</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_val</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">diffs</span> <span class="o">&lt;=</span> <span class="n">observed_difference</span><span class="p">)</span> <span class="o">/</span> <span class="n">reps</span>
+<span class="n">p_val</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-with-perfectionism">
+<h2>Example with perfectionism<a class="headerlink" href="#example-with-perfectionism" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">perf</span> <span class="o">=</span> <span class="n">pers</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Perf&#39;</span><span class="p">)</span>
+<span class="n">perf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Sex</th> <th>Perf</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>F   </td> <td>99  </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>86  </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>118 </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>113 </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>107 </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>123 </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>93  </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>126 </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>91  </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>111 </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (138 rows omitted)</p></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obs_diff_perf</span> <span class="o">=</span> <span class="n">ab_diff</span><span class="p">(</span><span class="n">perf</span><span class="p">)</span>
+<span class="n">obs_diff_perf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.5915966386554743
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ab_shuffle</span><span class="p">(</span><span class="n">perf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Shuffled Grouping</th> <th>Perf</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>M                </td> <td>99  </td>
+        </tr>
+        <tr>
+            <td>F                </td> <td>86  </td>
+        </tr>
+        <tr>
+            <td>F                </td> <td>118 </td>
+        </tr>
+        <tr>
+            <td>F                </td> <td>113 </td>
+        </tr>
+        <tr>
+            <td>F                </td> <td>107 </td>
+        </tr>
+        <tr>
+            <td>F                </td> <td>123 </td>
+        </tr>
+        <tr>
+            <td>M                </td> <td>93  </td>
+        </tr>
+        <tr>
+            <td>F                </td> <td>126 </td>
+        </tr>
+        <tr>
+            <td>M                </td> <td>91  </td>
+        </tr>
+        <tr>
+            <td>F                </td> <td>111 </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (138 rows omitted)</p></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ab_diff</span><span class="p">(</span><span class="n">ab_shuffle</span><span class="p">(</span><span class="n">perf</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.315219421101773
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">perf_diffs</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+
+<span class="n">reps</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+    <span class="n">new_diff</span> <span class="o">=</span> <span class="n">ab_diff</span><span class="p">(</span><span class="n">ab_shuffle</span><span class="p">(</span><span class="n">perf</span><span class="p">))</span>
+    <span class="n">perf_diffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">perf_diffs</span><span class="p">,</span> <span class="n">new_diff</span><span class="p">)</span>
+
+<span class="c1"># perf_diffs    </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ab_hist</span><span class="p">(</span><span class="n">perf_diffs</span><span class="p">,</span><span class="n">obs_diff_perf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/11_43_0.png" src="../_images/11_43_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_value</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">perf_diffs</span> <span class="o">&gt;=</span> <span class="n">obs_diff_perf</span><span class="p">)</span> <span class="o">/</span> <span class="n">reps</span> 
+<span class="n">p_value</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.203
+</pre></div>
 </div>
 </div>
 </div>
