@@ -1,4 +1,4 @@
-# 1.2 Bitcoin
+# 2. Data Visualization with Bitcoin Data
 
 from datascience import *
 import numpy as np

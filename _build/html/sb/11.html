@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1.11 Narcissism, Perfectionism and A/B Testing &#8212; Intro to Applied Statistics</title>
+    <title>1. A/B Testing Tools &#8212; Intro to Applied Statistics</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -52,8 +52,11 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.11 Narcissism, Perfectionism and A/B Testing" href="../tests/1.html" />
     <link rel="prev" title="10. Lab 6" href="10.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -149,6 +152,11 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
+   1. A/B Testing Tools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tests/1.html">
    1.11 Narcissism, Perfectionism and A/B Testing
   </a>
  </li>
@@ -240,31 +248,84 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#an-a-b-test-for-differences-in-narcissism-based-on-biological-sex">
-   An A/B Test for differences in narcissism based on biological sex.
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#let-s-shuffle-the-labels-in-the-grouping-variable-column">
-   Let’s shuffle the labels in the grouping variable column
+  <a class="reference internal nav-link" href="#tools-for-a-b-testing">
+   Tools for A/B Testing
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-a-function-that-produces-a-random-shuffle-of-the-grouping-variable-column">
-     Create a function that produces a random shuffle of the grouping variable column
+    <a class="reference internal nav-link" href="#creating-a-2-column-table-for-a-b-testing">
+     Creating a 2-column table for A/B Testing
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#function-that-calculates-difference-in-means-between-shuffled-a-b-groups">
-     Function that calculates difference in means between shuffled A/B groups
+    <a class="reference internal nav-link" href="#calculating-observed-difference-in-means-for-a-b-groups">
+     Calculating observed difference in means for A/B groups
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#run-simulation-lots-of-times">
-     Run simulation lots of times
+    <a class="reference internal nav-link" href="#the-a-b-hypothesis-test-for-differences-in-narcissism-based-on-biological-sex">
+     The A/B hypothesis test for differences in narcissism based on biological sex
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-ab-shuffle-a-function-for-shuffling-the-grouping-labels">
+     Creating
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ab_shuffle
+      </span>
+     </code>
+     : a function for shuffling the grouping labels
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-ab-shuffle-function">
+       The
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ab_shuffle
+        </span>
+       </code>
+       function
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-ab-diff-a-function-that-calculates-the-difference-in-a-b-group-means">
+     Creating
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ab_diff
+      </span>
+     </code>
+     : a function that calculates the difference in A/B group means
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-ab-diff-function">
+       The
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ab_diff
+        </span>
+       </code>
+       function
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulating-the-statistic">
+   Simulating the statistic
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#displaying-the-distribution-of-the-null-hypothesis-statistic">
+   Displaying the distribution of the null hypothesis statistic
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-with-perfectionism">
@@ -282,8 +343,8 @@
         
               <div>
                 
-  <div class="section" id="narcissism-perfectionism-and-a-b-testing">
-<h1>1.11 Narcissism, Perfectionism and A/B Testing<a class="headerlink" href="#narcissism-perfectionism-and-a-b-testing" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="a-b-testing-tools">
+<h1>1. A/B Testing Tools<a class="headerlink" href="#a-b-testing-tools" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datascience</span> <span class="kn">import</span> <span class="o">*</span>
@@ -301,34 +362,11 @@
 </div>
 <p>I keep some data frames in CSV format accessible from my website. One of them is called <code class="docutils literal notranslate"><span class="pre">personality.csv</span></code> and has, as you might imagine, personality variables. In this case, we are using a subset of the personality data with variables like perfectionsism, narcissism with grouping variables like biological sex and the <code class="docutils literal notranslate"><span class="pre">AccDate</span></code> variable which has Yes/No responses to the following question:</p>
 <p>“At a time in your life when you are not involved with anyone, a person asks you out. This person has a great personality, but you do not find this person physically attractive. Do you accept the date?”</p>
+<p>The Stress1 and Stress2 variables are pre-post data collected from the 2nd week and 7th week of the semester respectively to see if college students experience more stress during midterms.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;http://faculty.ung.edu/rsinn/perfnarc.csv&#39;</span><span class="p">)</span>
-<span class="n">pers</span><span class="o">.</span><span class="n">num_rows</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>148
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span><span class="o">.</span><span class="n">labels</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Sex&#39;, &#39;G21&#39;, &#39;Greek&#39;, &#39;AccDate&#39;, &#39;Stress1&#39;, &#39;Stress2&#39;, &#39;Perf&#39;, &#39;Narc&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span>
+<span class="n">pers</span>
 </pre></div>
 </div>
 </div>
@@ -374,6 +412,18 @@
 </table>
 <p>... (138 rows omitted)</p></div></div>
 </div>
+<div class="section" id="tools-for-a-b-testing">
+<h2>Tools for A/B Testing<a class="headerlink" href="#tools-for-a-b-testing" title="Permalink to this headline">¶</a></h2>
+<p>As we walk through an example with narcissism, we will build three functions that will help us conduct A/B tests.</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ab_shuffle</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ab_diff</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ab_hist</span></code></p></li>
+</ol>
+<p>All three expect an input of a 2-column table with the grouping variable in the first column and a numeric variable in the second.</p>
+<div class="section" id="creating-a-2-column-table-for-a-b-testing">
+<h3>Creating a 2-column table for A/B Testing<a class="headerlink" href="#creating-a-2-column-table-for-a-b-testing" title="Permalink to this headline">¶</a></h3>
+<p>We will use the grouping variable of biological sex and numeric variable of narcissism scores.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">narc</span> <span class="o">=</span> <span class="n">pers</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Narc&#39;</span><span class="p">)</span>
@@ -381,7 +431,29 @@
 </div>
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">nan</span></code> value indicates there is no value for that cell in the table. In this case, it’s a survey item that went unanswered. The <code class="docutils literal notranslate"><span class="pre">numpy</span></code> function <code class="docutils literal notranslate"><span class="pre">nanmean</span></code> takes the average but ignores any <code class="docutils literal notranslate"><span class="pre">nan</span></code> values. In a clean table, we could just use <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>, instead.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">narc</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Sex</th> <th>count</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>F   </td> <td>85   </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>63   </td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">narc</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">)</span>
@@ -405,6 +477,9 @@
     </tbody>
 </table></div></div>
 </div>
+</div>
+<div class="section" id="calculating-observed-difference-in-means-for-a-b-groups">
+<h3>Calculating observed difference in means for A/B groups<a class="headerlink" href="#calculating-observed-difference-in-means-for-a-b-groups" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_mean</span> <span class="o">=</span> <span class="n">narc</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -448,7 +523,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integer_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">narc</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s1">&#39;Narc&#39;</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">integer_bins</span><span class="p">)</span>
-<span class="n">_</span><span class="o">=</span><span class="n">plots</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Narcissism by Sex&#39;</span><span class="p">)</span>
+<span class="n">_</span><span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Narcissism by Sex&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -460,12 +535,18 @@
 <img alt="../_images/11_12_1.png" src="../_images/11_12_1.png" />
 </div>
 </div>
-<div class="section" id="an-a-b-test-for-differences-in-narcissism-based-on-biological-sex">
-<h2>An A/B Test for differences in narcissism based on biological sex.<a class="headerlink" href="#an-a-b-test-for-differences-in-narcissism-based-on-biological-sex" title="Permalink to this headline">¶</a></h2>
-<p>Notice that we simplify to the <code class="docutils literal notranslate"><span class="pre">narc</span></code> table which has only two columns, a grouping variable (Male/Female) and a numeric variable (narcissism score).</p>
+</div>
+<div class="section" id="the-a-b-hypothesis-test-for-differences-in-narcissism-based-on-biological-sex">
+<h3>The A/B hypothesis test for differences in narcissism based on biological sex<a class="headerlink" href="#the-a-b-hypothesis-test-for-differences-in-narcissism-based-on-biological-sex" title="Permalink to this headline">¶</a></h3>
+<p>The null hypothesis is that the male and female groups are drawn from the same distribution. If so, then randomly shuffling the grouping labels should not matter. The observed difference in A/B means should fall well within the distribution of shuffled differences in A/B means which we can simulate.</p>
+</div>
+<div class="section" id="creating-ab-shuffle-a-function-for-shuffling-the-grouping-labels">
+<h3>Creating <code class="docutils literal notranslate"><span class="pre">ab_shuffle</span></code>: a function for shuffling the grouping labels<a class="headerlink" href="#creating-ab-shuffle-a-function-for-shuffling-the-grouping-labels" title="Permalink to this headline">¶</a></h3>
+<p>Let’s first demonstrate step by step what we need the function to do. Then we can create the function. The first code block below demonstrates our “shuffle” command which uses the <code class="docutils literal notranslate"><span class="pre">sample</span></code> method and draws without replacement.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">narc</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shuffle_sex</span> <span class="o">=</span> <span class="n">narc</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">with_replacement</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">shuffle_sex</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -478,42 +559,24 @@
     </thead>
     <tbody>
         <tr>
-            <td>F   </td> <td>3   </td>
+            <td>M   </td> <td>6   </td>
         </tr>
         <tr>
             <td>F   </td> <td>2   </td>
         </tr>
         <tr>
-            <td>F   </td> <td>4   </td>
+            <td>M   </td> <td>8   </td>
         </tr>
         <tr>
-            <td>F   </td> <td>2   </td>
+            <td>F   </td> <td>9   </td>
         </tr>
         <tr>
-            <td>F   </td> <td>8   </td>
-        </tr>
-        <tr>
-            <td>F   </td> <td>1   </td>
-        </tr>
-        <tr>
-            <td>F   </td> <td>4   </td>
-        </tr>
-        <tr>
-            <td>F   </td> <td>7   </td>
-        </tr>
-        <tr>
-            <td>F   </td> <td>5   </td>
-        </tr>
-        <tr>
-            <td>F   </td> <td>1   </td>
+            <td>F   </td> <td>6   </td>
         </tr>
     </tbody>
 </table>
-<p>... (138 rows omitted)</p></div></div>
+<p>... (143 rows omitted)</p></div></div>
 </div>
-</div>
-<div class="section" id="let-s-shuffle-the-labels-in-the-grouping-variable-column">
-<h2>Let’s shuffle the labels in the grouping variable column<a class="headerlink" href="#let-s-shuffle-the-labels-in-the-grouping-variable-column" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shuffle_sex</span> <span class="o">=</span> <span class="n">narc</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">with_replacement</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -522,26 +585,61 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
-       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
-       &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;,
-       &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;,
-       &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
-       &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;,
-       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;,
-       &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
-       &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
-       &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
-       &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
+       &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;,
+       &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;,
+       &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
+       &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;,
+       &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;,
+       &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;,
+       &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;,
+       &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
        &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;], dtype=&#39;&lt;U1&#39;)
 </pre></div>
 </div>
 </div>
 </div>
+<p>After creating an array of shuffled labels, we need to include that array as column in our table. We can add the shuffled labels as a third column, then use the <code class="docutils literal notranslate"><span class="pre">select</span></code> method to create a two-column table with the columns in the correct order.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shuffled_narc</span> <span class="o">=</span> <span class="n">narc</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s2">&quot;Shuffled Grouping&quot;</span><span class="p">,</span><span class="n">shuffle_sex</span><span class="p">)</span>
+<span class="n">shuffled_narc</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Sex</th> <th>Narc</th> <th>Shuffled Grouping</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>F   </td> <td>3   </td> <td>M                </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>2   </td> <td>F                </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>4   </td> <td>M                </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>2   </td> <td>F                </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>8   </td> <td>M                </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (143 rows omitted)</p></div></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shuffled_narc</span> <span class="o">=</span> <span class="n">narc</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s2">&quot;Shuffled Grouping&quot;</span><span class="p">,</span><span class="n">shuffle_sex</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">shuffled_narc</span>
+<span class="n">shuffled_narc</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -554,38 +652,23 @@
     </thead>
     <tbody>
         <tr>
-            <td>F                </td> <td>3   </td>
+            <td>M                </td> <td>3   </td>
         </tr>
         <tr>
             <td>F                </td> <td>2   </td>
         </tr>
         <tr>
-            <td>F                </td> <td>4   </td>
-        </tr>
-        <tr>
-            <td>M                </td> <td>2   </td>
-        </tr>
-        <tr>
-            <td>F                </td> <td>8   </td>
-        </tr>
-        <tr>
-            <td>F                </td> <td>1   </td>
-        </tr>
-        <tr>
             <td>M                </td> <td>4   </td>
         </tr>
         <tr>
-            <td>M                </td> <td>7   </td>
+            <td>F                </td> <td>2   </td>
         </tr>
         <tr>
-            <td>F                </td> <td>5   </td>
-        </tr>
-        <tr>
-            <td>F                </td> <td>1   </td>
+            <td>M                </td> <td>8   </td>
         </tr>
     </tbody>
 </table>
-<p>... (138 rows omitted)</p></div></div>
+<p>... (143 rows omitted)</p></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -602,17 +685,17 @@
     </thead>
     <tbody>
         <tr>
-            <td>F                </td> <td>4.27059     </td>
+            <td>F                </td> <td>4.50588     </td>
         </tr>
         <tr>
-            <td>M                </td> <td>4.95238     </td>
+            <td>M                </td> <td>4.63492     </td>
         </tr>
     </tbody>
 </table></div></div>
 </div>
-<div class="section" id="create-a-function-that-produces-a-random-shuffle-of-the-grouping-variable-column">
-<h3>Create a function that produces a random shuffle of the grouping variable column<a class="headerlink" href="#create-a-function-that-produces-a-random-shuffle-of-the-grouping-variable-column" title="Permalink to this headline">¶</a></h3>
-<p>We’re copy-pasting the code from the previous 3-4 code blocks to make our function, and using the generic name <code class="docutils literal notranslate"><span class="pre">tab</span></code> for our data table.</p>
+<div class="section" id="the-ab-shuffle-function">
+<h4>The <code class="docutils literal notranslate"><span class="pre">ab_shuffle</span></code> function<a class="headerlink" href="#the-ab-shuffle-function" title="Permalink to this headline">¶</a></h4>
+<p>Our function just combines the previous several code blocks. Notice that the expected input is a two-column table with the grouping variable be in the first column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ab_shuffle</span><span class="p">(</span><span class="n">tab</span><span class="p">):</span>
@@ -633,22 +716,22 @@
     </thead>
     <tbody>
         <tr>
-            <td>M                </td> <td>3   </td>
+            <td>F                </td> <td>3   </td>
         </tr>
         <tr>
             <td>M                </td> <td>2   </td>
         </tr>
         <tr>
-            <td>M                </td> <td>4   </td>
+            <td>F                </td> <td>4   </td>
         </tr>
         <tr>
             <td>F                </td> <td>2   </td>
         </tr>
         <tr>
-            <td>F                </td> <td>8   </td>
+            <td>M                </td> <td>8   </td>
         </tr>
         <tr>
-            <td>M                </td> <td>1   </td>
+            <td>F                </td> <td>1   </td>
         </tr>
         <tr>
             <td>F                </td> <td>4   </td>
@@ -657,7 +740,7 @@
             <td>F                </td> <td>7   </td>
         </tr>
         <tr>
-            <td>F                </td> <td>5   </td>
+            <td>M                </td> <td>5   </td>
         </tr>
         <tr>
             <td>F                </td> <td>1   </td>
@@ -667,9 +750,10 @@
 <p>... (138 rows omitted)</p></div></div>
 </div>
 </div>
-<div class="section" id="function-that-calculates-difference-in-means-between-shuffled-a-b-groups">
-<h3>Function that calculates difference in means between shuffled A/B groups<a class="headerlink" href="#function-that-calculates-difference-in-means-between-shuffled-a-b-groups" title="Permalink to this headline">¶</a></h3>
-<p>From above, we were using the <code class="docutils literal notranslate"><span class="pre">.group</span></code> method to find our group means.</p>
+</div>
+<div class="section" id="creating-ab-diff-a-function-that-calculates-the-difference-in-a-b-group-means">
+<h3>Creating <code class="docutils literal notranslate"><span class="pre">ab_diff</span></code>: a function that calculates the difference in A/B group means<a class="headerlink" href="#creating-ab-diff-a-function-that-calculates-the-difference-in-a-b-group-means" title="Permalink to this headline">¶</a></h3>
+<p>We can add a function to the <code class="docutils literal notranslate"><span class="pre">.group</span></code> method to find the A/B group means.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shuffled_narc</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;Shuffled Grouping&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">)</span>
@@ -685,10 +769,10 @@
     </thead>
     <tbody>
         <tr>
-            <td>F                </td> <td>4.27059     </td>
+            <td>F                </td> <td>4.50588     </td>
         </tr>
         <tr>
-            <td>M                </td> <td>4.95238     </td>
+            <td>M                </td> <td>4.63492     </td>
         </tr>
     </tbody>
 </table></div></div>
@@ -701,7 +785,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.270588235294118
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.5058823529411764
 </pre></div>
 </div>
 </div>
@@ -714,7 +798,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.9523809523809526
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.634920634920635
 </pre></div>
 </div>
 </div>
@@ -727,12 +811,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.681792717086835
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.12903828197945888
 </pre></div>
 </div>
 </div>
 </div>
-<p>We can see that we need to accept a generic two-column table where the grouping variable is listed first. Then we can use the above 3-4 to create our function.</p>
+<div class="section" id="the-ab-diff-function">
+<h4>The <code class="docutils literal notranslate"><span class="pre">ab_diff</span></code> function<a class="headerlink" href="#the-ab-diff-function" title="Permalink to this headline">¶</a></h4>
+<p>Using the above code blocks as a template, we can write a function that grabs the means from the grouping table. Again, the expected input is a two-column table with the grouping variable first.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ab_diff</span><span class="p">(</span><span class="n">tab</span><span class="p">):</span>
@@ -746,14 +832,18 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.681792717086835
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.12903828197945888
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="run-simulation-lots-of-times">
-<h3>Run simulation lots of times<a class="headerlink" href="#run-simulation-lots-of-times" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="simulating-the-statistic">
+<h2>Simulating the statistic<a class="headerlink" href="#simulating-the-statistic" title="Permalink to this headline">¶</a></h2>
+<p>The statistic we need is the difference in shuffled A/B group means. Our plan is to use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to repeatedly reshuffle the labels and calculate this statistic. The output will be an array representing a random sampling of this statistic.</p>
+<p>The engine in the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is quite simple. We shuffle the data table and calculate the difference in A/B means in one line using the two functions we created above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diffs</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
@@ -761,15 +851,19 @@
 <span class="n">reps</span> <span class="o">=</span> <span class="mi">1000</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
-    <span class="n">shuffled_tab</span> <span class="o">=</span> <span class="n">ab_shuffle</span><span class="p">(</span><span class="n">narc</span><span class="p">)</span>
-    <span class="n">new_diff</span> <span class="o">=</span> <span class="n">ab_diff</span><span class="p">(</span><span class="n">shuffled_tab</span><span class="p">)</span>
+    <span class="n">new_diff</span> <span class="o">=</span> <span class="n">ab_diff</span><span class="p">(</span><span class="n">ab_shuffle</span><span class="p">(</span><span class="n">narc</span><span class="p">))</span>
     <span class="n">diffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">diffs</span><span class="p">,</span> <span class="n">new_diff</span><span class="p">)</span>
-    
+
+<span class="c1"># Remove the hashtag/comment symbol to see the array output</span>
 <span class="c1"># diffs</span>
 </pre></div>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="displaying-the-distribution-of-the-null-hypothesis-statistic">
+<h2>Displaying the distribution of the null hypothesis statistic<a class="headerlink" href="#displaying-the-distribution-of-the-null-hypothesis-statistic" title="Permalink to this headline">¶</a></h2>
+<p>Let’s create a third function, one that will take an array of simulated statistics along with an observed value and plot a histogram showing both.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ab_hist</span><span class="p">(</span><span class="n">myArray</span><span class="p">,</span> <span class="n">obs_diff</span><span class="p">):</span>
@@ -782,10 +876,138 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/11_33_0.png" src="../_images/11_33_0.png" />
+<img alt="../_images/11_36_0.png" src="../_images/11_36_0.png" />
 </div>
 </div>
-<p>Create a truth array for the number of randomized A/B differences in means that were less than the <code class="docutils literal notranslate"><span class="pre">observed_difference</span></code></p>
+<p>Conside what the above visualization means.</p>
+<ol class="simple">
+<li><p>The blue histogram represents the null hypothesis statistic</p></li>
+<li><p>The red line indicates the observed value of the statistic</p></li>
+</ol>
+<p>To calculate a <span class="math notranslate nohighlight">\(p\)</span>-value, we first creat a truth array for the number of randomized A/B differences in means that were less than the <code class="docutils literal notranslate"><span class="pre">observed_difference</span></code>. Then we can sum the truth array which counts all simulated values at least as extreme as the observed value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diffs</span> <span class="o">&lt;=</span> <span class="n">observed_difference</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False])
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">diffs</span> <span class="o">&lt;=</span> <span class="n">observed_difference</span><span class="p">)</span>
@@ -808,7 +1030,6 @@
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
 </pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -892,16 +1113,16 @@
     </thead>
     <tbody>
         <tr>
-            <td>M                </td> <td>99  </td>
+            <td>F                </td> <td>99  </td>
         </tr>
         <tr>
-            <td>F                </td> <td>86  </td>
+            <td>M                </td> <td>86  </td>
         </tr>
         <tr>
             <td>F                </td> <td>118 </td>
         </tr>
         <tr>
-            <td>F                </td> <td>113 </td>
+            <td>M                </td> <td>113 </td>
         </tr>
         <tr>
             <td>F                </td> <td>107 </td>
@@ -910,16 +1131,16 @@
             <td>F                </td> <td>123 </td>
         </tr>
         <tr>
-            <td>M                </td> <td>93  </td>
+            <td>F                </td> <td>93  </td>
         </tr>
         <tr>
             <td>F                </td> <td>126 </td>
         </tr>
         <tr>
-            <td>M                </td> <td>91  </td>
+            <td>F                </td> <td>91  </td>
         </tr>
         <tr>
-            <td>F                </td> <td>111 </td>
+            <td>M                </td> <td>111 </td>
         </tr>
     </tbody>
 </table>
@@ -932,7 +1153,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.315219421101773
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.687208216619979
 </pre></div>
 </div>
 </div>
@@ -959,7 +1180,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/11_43_0.png" src="../_images/11_43_0.png" />
+<img alt="../_images/11_47_0.png" src="../_images/11_47_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -970,7 +1191,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.203
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.215
 </pre></div>
 </div>
 </div>
@@ -1007,6 +1228,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="10.html" title="previous page">10. Lab 6</a>
+    <a class='right-next' id="next-link" href="../tests/1.html" title="next page">1.11 Narcissism, Perfectionism and A/B Testing</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

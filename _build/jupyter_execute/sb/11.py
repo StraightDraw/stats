@@ -1,4 +1,4 @@
-# 1.11 Narcissism, Perfectionism and A/B Testing
+# 1. A/B Testing Tools
 
 from datascience import *
 import numpy as np
@@ -14,18 +14,32 @@ I keep some data frames in CSV format accessible from my website. One of them is
 
 "At a time in your life when you are not involved with anyone, a person asks you out. This person has a great personality, but you do not find this person physically attractive. Do you accept the date?"
 
+The Stress1 and Stress2 variables are pre-post data collected from the 2nd week and 7th week of the semester respectively to see if college students experience more stress during midterms.
+
 pers = Table.read_table('http://faculty.ung.edu/rsinn/perfnarc.csv')
-pers.num_rows
-
-pers.labels
-
 pers
+
+## Tools for A/B Testing
+
+As we walk through an example with narcissism, we will build three functions that will help us conduct A/B tests.
+
+1. `ab_shuffle`
+2. `ab_diff`
+3. `ab_hist`
+
+All three expect an input of a 2-column table with the grouping variable in the first column and a numeric variable in the second.
+
+### Creating a 2-column table for A/B Testing
+
+We will use the grouping variable of biological sex and numeric variable of narcissism scores.
 
 narc = pers.select('Sex','Narc')
 
-The `nan` value indicates there is no value for that cell in the table. In this case, it's a survey item that went unanswered. The `numpy` function `nanmean` takes the average but ignores any `nan` values. In a clean table, we could just use `np.mean`, instead.
+narc.group('Sex')
 
 narc.group('Sex', np.average)
+
+### Calculating observed difference in means for A/B groups
 
 a_mean = narc.group(0,np.average).column(1).item(0)
 a_mean
@@ -38,27 +52,35 @@ observed_difference
 
 integer_bins = np.arange(15)
 narc.hist('Narc', group = "Sex", bins = integer_bins)
-_=plots.title('Narcissism by Sex')
+_= plots.title('Narcissism by Sex')
 
-## An A/B Test for differences in narcissism based on biological sex.
+### The A/B hypothesis test for differences in narcissism based on biological sex
 
-Notice that we simplify to the `narc` table which has only two columns, a grouping variable (Male/Female) and a numeric variable (narcissism score).
+The null hypothesis is that the male and female groups are drawn from the same distribution. If so, then randomly shuffling the grouping labels should not matter. The observed difference in A/B means should fall well within the distribution of shuffled differences in A/B means which we can simulate.
 
-narc
+### Creating `ab_shuffle`: a function for shuffling the grouping labels
 
-## Let's shuffle the labels in the grouping variable column
+Let's first demonstrate step by step what we need the function to do. Then we can create the function. The first code block below demonstrates our "shuffle" command which uses the `sample` method and draws without replacement.
+
+shuffle_sex = narc.sample(with_replacement = False)
+shuffle_sex.show(5)
 
 shuffle_sex = narc.sample(with_replacement = False).column(0)
 shuffle_sex
 
+After creating an array of shuffled labels, we need to include that array as column in our table. We can add the shuffled labels as a third column, then use the `select` method to create a two-column table with the columns in the correct order.
+
+shuffled_narc = narc.with_column("Shuffled Grouping",shuffle_sex)
+shuffled_narc.show(5)
+
 shuffled_narc = narc.with_column("Shuffled Grouping",shuffle_sex).select(2,1)
-shuffled_narc
+shuffled_narc.show(5)
 
 shuffled_narc.group('Shuffled Grouping',np.average)
 
-### Create a function that produces a random shuffle of the grouping variable column
+#### The `ab_shuffle` function
 
-We're copy-pasting the code from the previous 3-4 code blocks to make our function, and using the generic name `tab` for our data table.
+Our function just combines the previous several code blocks. Notice that the expected input is a two-column table with the grouping variable be in the first column.
 
 def ab_shuffle(tab):
     shuffle_group = tab.sample(with_replacement = False).column(0)
@@ -67,9 +89,9 @@ def ab_shuffle(tab):
 
 ab_shuffle(narc)
 
-### Function that calculates difference in means between shuffled A/B groups
+### Creating `ab_diff`: a function that calculates the difference in A/B group means
 
-From above, we were using the `.group` method to find our group means.
+We can add a function to the `.group` method to find the A/B group means.
 
 shuffled_narc.group('Shuffled Grouping',np.average)
 
@@ -82,7 +104,9 @@ b_mean
 diff = a_mean - b_mean
 diff
 
-We can see that we need to accept a generic two-column table where the grouping variable is listed first. Then we can use the above 3-4 to create our function.
+#### The `ab_diff` function
+
+Using the above code blocks as a template, we can write a function that grabs the means from the grouping table. Again, the expected input is a two-column table with the grouping variable first.
 
 def ab_diff(tab):
     tab.group(0,np.average)
@@ -92,18 +116,26 @@ def ab_diff(tab):
 
 ab_diff(shuffled_narc)
 
-### Run simulation lots of times
+## Simulating the statistic
+
+The statistic we need is the difference in shuffled A/B group means. Our plan is to use a `for` loop to repeatedly reshuffle the labels and calculate this statistic. The output will be an array representing a random sampling of this statistic.
+
+The engine in the `for` loop is quite simple. We shuffle the data table and calculate the difference in A/B means in one line using the two functions we created above.
 
 diffs = make_array()
 
 reps = 1000
 
 for i in range(reps):
-    shuffled_tab = ab_shuffle(narc)
-    new_diff = ab_diff(shuffled_tab)
+    new_diff = ab_diff(ab_shuffle(narc))
     diffs = np.append(diffs, new_diff)
-    
+
+# Remove the hashtag/comment symbol to see the array output
 # diffs
+
+## Displaying the distribution of the null hypothesis statistic
+
+Let's create a third function, one that will take an array of simulated statistics along with an observed value and plot a histogram showing both.
 
 def ab_hist(myArray, obs_diff):
     tab = Table().with_column('A/B Differencs',myArray)
@@ -112,7 +144,14 @@ def ab_hist(myArray, obs_diff):
 
 ab_hist(diffs,observed_difference)
 
-Create a truth array for the number of randomized A/B differences in means that were less than the `observed_difference`
+Conside what the above visualization means.
+
+1. The blue histogram represents the null hypothesis statistic
+2. The red line indicates the observed value of the statistic
+
+To calculate a $p$-value, we first creat a truth array for the number of randomized A/B differences in means that were less than the `observed_difference`. Then we can sum the truth array which counts all simulated values at least as extreme as the observed value.
+
+diffs <= observed_difference
 
 sum(diffs <= observed_difference)
 

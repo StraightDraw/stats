@@ -11,4 +11,7 @@ sections:
 - file: sb/08
 - file: sb/09
 - file: sb/10
-- file: sb/11
+- file: tests/0
+- file: tests/1
+- file: tests/2
+- file: tests/3

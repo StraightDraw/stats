@@ -34,13 +34,13 @@ Here is a preview of the cell contents:
 -------------------
 diffs = make_array()
 
-reps = 5000
+reps = 1000
 
 for i in range(reps):
-    shuffled_tab = ab_shuffle(narc)
-    new_diff = ab_diff(shuffled_tab)
+    new_diff = ab_diff(ab_shuffle(narc))
     diffs = np.append(diffs, new_diff)
-    
-diffs
+
+# Remove the hashtag/comment symbol to see the array output
+# diffs
 -------------------
 

@@ -1,4 +1,4 @@
-# 10. Lab 6
+# 10. Nighthawks Version of Lab 6
 
 We are creating a Nighthawks version of Lab 6. You should work on the official Lab 06 from the course schedule but use the hints and suggestions from this notebook to clarify your work.
 

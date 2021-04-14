@@ -1,4 +1,4 @@
-# 1.8 Caffeine and Sleep
+# 8. Conducting $t$-tests using Caffeine and Sleep Variables
 
 from datascience import *
 import numpy as np

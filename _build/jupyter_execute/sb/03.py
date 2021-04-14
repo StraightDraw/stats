@@ -1,4 +1,4 @@
-# 1.3 Functions and Cubes
+# 3. Writing Functions in Python
 
 from datascience import *
 import numpy as np

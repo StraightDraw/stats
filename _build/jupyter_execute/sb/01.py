@@ -1,4 +1,4 @@
-# 1.1 Narcissism
+# 1. Analyzing Data using Personality Variables
 
 from datascience import *
 import numpy as np

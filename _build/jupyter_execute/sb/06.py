@@ -1,4 +1,4 @@
-# 1.6 World Cities
+# 6. World Cities Data Set
 
 from datascience import *
 import numpy as np
