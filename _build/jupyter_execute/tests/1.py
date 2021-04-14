@@ -21,10 +21,11 @@ The basic process of A/B testing requires a grouping variable with two independe
 
 ````{margin}
 ```{tip}
-In applied statistics we often write our hypotheses in symbolic form where the Greek letter $\mu$ indicates the mean.
+We often write hypotheses in symbolic form where the Greek letter $\mu$ indicates *mean*.
 
-$$H_0 : \mu_A = \mu_B\\H_0 : \mu_A \neq \mu_B$$
+$$H_0 : \mu_A = \mu_B\\H_a : \mu_A \neq \mu_B$$
 
+The null hypothesis is abbreviated as $H_0$ while the alternative hypothesis is $H_a$.
 ```
 ````
 
