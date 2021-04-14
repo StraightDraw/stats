@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3. Writing Functions in Python &#8212; Intro to Applied Statistics</title>
+    <title>22. Matched Pairs Testing &#8212; Intro to Applied Statistics</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,8 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. Historical Stock Prices Data Set" href="04.html" />
-    <link rel="prev" title="2. Data Visualization with Bitcoin Data" href="02.html" />
+    <link rel="next" title="23. A/B Testing a Category Variable with 2 Levels" href="3.html" />
+    <link rel="prev" title="21. A/B Testing Examples" href="1.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -94,42 +94,42 @@
 </ul>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="01.html">
+  <a class="reference internal" href="../sb/01.html">
    1. Analyzing Data using Personality Variables
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="02.html">
+  <a class="reference internal" href="../sb/02.html">
    2. Data Visualization with Bitcoin Data
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/03.html">
    3. Writing Functions in Python
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="04.html">
+  <a class="reference internal" href="../sb/04.html">
    4. Historical Stock Prices Data Set
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="05.html">
+  <a class="reference internal" href="../sb/05.html">
    5. Subsetting Tables using World Airport Data and GIS Maps
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="06.html">
+  <a class="reference internal" href="../sb/06.html">
    6. World Cities Data Set
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="07.html">
+  <a class="reference internal" href="../sb/07.html">
    7. GIS Maps with National Parks Datga
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="08.html">
+  <a class="reference internal" href="../sb/08.html">
    8. Conducting
    <span class="math notranslate nohighlight">
     \(t\)
@@ -138,32 +138,32 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="09.html">
+  <a class="reference internal" href="../sb/09.html">
    9. Functions and Subsetting using Chattahoochee National Forest Recreation Areas
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="10.html">
+  <a class="reference internal" href="../sb/10.html">
    10. Lab 6
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../tests/0.html">
+  <a class="reference internal" href="0.html">
    20. A/B Testing Tools
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../tests/1.html">
+  <a class="reference internal" href="1.html">
    21. A/B Testing Examples
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tests/2.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    22. Matched Pairs Testing
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../tests/3.html">
+  <a class="reference internal" href="3.html">
    23. A/B Testing a Category Variable with 2 Levels
   </a>
  </li>
@@ -207,7 +207,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/sb/03.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/tests/2.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -232,7 +232,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/StraightDraw/stats/master?urlpath=tree/content/sb/03.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/StraightDraw/stats/master?urlpath=tree/content/tests/2.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -256,54 +256,28 @@
         
               <div>
                 
-  <div class="section" id="writing-functions-in-python">
-<h1>3. Writing Functions in Python<a class="headerlink" href="#writing-functions-in-python" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="matched-pairs-testing">
+<h1>22. Matched Pairs Testing<a class="headerlink" href="#matched-pairs-testing" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datascience</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
+
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plots</span>
 <span class="n">plots</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Let’s start out by creating a table of integers and their cubes. Then we can see how the <code class="docutils literal notranslate"><span class="pre">.apply</span></code> method works.</p>
+<p>We will continue to work with a subset of the <code class="docutils literal notranslate"><span class="pre">personality</span></code> table called <code class="docutils literal notranslate"><span class="pre">pers</span></code> which is suitable for A/B Testing using numeric variables Narcissism and Perfectionism.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ints</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>
-<span class="n">ints</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17,
-       18, 19, 20])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cubes</span> <span class="o">=</span> <span class="n">ints</span> <span class="o">**</span> <span class="mi">3</span>
-<span class="n">cubes</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   1,    8,   27,   64,  125,  216,  343,  512,  729, 1000, 1331,
-       1728, 2197, 2744, 3375, 4096, 4913, 5832, 6859, 8000], dtype=int32)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digits</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="s1">&#39;Integers&#39;</span><span class="p">,</span> <span class="n">ints</span><span class="p">,</span>
-                             <span class="s1">&#39;Cubes&#39;</span><span class="p">,</span> <span class="n">cubes</span><span class="p">)</span>
-<span class="n">digits</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;http://faculty.ung.edu/rsinn/perfnarc.csv&#39;</span><span class="p">)</span>
+<span class="n">pers</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -311,102 +285,28 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>Integers</th> <th>Cubes</th>
+            <th>Sex</th> <th>G21</th> <th>Greek</th> <th>AccDate</th> <th>Stress1</th> <th>Stress2</th> <th>Perf</th> <th>Narc</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>1       </td> <td>1    </td>
+            <td>F   </td> <td>N   </td> <td>N    </td> <td>N      </td> <td>9      </td> <td>7      </td> <td>99  </td> <td>3   </td>
         </tr>
         <tr>
-            <td>2       </td> <td>8    </td>
+            <td>F   </td> <td>Y   </td> <td>N    </td> <td>Y      </td> <td>11     </td> <td>13     </td> <td>86  </td> <td>2   </td>
         </tr>
         <tr>
-            <td>3       </td> <td>27   </td>
+            <td>F   </td> <td>N   </td> <td>Y    </td> <td>N      </td> <td>15     </td> <td>14     </td> <td>118 </td> <td>4   </td>
         </tr>
         <tr>
-            <td>4       </td> <td>64   </td>
+            <td>F   </td> <td>N   </td> <td>N    </td> <td>Y      </td> <td>16     </td> <td>15     </td> <td>113 </td> <td>2   </td>
         </tr>
         <tr>
-            <td>5       </td> <td>125  </td>
-        </tr>
-        <tr>
-            <td>6       </td> <td>216  </td>
-        </tr>
-        <tr>
-            <td>7       </td> <td>343  </td>
-        </tr>
-        <tr>
-            <td>8       </td> <td>512  </td>
-        </tr>
-        <tr>
-            <td>9       </td> <td>729  </td>
-        </tr>
-        <tr>
-            <td>10      </td> <td>1000 </td>
+            <td>F   </td> <td>Y   </td> <td>N    </td> <td>Y      </td> <td>17     </td> <td>17     </td> <td>107 </td> <td>8   </td>
         </tr>
     </tbody>
 </table>
-<p>... (10 rows omitted)</p></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cube_root</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cube_root</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cube_root</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.999999999999998
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digits</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">cube_root</span><span class="p">,</span><span class="s1">&#39;Cubes&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10., 11., 12., 13.,
-       14., 15., 16., 17., 18., 19., 20.])
-</pre></div>
-</div>
-</div>
-</div>
-<p>This can also be accomplished with the <code class="docutils literal notranslate"><span class="pre">.column</span></code> method.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cube_root</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Cubes&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10., 11., 12., 13.,
-       14., 15., 16., 17., 18., 19., 20.])
-</pre></div>
-</div>
-</div>
+<p>... (143 rows omitted)</p></div></div>
 </div>
 </div>
 
@@ -423,7 +323,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./sb"
+            path: "./tests"
         },
         predefinedOutput: true
     }
@@ -438,8 +338,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="02.html" title="previous page">2. Data Visualization with Bitcoin Data</a>
-    <a class='right-next' id="next-link" href="04.html" title="next page">4. Historical Stock Prices Data Set</a>
+    <a class='left-prev' id="prev-link" href="1.html" title="previous page">21. A/B Testing Examples</a>
+    <a class='right-next' id="next-link" href="3.html" title="next page">23. A/B Testing a Category Variable with 2 Levels</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

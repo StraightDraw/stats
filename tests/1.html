@@ -1,0 +1,747 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>21. A/B Testing Examples &#8212; Intro to Applied Statistics</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="22. Matched Pairs Testing" href="2.html" />
+    <link rel="prev" title="20. A/B Testing Tools" href="0.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/UNG.logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Intro to Applied Statistics</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Introduction to Applied Statistics
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/01.html">
+   1. Analyzing Data using Personality Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/02.html">
+   2. Data Visualization with Bitcoin Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/03.html">
+   3. Writing Functions in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/04.html">
+   4. Historical Stock Prices Data Set
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/05.html">
+   5. Subsetting Tables using World Airport Data and GIS Maps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/06.html">
+   6. World Cities Data Set
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/07.html">
+   7. GIS Maps with National Parks Datga
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/08.html">
+   8. Conducting
+   <span class="math notranslate nohighlight">
+    \(t\)
+   </span>
+   -tests using Caffeine and Sleep Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/09.html">
+   9. Functions and Subsetting using Chattahoochee National Forest Recreation Areas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/10.html">
+   10. Lab 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="0.html">
+   20. A/B Testing Tools
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   21. A/B Testing Examples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.html">
+   22. Matched Pairs Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.html">
+   23. A/B Testing a Category Variable with 2 Levels
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tests/1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/StraightDraw/stats/master?urlpath=tree/content/tests/1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-b-hypothesis-testing">
+   A/B Hypothesis Testing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-perfectionism">
+   Example: Perfectionism
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-with-perfectionism">
+   Example with perfectionism
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hypotheses">
+     Hypotheses
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulating-the-test-statistic">
+     Simulating the test statistic
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculate-p-value">
+     Calculate
+     <span class="math notranslate nohighlight">
+      \(p\)
+     </span>
+     -value.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conclusion">
+     Conclusion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-2-narcissism">
+   Example 2: Narcissism
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="a-b-testing-examples">
+<h1>21. A/B Testing Examples<a class="headerlink" href="#a-b-testing-examples" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datascience</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plots</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will continue to work with a subset of the <code class="docutils literal notranslate"><span class="pre">personality</span></code> table called <code class="docutils literal notranslate"><span class="pre">pers</span></code> which is suitable for A/B Testing using numeric variables Narcissism and Perfectionism.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;http://faculty.ung.edu/rsinn/perfnarc.csv&#39;</span><span class="p">)</span>
+<span class="n">pers</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Sex</th> <th>G21</th> <th>Greek</th> <th>AccDate</th> <th>Stress1</th> <th>Stress2</th> <th>Perf</th> <th>Narc</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>F   </td> <td>N   </td> <td>N    </td> <td>N      </td> <td>9      </td> <td>7      </td> <td>99  </td> <td>3   </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>Y   </td> <td>N    </td> <td>Y      </td> <td>11     </td> <td>13     </td> <td>86  </td> <td>2   </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>N   </td> <td>Y    </td> <td>N      </td> <td>15     </td> <td>14     </td> <td>118 </td> <td>4   </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>N   </td> <td>N    </td> <td>Y      </td> <td>16     </td> <td>15     </td> <td>113 </td> <td>2   </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>Y   </td> <td>N    </td> <td>Y      </td> <td>17     </td> <td>17     </td> <td>107 </td> <td>8   </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (143 rows omitted)</p></div></div>
+</div>
+<div class="section" id="a-b-hypothesis-testing">
+<h2>A/B Hypothesis Testing<a class="headerlink" href="#a-b-hypothesis-testing" title="Permalink to this headline">¶</a></h2>
+<p>The basic process of A/B testing requires a grouping variable with two independent levels and a numeric variable of interest. <em>Independent levels</em> means that no participant, not even theoretical ones, could simultaneously be in both groups A and B.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In applied statistics we often write our hypotheses in symbolic form where the Greek letter <span class="math notranslate nohighlight">\(\mu\)</span> indicates the mean.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}H_0 : \mu_A = \mu_B\\H_0 : \mu_A \neq \mu_B\end{split}\]</div>
+</div>
+</div>
+<ol class="simple">
+<li><p><strong>Null hypothesis.</strong> Groups A/B drawn from same distribution, e.g. <em>no difference in A/B group means</em>.</p></li>
+<li><p><strong>Alternative hypothesis.</strong> Groups A/B drawn from different distributions, e.g. <em>significant difference in A/B group means</em>.</p></li>
+<li><p><strong>Test statistic</strong>. Difference in means between shuffled A/B groups</p></li>
+<li><p>Simulate test statistic distribution</p></li>
+<li><p>Calculate <strong><span class="math notranslate nohighlight">\(p\)</span>-value</strong>, e.g. the probability the null hypothesis is true.</p></li>
+<li><p><strong>Statistical Conclusion.</strong> If <span class="math notranslate nohighlight">\(p&lt;0.05\)</span>, reject null. Else, fail to reject null.</p></li>
+<li><p><strong>Real world implications.</strong> State the results of hypothesis test in real world terms.</p></li>
+</ol>
+</div>
+<div class="section" id="example-perfectionism">
+<h2>Example: Perfectionism<a class="headerlink" href="#example-perfectionism" title="Permalink to this headline">¶</a></h2>
+<p>In the <span class="xref myst">A/B Testing Tools</span> section, we developed three helpful functions for A/B testing. Execute each code block so the functions are active.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ab_shuffle</span><span class="p">(</span><span class="n">tab</span><span class="p">):</span>
+    <span class="n">shuffle_group</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">with_replacement</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">shuffled_tab</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s2">&quot;Shuffled Grouping&quot;</span><span class="p">,</span><span class="n">shuffle_group</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">shuffled_tab</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ab_diff</span><span class="p">(</span><span class="n">tab</span><span class="p">):</span>
+    <span class="n">tab</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">)</span>
+    <span class="n">a_mean</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">b_mean</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a_mean</span> <span class="o">-</span> <span class="n">b_mean</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ab_hist</span><span class="p">(</span><span class="n">myArray</span><span class="p">,</span> <span class="n">observed_value</span><span class="p">):</span>
+    <span class="n">tab</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;A/B Differencs&#39;</span><span class="p">,</span><span class="n">myArray</span><span class="p">)</span>
+    <span class="n">tab</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">observed_value</span><span class="p">,</span> <span class="n">observed_value</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-with-perfectionism">
+<h2>Example with perfectionism<a class="headerlink" href="#example-with-perfectionism" title="Permalink to this headline">¶</a></h2>
+<p>Let’s conduct an A/B test on the perfectionism variable noting each step as we go. Our research question is whether perfectionism scores differ based upon biological sex. We take care to produce a two-column table with the grouping variable in the first column and the numeric variable in the second.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">perf</span> <span class="o">=</span> <span class="n">pers</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Perf&#39;</span><span class="p">)</span>
+<span class="n">perf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Sex</th> <th>Perf</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>F   </td> <td>99  </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>86  </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>118 </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>113 </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>107 </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>123 </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>93  </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>126 </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>91  </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>111 </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (138 rows omitted)</p></div></div>
+</div>
+<div class="section" id="hypotheses">
+<h3>Hypotheses<a class="headerlink" href="#hypotheses" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>null hypothesis</strong> is that the A/B groups were drawn from the same distribution. If that were the case, shuffling the labels of the grouping variables will not matter much at all. The observed difference will appear very likely when compared to the simulated test statistic distribution.</p>
+<p>The <strong>alternative hypothesis</strong> is that there is some significant difference between the two distributions. If so, the observed difference will look very different than the simulated test statistic distribution.</p>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">ab_diff</span></code> function to calculate the observed difference between the A/B groups.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obs_diff</span> <span class="o">=</span> <span class="n">ab_diff</span><span class="p">(</span><span class="n">perf</span><span class="p">)</span>
+<span class="n">obs_diff</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.5915966386554743
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="simulating-the-test-statistic">
+<h3>Simulating the test statistic<a class="headerlink" href="#simulating-the-test-statistic" title="Permalink to this headline">¶</a></h3>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">ab_shuffle</span></code> and <code class="docutils literal notranslate"><span class="pre">ab_diff</span></code> functions together to simulate one test statistic. Run the code block below several times. You should observe both positive and negative values and learn what typical values in the test statistic distribution look like.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ab_diff</span><span class="p">(</span><span class="n">ab_shuffle</span><span class="p">(</span><span class="n">perf</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.204668534080298
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we simulate the test statistic distribution and store the results in an array called <code class="docutils literal notranslate"><span class="pre">perf_diffs</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">perf_diffs</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+
+<span class="c1"># Set reps at 1,000 or less especially if running this in the cloud.</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="mi">2500</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+    <span class="n">new_diff</span> <span class="o">=</span> <span class="n">ab_diff</span><span class="p">(</span><span class="n">ab_shuffle</span><span class="p">(</span><span class="n">perf</span><span class="p">))</span>
+    <span class="n">perf_diffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">perf_diffs</span><span class="p">,</span> <span class="n">new_diff</span><span class="p">)</span>
+
+<span class="c1"># Remove comment below to see the array created by the for loop</span>
+<span class="c1"># perf_diffs    </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ab_hist</span><span class="p">(</span><span class="n">perf_diffs</span><span class="p">,</span><span class="n">obs_diff</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1_19_0.png" src="../_images/1_19_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="calculate-p-value">
+<h3>Calculate <span class="math notranslate nohighlight">\(p\)</span>-value.<a class="headerlink" href="#calculate-p-value" title="Permalink to this headline">¶</a></h3>
+<p>We first create a truth array to determine how often the simulated test statistics were as extreme (or more extreme) than the observed difference. We can sum the truth array and divide by the number of simulated statistics created by the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">perf_diffs</span> <span class="o">&gt;=</span> <span class="n">obs_diff</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>523
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_value</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">perf_diffs</span> <span class="o">&gt;=</span> <span class="n">obs_diff</span><span class="p">)</span> <span class="o">/</span> <span class="n">reps</span> 
+<span class="n">p_value</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2092
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h3>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h3>
+<p>Since <span class="math notranslate nohighlight">\(p\approx 0.2&gt;0.05\)</span>, we fail to reject the null since it might well be true. In real world terms, we have found no significant differences in the perfectionism levels based upon biological sex.</p>
+</div>
+</div>
+<div class="section" id="example-2-narcissism">
+<h2>Example 2: Narcissism<a class="headerlink" href="#example-2-narcissism" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">AccDate</span></code> variable is the Yes/No responses from UNG college students to this dating question: “At a time in your life when you are not involved with anyone, a person asks you out. This person has a great personality, but you do not find them pysically attractive. Do you accept the date?”</p>
+<p><em>Research Question.</em> Will those who have higher levels of narcissism say “No” to the date more often? We can use the <code class="docutils literal notranslate"><span class="pre">pers</span></code> data to test whether Yes-group or No-group on the dating question have higher levels of narcissism.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">narc</span> <span class="o">=</span> <span class="n">pers</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;AccDate&#39;</span><span class="p">,</span><span class="s1">&#39;Narc&#39;</span><span class="p">)</span>
+<span class="n">narc</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>AccDate</th> <th>Narc</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>N      </td> <td>3   </td>
+        </tr>
+        <tr>
+            <td>Y      </td> <td>2   </td>
+        </tr>
+        <tr>
+            <td>N      </td> <td>4   </td>
+        </tr>
+        <tr>
+            <td>Y      </td> <td>2   </td>
+        </tr>
+        <tr>
+            <td>Y      </td> <td>8   </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (143 rows omitted)</p></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">narc</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;AccDate&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>AccDate</th> <th>Narc average</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>N      </td> <td>5.29688     </td>
+        </tr>
+        <tr>
+            <td>Y      </td> <td>4           </td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>There appears to be some difference in the A/B group means. Let’s conduct the hypothesis test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obs_diff_narc</span> <span class="o">=</span> <span class="n">ab_diff</span><span class="p">(</span><span class="n">narc</span><span class="p">)</span>
+<span class="n">obs_diff_narc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.296875
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">narc_diff</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+
+<span class="c1"># Set reps to 1,000 or less, especially if using the cloud</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="mi">2500</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+    <span class="n">new_diff</span> <span class="o">=</span> <span class="n">ab_diff</span><span class="p">(</span><span class="n">ab_shuffle</span><span class="p">(</span><span class="n">narc</span><span class="p">))</span>
+    <span class="n">narc_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">narc_diff</span><span class="p">,</span><span class="n">new_diff</span><span class="p">)</span>
+    
+<span class="c1"># Remove comment hashtag below to see results array</span>
+<span class="c1">#narc_diff</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ab_hist</span><span class="p">(</span><span class="n">narc_diff</span><span class="p">,</span> <span class="n">obs_diff_narc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1_30_0.png" src="../_images/1_30_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">narc_diff</span> <span class="o">&gt;=</span> <span class="n">obs_diff_narc</span><span class="p">)</span> <span class="o">/</span> <span class="n">reps</span>
+<span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0012
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since <span class="math notranslate nohighlight">\(p = 0.004 &lt; 0.05\)</span>, we reject the null. We have strong evidence that those who say “No” to the date also have significantly higher levels of narcissism than those who say “Yes.”</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tests"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="0.html" title="previous page">20. A/B Testing Tools</a>
+    <a class='right-next' id="next-link" href="2.html" title="next page">22. Matched Pairs Testing</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Robb Sinn<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
