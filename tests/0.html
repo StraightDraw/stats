@@ -57,7 +57,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="21. A/B Testing Examples" href="1.html" />
-    <link rel="prev" title="10. Lab 6" href="../sb/10.html" />
+    <link rel="prev" title="10. Nighthawks Version of Lab 6" href="../sb/10.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -146,7 +146,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sb/10.html">
-   10. Lab 6
+   10. Nighthawks Version of Lab 6
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -167,6 +167,21 @@
  <li class="toctree-l1">
   <a class="reference internal" href="3.html">
    23. A/B Testing a Category Variable with 2 Levels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.html">
+   Bootstrap Confidence Intervals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.html#put-useful-functions-in-the-cell-below">
+   Put useful functions in the cell below
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.html#confidence-intervals">
+   Confidence Intervals
   </a>
  </li>
 </ul>
@@ -571,16 +586,16 @@
             <td>F   </td> <td>4   </td>
         </tr>
         <tr>
-            <td>F   </td> <td>3   </td>
+            <td>F   </td> <td>0   </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>9   </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>1   </td>
         </tr>
         <tr>
             <td>F   </td> <td>1   </td>
-        </tr>
-        <tr>
-            <td>F   </td> <td>5   </td>
-        </tr>
-        <tr>
-            <td>M   </td> <td>6   </td>
         </tr>
     </tbody>
 </table>
@@ -594,18 +609,18 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
-       &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;,
-       &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;,
-       &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;,
-       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;,
-       &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
-       &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;,
-       &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;,
-       &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;,
-       &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
-       &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;,
-       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;], dtype=&#39;&lt;U1&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;,
+       &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
+       &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;,
+       &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;,
+       &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;,
+       &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
+       &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;], dtype=&#39;&lt;U1&#39;)
 </pre></div>
 </div>
 </div>
@@ -633,13 +648,13 @@
             <td>F   </td> <td>2   </td> <td>M                </td>
         </tr>
         <tr>
-            <td>F   </td> <td>4   </td> <td>M                </td>
+            <td>F   </td> <td>4   </td> <td>F                </td>
         </tr>
         <tr>
             <td>F   </td> <td>2   </td> <td>F                </td>
         </tr>
         <tr>
-            <td>F   </td> <td>8   </td> <td>F                </td>
+            <td>F   </td> <td>8   </td> <td>M                </td>
         </tr>
     </tbody>
 </table>
@@ -667,13 +682,13 @@
             <td>M                </td> <td>2   </td>
         </tr>
         <tr>
-            <td>M                </td> <td>4   </td>
+            <td>F                </td> <td>4   </td>
         </tr>
         <tr>
             <td>F                </td> <td>2   </td>
         </tr>
         <tr>
-            <td>F                </td> <td>8   </td>
+            <td>M                </td> <td>8   </td>
         </tr>
     </tbody>
 </table>
@@ -694,10 +709,10 @@
     </thead>
     <tbody>
         <tr>
-            <td>F                </td> <td>4.65882     </td>
+            <td>F                </td> <td>4.47059     </td>
         </tr>
         <tr>
-            <td>M                </td> <td>4.42857     </td>
+            <td>M                </td> <td>4.68254     </td>
         </tr>
     </tbody>
 </table></div></div>
@@ -728,7 +743,7 @@
             <td>F                </td> <td>3   </td>
         </tr>
         <tr>
-            <td>M                </td> <td>2   </td>
+            <td>F                </td> <td>2   </td>
         </tr>
         <tr>
             <td>F                </td> <td>4   </td>
@@ -737,7 +752,7 @@
             <td>F                </td> <td>2   </td>
         </tr>
         <tr>
-            <td>M                </td> <td>8   </td>
+            <td>F                </td> <td>8   </td>
         </tr>
         <tr>
             <td>F                </td> <td>1   </td>
@@ -752,7 +767,7 @@
             <td>F                </td> <td>5   </td>
         </tr>
         <tr>
-            <td>M                </td> <td>1   </td>
+            <td>F                </td> <td>1   </td>
         </tr>
     </tbody>
 </table>
@@ -778,10 +793,10 @@
     </thead>
     <tbody>
         <tr>
-            <td>F                </td> <td>4.65882     </td>
+            <td>F                </td> <td>4.47059     </td>
         </tr>
         <tr>
-            <td>M                </td> <td>4.42857     </td>
+            <td>M                </td> <td>4.68254     </td>
         </tr>
     </tbody>
 </table></div></div>
@@ -794,7 +809,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.658823529411765
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.470588235294118
 </pre></div>
 </div>
 </div>
@@ -807,7 +822,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.428571428571429
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.682539682539683
 </pre></div>
 </div>
 </div>
@@ -820,7 +835,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2302521008403362
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.21195144724556503
 </pre></div>
 </div>
 </div>
@@ -841,7 +856,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2302521008403362
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.21195144724556503
 </pre></div>
 </div>
 </div>
@@ -877,7 +892,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ab_hist</span><span class="p">(</span><span class="n">myArray</span><span class="p">,</span> <span class="n">observed_value</span><span class="p">):</span>
-    <span class="n">tab</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;A/B Differencs&#39;</span><span class="p">,</span><span class="n">myArray</span><span class="p">)</span>
+    <span class="n">tab</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;A/B Differences&#39;</span><span class="p">,</span><span class="n">myArray</span><span class="p">)</span>
     <span class="n">tab</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">_</span> <span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">observed_value</span><span class="p">,</span> <span class="n">observed_value</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
@@ -955,7 +970,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../sb/10.html" title="previous page">10. Lab 6</a>
+    <a class='left-prev' id="prev-link" href="../sb/10.html" title="previous page">10. Nighthawks Version of Lab 6</a>
     <a class='right-next' id="next-link" href="1.html" title="next page">21. A/B Testing Examples</a>
 
     </div>
