@@ -56,6 +56,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bootstrap Confidence Intervals" href="4.html" />
     <link rel="prev" title="22. Matched Pairs Testing" href="2.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -168,6 +169,21 @@
    23. A/B Testing a Category Variable with 2 Levels
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.html">
+   Bootstrap Confidence Intervals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.html#put-useful-functions-in-the-cell-below">
+   Put useful functions in the cell below
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.html#confidence-intervals">
+   Confidence Intervals
+  </a>
+ </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -256,8 +272,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#does-sex-affect-yes-no-response-to-dating-question">
-   Does sex affect Yes/No response to dating question?
+  <a class="reference internal nav-link" href="#does-biological-sex-affect-yes-no-response-to-dating-question">
+   Does biological sex affect Yes/No response to dating question?
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -395,8 +411,8 @@
 </table>
 <p>... (138 rows omitted)</p></div></div>
 </div>
-<div class="section" id="does-sex-affect-yes-no-response-to-dating-question">
-<h2>Does sex affect Yes/No response to dating question?<a class="headerlink" href="#does-sex-affect-yes-no-response-to-dating-question" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="does-biological-sex-affect-yes-no-response-to-dating-question">
+<h2>Does biological sex affect Yes/No response to dating question?<a class="headerlink" href="#does-biological-sex-affect-yes-no-response-to-dating-question" title="Permalink to this headline">¶</a></h2>
 <p>A pivot table is the perfect data summary to reflect the difference in responses based on biological sex.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -456,6 +472,15 @@
     </thead>
     <tbody>
         <tr>
+            <td>F   </td> <td>Y      </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>N      </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>N      </td>
+        </tr>
+        <tr>
             <td>M   </td> <td>Y      </td>
         </tr>
         <tr>
@@ -468,19 +493,10 @@
             <td>F   </td> <td>Y      </td>
         </tr>
         <tr>
-            <td>F   </td> <td>N      </td>
-        </tr>
-        <tr>
             <td>F   </td> <td>Y      </td>
         </tr>
         <tr>
-            <td>F   </td> <td>N      </td>
-        </tr>
-        <tr>
-            <td>M   </td> <td>N      </td>
-        </tr>
-        <tr>
-            <td>M   </td> <td>N      </td>
+            <td>F   </td> <td>Y      </td>
         </tr>
         <tr>
             <td>M   </td> <td>N      </td>
@@ -498,13 +514,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;,
-       &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;,
-       &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;,
-       &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;,
-       &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;,
-       &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;,
-       &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;], dtype=&#39;&lt;U1&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;,
+       &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;,
+       &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;,
+       &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;,
+       &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;,
+       &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;,
+       &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;], dtype=&#39;&lt;U1&#39;)
 </pre></div>
 </div>
 </div>
@@ -516,7 +532,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>45
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>53
 </pre></div>
 </div>
 </div>
@@ -572,7 +588,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.13722
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.13638
 </pre></div>
 </div>
 </div>
@@ -673,9 +689,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Improved&#39;, &#39;Did Not&#39;, &#39;Improved&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;,
-       &#39;Improved&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Improved&#39;, &#39;Improved&#39;,
-       &#39;Did Not&#39;, &#39;Improved&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;], dtype=&#39;&lt;U8&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Improved&#39;, &#39;Improved&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;,
+       &#39;Improved&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Improved&#39;,
+       &#39;Improved&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;],
+      dtype=&#39;&lt;U8&#39;)
 </pre></div>
 </div>
 </div>
@@ -729,7 +746,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0126
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01284
 </pre></div>
 </div>
 </div>
@@ -767,6 +784,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="2.html" title="previous page">22. Matched Pairs Testing</a>
+    <a class='right-next' id="next-link" href="4.html" title="next page">Bootstrap Confidence Intervals</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

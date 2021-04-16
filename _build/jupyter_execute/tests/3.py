@@ -20,7 +20,7 @@ pers.show(5)
 date = pers.select('Sex','AccDate')
 date
 
-## Does sex affect Yes/No response to dating question?
+## Does biological sex affect Yes/No response to dating question?
 
 A pivot table is the perfect data summary to reflect the difference in responses based on biological sex.
 

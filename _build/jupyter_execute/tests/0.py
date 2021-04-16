@@ -139,7 +139,7 @@ for i in range(reps):
 Let's create a third function, one that will take an array of simulated statistics along with an observed value and plot a histogram showing both.
 
 def ab_hist(myArray, observed_value):
-    tab = Table().with_column('A/B Differencs',myArray)
+    tab = Table().with_column('A/B Differences',myArray)
     tab.hist(0)
     _ = plots.plot([observed_value, observed_value], [0, 0.1], color='red', lw=2)
 
