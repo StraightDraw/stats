@@ -257,8 +257,30 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matched-pairs">
-   Matched Pairs
+  <a class="reference internal nav-link" href="#matched-pairs-data">
+   Matched Pairs Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gain-scores">
+     Gain Scores
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulating-the-null-hypothesis-in-a-pretest-vs-posttest-design">
+     Simulating the null hypothesis in a pretest vs. posttest design
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#results-stress-example">
+     Results: Stress example
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-murder-rates-in-u-s-states">
+   Example: Murder rates in U.S. states
   </a>
  </li>
 </ul>
@@ -324,8 +346,8 @@
 </table>
 <p>... (143 rows omitted)</p></div></div>
 </div>
-<div class="section" id="matched-pairs">
-<h2>Matched Pairs<a class="headerlink" href="#matched-pairs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="matched-pairs-data">
+<h2>Matched Pairs Data<a class="headerlink" href="#matched-pairs-data" title="Permalink to this headline">¶</a></h2>
 <p>The exact same students were surveyed in what researchers call a pre-post format. This is <strong>not</strong> an A/B test because we don’t have two groups of subjects A and B, we have one group only. Let’s gather the columns we need.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -376,6 +398,8 @@
 </table>
 <p>... (138 rows omitted)</p></div></div>
 </div>
+<div class="section" id="gain-scores">
+<h3>Gain Scores<a class="headerlink" href="#gain-scores" title="Permalink to this headline">¶</a></h3>
 <p>The null hypothesis is that there is no change in stress between the pretest measure (2nd week) and the posttest measure (7th week). We are primarily interested in how individual stress scores changed, either increasing or decreasing, so we produce a third column called <code class="docutils literal notranslate"><span class="pre">Gain</span></code> to measure the increase from pre to post.</p>
 <div class="math notranslate nohighlight">
 \[\text{Gain} = \text{Post} - \text{Pre}\]</div>
@@ -468,6 +492,9 @@
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="simulating-the-null-hypothesis-in-a-pretest-vs-posttest-design">
+<h3>Simulating the null hypothesis in a pretest vs. posttest design<a class="headerlink" href="#simulating-the-null-hypothesis-in-a-pretest-vs-posttest-design" title="Permalink to this headline">¶</a></h3>
 <p>The null hypothesis is that there is no difference between pretest and posttest scores. In that case, the gain would be zero, and it would not matter if we switched the pre and post scores. That’s exactly how we will randomize the test statistic: randomly change the signs of the gain scores.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -491,21 +518,21 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">sign</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">sign</span><span class="p">,</span><span class="mi">148</span><span class="p">)</span>
 <span class="n">ones</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1,  1, -1, -1, -1, -1,  1,  1, -1,  1, -1,  1, -1, -1,  1, -1,  1,
-        1,  1, -1,  1,  1,  1,  1,  1, -1, -1,  1, -1, -1,  1, -1,  1,  1,
-       -1, -1, -1,  1, -1, -1,  1, -1,  1, -1,  1, -1, -1, -1, -1,  1, -1,
-       -1,  1, -1,  1, -1,  1, -1, -1, -1,  1, -1, -1, -1,  1, -1,  1,  1,
-        1,  1,  1, -1,  1,  1, -1, -1,  1,  1,  1,  1,  1, -1, -1,  1,  1,
-        1,  1,  1,  1,  1, -1, -1, -1,  1, -1,  1, -1,  1, -1,  1,  1, -1,
-       -1,  1,  1, -1, -1,  1, -1, -1,  1, -1, -1,  1,  1,  1, -1,  1,  1,
-        1, -1,  1, -1, -1, -1, -1,  1, -1,  1,  1,  1,  1, -1, -1,  1,  1,
-       -1,  1, -1,  1, -1, -1,  1,  1,  1,  1,  1,  1], dtype=int64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1, -1,  1, -1, -1, -1, -1, -1, -1, -1, -1,  1, -1, -1, -1, -1, -1,
+       -1, -1,  1,  1, -1, -1,  1, -1, -1, -1, -1,  1,  1,  1,  1, -1, -1,
+        1, -1,  1, -1, -1,  1, -1,  1,  1, -1,  1, -1,  1, -1, -1, -1, -1,
+        1, -1,  1, -1,  1,  1,  1,  1, -1, -1,  1,  1,  1, -1, -1,  1,  1,
+        1, -1, -1, -1, -1,  1, -1,  1,  1, -1,  1, -1, -1,  1,  1,  1, -1,
+        1, -1,  1, -1, -1,  1, -1, -1, -1,  1, -1,  1,  1,  1,  1, -1,  1,
+        1,  1,  1,  1, -1,  1, -1,  1, -1, -1,  1,  1,  1, -1, -1,  1,  1,
+        1,  1,  1, -1,  1, -1,  1, -1, -1,  1,  1,  1, -1, -1, -1,  1, -1,
+        1,  1, -1,  1,  1, -1,  1,  1, -1,  1, -1,  1], dtype=int64)
 </pre></div>
 </div>
 </div>
@@ -519,18 +546,18 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  2,   2,   1,   1,   0,   3,   2,   0,  -5,  -2,   2,   5,  -1,
-         6,   0,   2,   5,   2,   1,   6,   4,   2,  -2,   5,   0,   0,
-         1,  -2,  -3,   1,   3,   1,  -1,  -3,   0,   0,  -6,  -2,  -5,
-        -2,   3,   1,   0,  -1,   0,   4,  -6,   4,  -3,   5,   0,  -4,
-         2,  -7,   1,  -4, -10,   2,  -3,  -2,   4,   7,  -5,   2,  -3,
-         1,  -1,   4,  -4,   0,   6,  -2,  -3,   2,   5,  -1,   2,  -3,
-        -1,   0,   0,   0,   0,   0,   0,   1,   0,   2,  -2,   0,  -6,
-        -1,  -4,   0,  -1,  -3,  -1,   4,  -3,   1,   1,  -3,   0,   7,
-         5,   0,  -1,  -2,  -1,  -5,   0,   4,   4,   2,  -1,   0,   1,
-         1,  -4,  -2,  -5,   4,  -3,  -2,  -2,  -3,   4,  -2,  -1,   4,
-         4,   9,   5,  -2,   1,   3,  -5,   5,   3,   0,   0,   0,   7,
-        12,   0,  -2,   3,  -4], dtype=int64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ -2,  -2,  -1,   1,   0,   3,  -2,   0,  -5,   2,   2,   5,  -1,
+         6,   0,   2,  -5,  -2,  -1,  -6,   4,  -2,   2,   5,   0,   0,
+         1,   2,   3,  -1,   3,  -1,   1,   3,   0,   0,   6,   2,  -5,
+         2,  -3,  -1,   0,  -1,   0,   4,   6,   4,  -3,  -5,   0,   4,
+        -2,   7,  -1,   4, -10,  -2,   3,  -2,  -4,  -7,   5,  -2,   3,
+         1,  -1,   4,  -4,   0,  -6,  -2,   3,   2,   5,   1,   2,   3,
+        -1,   0,   0,   0,   0,   0,   0,   1,   0,   2,   2,   0,   6,
+        -1,  -4,   0,   1,   3,   1,   4,   3,   1,  -1,   3,   0,   7,
+         5,   0,  -1,  -2,  -1,   5,   0,   4,  -4,   2,  -1,   0,   1,
+         1,  -4,  -2,   5,   4,  -3,   2,  -2,   3,  -4,  -2,  -1,   4,
+         4,  -9,   5,  -2,   1,  -3,   5,   5,   3,   0,   0,   0,   7,
+        12,   0,  -2,  -3,  -4], dtype=int64)
 </pre></div>
 </div>
 </div>
@@ -583,16 +610,34 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0012
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00108
 </pre></div>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="results-stress-example">
+<h3>Results: Stress example<a class="headerlink" href="#results-stress-example" title="Permalink to this headline">¶</a></h3>
 <p>Reject the null hypothesis. There appears to be a significant increase in stress at midterms compared to the second week of the semester.</p>
+</div>
+</div>
+<div class="section" id="example-murder-rates-in-u-s-states">
+<h2>Example: Murder rates in U.S. states<a class="headerlink" href="#example-murder-rates-in-u-s-states" title="Permalink to this headline">¶</a></h2>
+<p>The example data and research question were provided in the Data8 materials received from Berkeley (Lab 7). When investigating whether the death penalty could serve as a deterrent (and ignoring all political and moral aspects of the question), the fact that the death penalty was ruled unconstitutional by the U.S. Supreme Court in 1972 was noted as a natural experiment. The 44 states that had the death penalty at the time exprienced an indavertent pretest-posttest design.</p>
+<p>The Data8 materials incorrectly performed an A/B test on this paired data. The resulting <span class="math notranslate nohighlight">\(p\)</span>-value is approximately 0.25, so the proper conclusion is to fail to reject the null which suggests the death penalty was no detterent. Murder rates were not significantly different in 1973 when compared with 1971 rates.</p>
+<p>Yet, the correct way to test paired data is to compare the increase or decrease in each state, not to randomly reshuffle the years of 1971 and 1973 as if they were demographic labels. We will use a matched pairs design to evaluate the results as if they were a pre-post design.</p>
+<p>The code block below recreates the needed data set for our work. We have to eliminate the six states that did not have the death penalty in 1971, then isolate the murder rates in 1971 and 1973 respectively.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">murder</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;http://faculty.ung.edu/rsinn/crime_rates.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">,</span> <span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;Population&#39;</span><span class="p">,</span> <span class="s1">&#39;Murder Rate&#39;</span><span class="p">)</span>
-<span class="n">murder</span><span class="o">.</span><span class="n">set_format</span><span class="p">(</span><span class="s2">&quot;Population&quot;</span><span class="p">,</span> <span class="n">NumberFormatter</span><span class="p">)</span>
+<span class="n">non_death_penalty_states</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="s1">&#39;Alaska&#39;</span><span class="p">,</span> <span class="s1">&#39;Hawaii&#39;</span><span class="p">,</span> <span class="s1">&#39;Maine&#39;</span><span class="p">,</span> <span class="s1">&#39;Michigan&#39;</span><span class="p">,</span> <span class="s1">&#39;Wisconsin&#39;</span><span class="p">,</span> <span class="s1">&#39;Minnesota&#39;</span><span class="p">)</span>
+<span class="n">murder_1971</span> <span class="o">=</span> <span class="n">murder</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">,</span><span class="n">are</span><span class="o">.</span><span class="n">not_contained_in</span><span class="p">(</span><span class="n">non_death_penalty_states</span><span class="p">))</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="mi">1971</span><span class="p">)</span>
+<span class="n">murder_1973</span> <span class="o">=</span> <span class="n">murder</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">,</span><span class="n">are</span><span class="o">.</span><span class="n">not_contained_in</span><span class="p">(</span><span class="n">non_death_penalty_states</span><span class="p">))</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="mi">1973</span><span class="p">)</span>
+<span class="n">pre_post_murder</span> <span class="o">=</span> <span class="n">murder_1971</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">,</span><span class="n">murder_1973</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">,</span><span class="s1">&#39;Murder Rate&#39;</span><span class="p">,</span> <span class="s1">&#39;Murder Rate_2&#39;</span><span class="p">)</span>
+<span class="n">pre_post_murder</span> <span class="o">=</span> <span class="p">(</span><span class="n">pre_post_murder</span>
+                   <span class="o">.</span><span class="n">relabel</span><span class="p">(</span><span class="s1">&#39;Murder Rate&#39;</span><span class="p">,</span> <span class="s1">&#39;Murder Rate 1971&#39;</span><span class="p">)</span>
+                   <span class="o">.</span><span class="n">relabel</span><span class="p">(</span><span class="s1">&#39;Murder Rate_2&#39;</span><span class="p">,</span> <span class="s1">&#39;Murder Rate 1973&#39;</span><span class="p">))</span>
+<span class="n">pre_post_murder</span>
 </pre></div>
 </div>
 </div>
@@ -600,102 +645,39 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>State</th> <th>Year</th> <th>Population</th> <th>Murder Rate</th>
+            <th>State</th> <th>Murder Rate 1971</th> <th>Murder Rate 1973</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>Alaska</td> <td>1960</td> <td>226,167   </td> <td>10.2       </td>
+            <td>Alabama    </td> <td>15.1            </td> <td>13.2            </td>
         </tr>
         <tr>
-            <td>Alaska</td> <td>1961</td> <td>234,000   </td> <td>11.5       </td>
+            <td>Arizona    </td> <td>6.7             </td> <td>8.1             </td>
         </tr>
         <tr>
-            <td>Alaska</td> <td>1962</td> <td>246,000   </td> <td>4.5        </td>
+            <td>Arkansas   </td> <td>10.5            </td> <td>8.8             </td>
         </tr>
         <tr>
-            <td>Alaska</td> <td>1963</td> <td>248,000   </td> <td>6.5        </td>
+            <td>California </td> <td>8.1             </td> <td>9               </td>
         </tr>
         <tr>
-            <td>Alaska</td> <td>1964</td> <td>250,000   </td> <td>10.4       </td>
+            <td>Colorado   </td> <td>6.5             </td> <td>7.9             </td>
         </tr>
         <tr>
-            <td>Alaska</td> <td>1965</td> <td>253,000   </td> <td>6.3        </td>
+            <td>Connecticut</td> <td>3.1             </td> <td>3.3             </td>
         </tr>
         <tr>
-            <td>Alaska</td> <td>1966</td> <td>272,000   </td> <td>12.9       </td>
+            <td>Delaware   </td> <td>6.1             </td> <td>5.9             </td>
         </tr>
         <tr>
-            <td>Alaska</td> <td>1967</td> <td>272,000   </td> <td>9.6        </td>
+            <td>Florida    </td> <td>13.3            </td> <td>15.4            </td>
         </tr>
         <tr>
-            <td>Alaska</td> <td>1968</td> <td>277,000   </td> <td>10.5       </td>
+            <td>Georgia    </td> <td>16              </td> <td>17.4            </td>
         </tr>
         <tr>
-            <td>Alaska</td> <td>1969</td> <td>282,000   </td> <td>10.6       </td>
-        </tr>
-    </tbody>
-</table>
-<p>... (2190 rows omitted)</p></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">non_death_penalty_states</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="s1">&#39;Alaska&#39;</span><span class="p">,</span> <span class="s1">&#39;Hawaii&#39;</span><span class="p">,</span> <span class="s1">&#39;Maine&#39;</span><span class="p">,</span> <span class="s1">&#39;Michigan&#39;</span><span class="p">,</span> <span class="s1">&#39;Wisconsin&#39;</span><span class="p">,</span> <span class="s1">&#39;Minnesota&#39;</span><span class="p">)</span>
-<span class="n">non_death_penalty_states</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Alaska&#39;, &#39;Hawaii&#39;, &#39;Maine&#39;, &#39;Michigan&#39;, &#39;Wisconsin&#39;, &#39;Minnesota&#39;],
-      dtype=&#39;&lt;U9&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">murder_1971</span> <span class="o">=</span> <span class="n">murder</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">,</span><span class="n">are</span><span class="o">.</span><span class="n">not_contained_in</span><span class="p">(</span><span class="n">non_death_penalty_states</span><span class="p">))</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="mi">1971</span><span class="p">)</span>
-<span class="n">murder_1971</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><table border="1" class="dataframe">
-    <thead>
-        <tr>
-            <th>State</th> <th>Year</th> <th>Population</th> <th>Murder Rate</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Alabama    </td> <td>1971</td> <td>3,479,000 </td> <td>15.1       </td>
-        </tr>
-        <tr>
-            <td>Arkansas   </td> <td>1971</td> <td>1,944,000 </td> <td>10.5       </td>
-        </tr>
-        <tr>
-            <td>Arizona    </td> <td>1971</td> <td>1,849,000 </td> <td>6.7        </td>
-        </tr>
-        <tr>
-            <td>California </td> <td>1971</td> <td>20,223,000</td> <td>8.1        </td>
-        </tr>
-        <tr>
-            <td>Colorado   </td> <td>1971</td> <td>2,283,000 </td> <td>6.5        </td>
-        </tr>
-        <tr>
-            <td>Connecticut</td> <td>1971</td> <td>3,081,000 </td> <td>3.1        </td>
-        </tr>
-        <tr>
-            <td>Delaware   </td> <td>1971</td> <td>558,000   </td> <td>6.1        </td>
-        </tr>
-        <tr>
-            <td>Florida    </td> <td>1971</td> <td>7,041,000 </td> <td>13.3       </td>
-        </tr>
-        <tr>
-            <td>Georgia    </td> <td>1971</td> <td>4,664,000 </td> <td>16         </td>
-        </tr>
-        <tr>
-            <td>Iowa       </td> <td>1971</td> <td>2,852,000 </td> <td>1.8        </td>
+            <td>Idaho      </td> <td>3.3             </td> <td>2.6             </td>
         </tr>
     </tbody>
 </table>
@@ -703,234 +685,12 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">murder_1973</span> <span class="o">=</span> <span class="n">murder</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">,</span><span class="n">are</span><span class="o">.</span><span class="n">not_contained_in</span><span class="p">(</span><span class="n">non_death_penalty_states</span><span class="p">))</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="mi">1973</span><span class="p">)</span>
-<span class="n">murder_1973</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><table border="1" class="dataframe">
-    <thead>
-        <tr>
-            <th>State</th> <th>Year</th> <th>Population</th> <th>Murder Rate</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Alabama    </td> <td>1973</td> <td>3,539,000 </td> <td>13.2       </td>
-        </tr>
-        <tr>
-            <td>Arkansas   </td> <td>1973</td> <td>2,037,000 </td> <td>8.8        </td>
-        </tr>
-        <tr>
-            <td>Arizona    </td> <td>1973</td> <td>2,058,000 </td> <td>8.1        </td>
-        </tr>
-        <tr>
-            <td>California </td> <td>1973</td> <td>20,601,000</td> <td>9          </td>
-        </tr>
-        <tr>
-            <td>Colorado   </td> <td>1973</td> <td>2,437,000 </td> <td>7.9        </td>
-        </tr>
-        <tr>
-            <td>Connecticut</td> <td>1973</td> <td>3,076,000 </td> <td>3.3        </td>
-        </tr>
-        <tr>
-            <td>Delaware   </td> <td>1973</td> <td>576,000   </td> <td>5.9        </td>
-        </tr>
-        <tr>
-            <td>Florida    </td> <td>1973</td> <td>7,678,000 </td> <td>15.4       </td>
-        </tr>
-        <tr>
-            <td>Georgia    </td> <td>1973</td> <td>4,786,000 </td> <td>17.4       </td>
-        </tr>
-        <tr>
-            <td>Iowa       </td> <td>1973</td> <td>2,904,000 </td> <td>2.2        </td>
-        </tr>
-    </tbody>
-</table>
-<p>... (34 rows omitted)</p></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ab_murder</span> <span class="o">=</span> <span class="n">murder_1971</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">murder_1973</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span><span class="s1">&#39;Murder Rate&#39;</span><span class="p">)</span>
-<span class="n">ab_murder</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><table border="1" class="dataframe">
-    <thead>
-        <tr>
-            <th>Year</th> <th>Murder Rate</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1971</td> <td>15.1       </td>
-        </tr>
-        <tr>
-            <td>1971</td> <td>10.5       </td>
-        </tr>
-        <tr>
-            <td>1971</td> <td>6.7        </td>
-        </tr>
-        <tr>
-            <td>1971</td> <td>8.1        </td>
-        </tr>
-        <tr>
-            <td>1971</td> <td>6.5        </td>
-        </tr>
-        <tr>
-            <td>1971</td> <td>3.1        </td>
-        </tr>
-        <tr>
-            <td>1971</td> <td>6.1        </td>
-        </tr>
-        <tr>
-            <td>1971</td> <td>13.3       </td>
-        </tr>
-        <tr>
-            <td>1971</td> <td>16         </td>
-        </tr>
-        <tr>
-            <td>1971</td> <td>1.8        </td>
-        </tr>
-    </tbody>
-</table>
-<p>... (78 rows omitted)</p></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ab_diff</span><span class="p">(</span><span class="n">tab</span><span class="p">):</span>
-    <span class="n">tab</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">)</span>
-    <span class="n">a_mean</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">b_mean</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">a_mean</span> <span class="o">-</span> <span class="n">b_mean</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">observed_diff</span> <span class="o">=</span> <span class="n">ab_diff</span><span class="p">(</span><span class="n">ab_murder</span><span class="p">)</span>
-<span class="n">observed_diff</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.6068181600659095
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ab_shuffle</span><span class="p">(</span><span class="n">tab</span><span class="p">):</span>
-    <span class="n">shuffle_group</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">with_replacement</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">shuffled_tab</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s2">&quot;Shuffled Grouping&quot;</span><span class="p">,</span><span class="n">shuffle_group</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">shuffled_tab</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diffs</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pre</span> <span class="o">=</span> <span class="n">pre_post_murder</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">post</span> <span class="o">=</span> <span class="n">pre_post_murder</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">gain</span> <span class="o">=</span> <span class="n">post</span> <span class="o">-</span> <span class="n">pre</span>
 
-<span class="c1"># Set repetititions to 1,000 or less, especially if you&#39;re working in the cloud.</span>
-<span class="n">repetitions</span> <span class="o">=</span> <span class="mi">5000</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
-    <span class="n">new_diff</span> <span class="o">=</span> <span class="n">ab_diff</span><span class="p">(</span><span class="n">ab_shuffle</span><span class="p">(</span><span class="n">ab_murder</span><span class="p">))</span>
-    <span class="n">diffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">diffs</span><span class="p">,</span> <span class="n">new_diff</span><span class="p">)</span>
-
-<span class="c1"># Remove hashtag comment below to see results array</span>
-<span class="c1">#diffs</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ab_hist</span><span class="p">(</span><span class="n">diffs</span><span class="p">,</span> <span class="n">observed_diff</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/2_33_0.png" src="../_images/2_33_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_value</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">diffs</span> <span class="o">&lt;=</span> <span class="n">observed_diff</span><span class="p">)</span> <span class="o">/</span> <span class="n">repetitions</span>
-<span class="n">p_value</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2174
-</pre></div>
-</div>
-</div>
-</div>
-<p>The result of the A/B test is to fail to reject the null. There is no evidence for a difference in murder rates between 1971 and 1973, so there is no evidence that the death penalty served as a detterent. However, this should not be an A/B test at all. We have matched pairs data with each state have a pretest score (murder rate in ‘71) and posttest score (murder rate in ‘73).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prepost_murder</span> <span class="o">=</span> <span class="n">murder_1971</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">,</span> <span class="n">murder_1973</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
-<span class="n">prepost_murder</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><table border="1" class="dataframe">
-    <thead>
-        <tr>
-            <th>State</th> <th>Murder Rate</th> <th>Murder Rate_2</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Alabama    </td> <td>15.1       </td> <td>13.2         </td>
-        </tr>
-        <tr>
-            <td>Arizona    </td> <td>6.7        </td> <td>8.1          </td>
-        </tr>
-        <tr>
-            <td>Arkansas   </td> <td>10.5       </td> <td>8.8          </td>
-        </tr>
-        <tr>
-            <td>California </td> <td>8.1        </td> <td>9            </td>
-        </tr>
-        <tr>
-            <td>Colorado   </td> <td>6.5        </td> <td>7.9          </td>
-        </tr>
-        <tr>
-            <td>Connecticut</td> <td>3.1        </td> <td>3.3          </td>
-        </tr>
-        <tr>
-            <td>Delaware   </td> <td>6.1        </td> <td>5.9          </td>
-        </tr>
-        <tr>
-            <td>Florida    </td> <td>13.3       </td> <td>15.4         </td>
-        </tr>
-        <tr>
-            <td>Georgia    </td> <td>16         </td> <td>17.4         </td>
-        </tr>
-        <tr>
-            <td>Idaho      </td> <td>3.3        </td> <td>2.6          </td>
-        </tr>
-    </tbody>
-</table>
-<p>... (34 rows omitted)</p></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pre</span> <span class="o">=</span> <span class="n">prepost_murder</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">post</span> <span class="o">=</span> <span class="n">prepost_murder</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">gain_m</span> <span class="o">=</span> <span class="n">post</span> <span class="o">-</span> <span class="n">pre</span>
-
-<span class="n">obs_gain_murder</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">gain_m</span><span class="p">)</span>
-<span class="n">obs_gain_murder</span>
+<span class="n">obs_murder_rate_gain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">gain</span><span class="p">)</span>
+<span class="n">obs_murder_rate_gain</span>
 </pre></div>
 </div>
 </div>
@@ -942,7 +702,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg_gain_murder</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">murder_rate_gain</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
 
 <span class="c1"># Set reps to 2k or less especially if working in the cloud</span>
 <span class="n">reps</span> <span class="o">=</span> <span class="mi">25000</span>
@@ -950,7 +710,7 @@
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
     <span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">sign</span><span class="p">,</span><span class="mi">44</span><span class="p">)</span>
     <span class="n">new_avg_gain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">ones</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span>
-    <span class="n">avg_gain_murder</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">avg_gain_murder</span><span class="p">,</span> <span class="n">new_avg_gain</span><span class="p">)</span>
+    <span class="n">murder_rate_gain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">murder_rate_gain</span><span class="p">,</span> <span class="n">new_avg_gain</span><span class="p">)</span>
     
 <span class="c1"># Remove hashtag comment below to see the gains array   </span>
 <span class="c1"># avg_gain_murder</span>
@@ -960,28 +720,34 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ab_hist</span><span class="p">(</span><span class="n">avg_gain_murder</span><span class="p">,</span> <span class="n">obs_gain_murder</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ab_hist</span><span class="p">(</span><span class="n">murder_rate_gain</span><span class="p">,</span> <span class="n">obs_murder_rate_gain</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2_39_0.png" src="../_images/2_39_0.png" />
+<img alt="../_images/2_28_0.png" src="../_images/2_28_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_val_prepost</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">avg_gain_murder</span> <span class="o">&gt;=</span> <span class="n">obs_gain_murder</span> <span class="p">)</span> <span class="o">/</span> <span class="n">repetitions</span>
-<span class="n">p_val_prepost</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_val</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">murder_rate_gain</span> <span class="o">&gt;=</span> <span class="n">obs_murder_rate_gain</span> <span class="p">)</span> <span class="o">/</span> <span class="n">repetitions</span>
+<span class="n">p_val</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0036
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">19</span><span class="o">-</span><span class="n">cce8cc2cce9a</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">p_val</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">murder_rate_gain</span> <span class="o">&gt;=</span> <span class="n">obs_murder_rate_gain</span> <span class="p">)</span> <span class="o">/</span> <span class="n">repetitions</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">p_val</span>
+
+<span class="ne">NameError</span>: name &#39;repetitions&#39; is not defined
 </pre></div>
 </div>
 </div>
 </div>
-<p>In fact, we get quite the wrong results if we use A/B testing on paired data. When the appropriate testing method is used, we reject the null and find a signficant positive difference between the prestest (1971 murder rates) and the posttest (1973 murder rates). In contrast to the conclusion above, the evidence suggests the death penalty may be a deterant.</p>
+<p>When the appropriate testing method is used, we reject the null and find a signficant positive difference between the prestest (1971 murder rates) and the posttest (1973 murder rates). Evidence suggests the death penalty may be a deterant.</p>
 </div>
 </div>
 

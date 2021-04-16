@@ -15,12 +15,14 @@ We will continue to work with a subset of the `personality` table called `pers` 
 pers = Table.read_table('http://faculty.ung.edu/rsinn/perfnarc.csv')
 pers.show(5)
 
-## Matched Pairs
+## Matched Pairs Data
 
 The exact same students were surveyed in what researchers call a pre-post format. This is **not** an A/B test because we don't have two groups of subjects A and B, we have one group only. Let's gather the columns we need.
 
 stress = pers.select('Stress1','Stress2')
 stress
+
+### Gain Scores
 
 The null hypothesis is that there is no change in stress between the pretest measure (2nd week) and the posttest measure (7th week). We are primarily interested in how individual stress scores changed, either increasing or decreasing, so we produce a third column called `Gain` to measure the increase from pre to post.
 
@@ -39,6 +41,8 @@ We first want to determine the observed gain value to see if stress scores incre
 obs_gain = np.average(gain)
 obs_gain
 
+### Simulating the null hypothesis in a pretest vs. posttest design
+
 The null hypothesis is that there is no difference between pretest and posttest scores. In that case, the gain would be zero, and it would not matter if we switched the pre and post scores. That's exactly how we will randomize the test statistic: randomly change the signs of the gain scores.
 
 sign = make_array(-1,1)
@@ -46,7 +50,7 @@ sign = make_array(-1,1)
 n = len(gain)
 n
 
-ones = np.random.choice(sign,n)
+ones = np.random.choice(sign,148)
 ones
 
 Now we have a random assortment of postive and negative ones. We can multiply this array times the gain array. The result will be a random choice of sign for the gain scores. The absolute value of the gain scores will remain fixed.
@@ -81,68 +85,38 @@ I changed the $x$-axis title in the `ab_hist` fucntion, but everything else is i
 p = sum( avg_gains >= obs_gain ) / reps
 p
 
+### Results: Stress example
+
 Reject the null hypothesis. There appears to be a significant increase in stress at midterms compared to the second week of the semester.
 
+## Example: Murder rates in U.S. states
+
+The example data and research question were provided in the Data8 materials received from Berkeley (Lab 7). When investigating whether the death penalty could serve as a deterrent (and ignoring all political and moral aspects of the question), the fact that the death penalty was ruled unconstitutional by the U.S. Supreme Court in 1972 was noted as a natural experiment. The 44 states that had the death penalty at the time exprienced an indavertent pretest-posttest design.
+
+The Data8 materials incorrectly performed an A/B test on this paired data. The resulting $p$-value is approximately 0.25, so the proper conclusion is to fail to reject the null which suggests the death penalty was no detterent. Murder rates were not significantly different in 1973 when compared with 1971 rates.
+
+Yet, the correct way to test paired data is to compare the increase or decrease in each state, not to randomly reshuffle the years of 1971 and 1973 as if they were demographic labels. We will use a matched pairs design to evaluate the results as if they were a pre-post design.
+
+The code block below recreates the needed data set for our work. We have to eliminate the six states that did not have the death penalty in 1971, then isolate the murder rates in 1971 and 1973 respectively.
+
 murder = Table.read_table('http://faculty.ung.edu/rsinn/crime_rates.csv').select('State', 'Year', 'Population', 'Murder Rate')
-murder.set_format("Population", NumberFormatter)
-
 non_death_penalty_states = make_array('Alaska', 'Hawaii', 'Maine', 'Michigan', 'Wisconsin', 'Minnesota')
-non_death_penalty_states
-
 murder_1971 = murder.where('State',are.not_contained_in(non_death_penalty_states)).where('Year', 1971)
-murder_1971
-
 murder_1973 = murder.where('State',are.not_contained_in(non_death_penalty_states)).where('Year', 1973)
-murder_1973
+pre_post_murder = murder_1971.join('State',murder_1973).select('State','Murder Rate', 'Murder Rate_2')
+pre_post_murder = (pre_post_murder
+                   .relabel('Murder Rate', 'Murder Rate 1971')
+                   .relabel('Murder Rate_2', 'Murder Rate 1973'))
+pre_post_murder
 
-ab_murder = murder_1971.append(murder_1973).select('Year','Murder Rate')
-ab_murder
+pre = pre_post_murder.column(1)
+post = pre_post_murder.column(2)
+gain = post - pre
 
-def ab_diff(tab):
-    tab.group(0,np.average)
-    a_mean = tab.group(0,np.average).column(1).item(0)
-    b_mean = tab.group(0,np.average).column(1).item(1)
-    return a_mean - b_mean
+obs_murder_rate_gain = np.average(gain)
+obs_murder_rate_gain
 
-observed_diff = ab_diff(ab_murder)
-observed_diff
-
-def ab_shuffle(tab):
-    shuffle_group = tab.sample(with_replacement = False).column(0)
-    shuffled_tab = tab.with_column("Shuffled Grouping",shuffle_group).select(2,1)
-    return shuffled_tab
-
-diffs = make_array()
-
-# Set repetititions to 1,000 or less, especially if you're working in the cloud.
-repetitions = 5000
-
-for i in range(repetitions):
-    new_diff = ab_diff(ab_shuffle(ab_murder))
-    diffs = np.append(diffs, new_diff)
-
-# Remove hashtag comment below to see results array
-#diffs
-
-ab_hist(diffs, observed_diff)
-
-p_value = sum( diffs <= observed_diff) / repetitions
-p_value
-
-The result of the A/B test is to fail to reject the null. There is no evidence for a difference in murder rates between 1971 and 1973, so there is no evidence that the death penalty served as a detterent. However, this should not be an A/B test at all. We have matched pairs data with each state have a pretest score (murder rate in '71) and posttest score (murder rate in '73).
-
-
-prepost_murder = murder_1971.join('State', murder_1973).select(0,3,6)
-prepost_murder
-
-pre = prepost_murder.column(1)
-post = prepost_murder.column(2)
-gain_m = post - pre
-
-obs_gain_murder = np.average(gain_m)
-obs_gain_murder
-
-avg_gain_murder = make_array()
+murder_rate_gain = make_array()
 
 # Set reps to 2k or less especially if working in the cloud
 reps = 25000
@@ -150,15 +124,14 @@ reps = 25000
 for i in range(reps):
     ones = np.random.choice(sign,44)
     new_avg_gain = np.average(ones * gain)
-    avg_gain_murder = np.append(avg_gain_murder, new_avg_gain)
+    murder_rate_gain = np.append(murder_rate_gain, new_avg_gain)
     
 # Remove hashtag comment below to see the gains array   
 # avg_gain_murder
 
-ab_hist(avg_gain_murder, obs_gain_murder)
+ab_hist(murder_rate_gain, obs_murder_rate_gain)
 
-p_val_prepost = sum( avg_gain_murder >= obs_gain_murder ) / repetitions
-p_val_prepost
+p_val = sum( murder_rate_gain >= obs_murder_rate_gain ) / repetitions
+p_val
 
-In fact, we get quite the wrong results if we use A/B testing on paired data. When the appropriate testing method is used, we reject the null and find a signficant positive difference between the prestest (1971 murder rates) and the posttest (1973 murder rates). In contrast to the conclusion above, the evidence suggests the death penalty may be a deterant.
-
+When the appropriate testing method is used, we reject the null and find a signficant positive difference between the prestest (1971 murder rates) and the posttest (1973 murder rates). Evidence suggests the death penalty may be a deterant.
