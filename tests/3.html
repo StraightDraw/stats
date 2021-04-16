@@ -52,6 +52,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="22. Matched Pairs Testing" href="2.html" />
@@ -143,7 +145,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sb/10.html">
-   10. Lab 6
+   10. Nighthawks Version of Lab 6
   </a>
  </li>
  <li class="toctree-l1">
@@ -247,6 +249,37 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#does-sex-affect-yes-no-response-to-dating-question">
+   Does sex affect Yes/No response to dating question?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#steps-in-the-hypothesis-test">
+     Steps in the hypothesis test
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulating-the-null-hypothesis">
+     Simulating the null hypothesis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#results">
+     Results
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
         
     </div>
 </div>
@@ -357,6 +390,9 @@
 </table>
 <p>... (138 rows omitted)</p></div></div>
 </div>
+<div class="section" id="does-sex-affect-yes-no-response-to-dating-question">
+<h2>Does sex affect Yes/No response to dating question?<a class="headerlink" href="#does-sex-affect-yes-no-response-to-dating-question" title="Permalink to this headline">¶</a></h2>
+<p>A pivot table is the perfect data summary to reflect the difference in responses based on biological sex.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">date</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="s1">&#39;AccDate&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">)</span>
@@ -383,6 +419,168 @@
         </tr>
     </tbody>
 </table></div></div>
+</div>
+<div class="section" id="steps-in-the-hypothesis-test">
+<h3>Steps in the hypothesis test<a class="headerlink" href="#steps-in-the-hypothesis-test" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p><strong>Null hypothesis.</strong> The grouping variable is independent of the response variable.</p></li>
+<li><p><strong>Alternate hypothesis.</strong> The response variable depends upon the grouping variable.</p></li>
+<li><p><strong>Test statistic</strong>. Simulated number of female Yes responses.</p></li>
+<li><p>Simulate test statistic distribution with sample of 85 responses drawn without replacement.</p></li>
+<li><p>Calculate <strong><span class="math notranslate nohighlight">\(p\)</span>-value</strong>, e.g. the probability the null hypothesis is true.</p></li>
+<li><p><strong>Statistical Conclusion.</strong> If <span class="math notranslate nohighlight">\(p&lt;0.05\)</span>, reject null. Else, fail to reject null.</p></li>
+<li><p><strong>Real world implications.</strong> State the results of hypothesis test in real world terms.</p></li>
+</ol>
+</div>
+<div class="section" id="simulating-the-null-hypothesis">
+<h3>Simulating the null hypothesis<a class="headerlink" href="#simulating-the-null-hypothesis" title="Permalink to this headline">¶</a></h3>
+<p>The null hypothesis is that a person’s Yes/No response to the dating question is independent of their biological sex. There are 85 female responses. If sex has no bearing on the response, then repeated random draws of 85 responses should reveal whether 52 Yes responses in that group is typical.</p>
+<p>As with the <code class="docutils literal notranslate"><span class="pre">ab_shuffle</span></code> function for A/B testing, the draws must be without replacement.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">date</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">85</span><span class="p">,</span> <span class="n">with_replacement</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Sex</th> <th>AccDate</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>F   </td> <td>N      </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>N      </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>N      </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>N      </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>N      </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>N      </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>N      </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>Y      </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>N      </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>N      </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (75 rows omitted)</p></div></div>
+</div>
+<p>Our plan is to draw 85 random responses (without replacement) and record the number of Yes responses ignoring biological sex.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_samp</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">85</span><span class="p">,</span> <span class="n">with_replacement</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">new_samp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;,
+       &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;,
+       &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;,
+       &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;,
+       &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;,
+       &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;,
+       &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;], dtype=&#39;&lt;U1&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">new_samp</span> <span class="o">==</span> <span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>45
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now recalculate the statistic a few thousand times with our standard <code class="docutils literal notranslate"><span class="pre">for</span></code> loop setup.`m</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yes_count</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+
+<span class="c1"># Set reps to 2,000 or less especially if working the cloud</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="mi">50000</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+    <span class="n">new_samp</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">85</span><span class="p">,</span> <span class="n">with_replacement</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">new_count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">new_samp</span> <span class="o">==</span> <span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+    <span class="n">yes_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yes_count</span><span class="p">,</span><span class="n">new_count</span><span class="p">)</span>
+
+<span class="c1"># Remove hashtag comment below to see the results array</span>
+<span class="c1"># yes_count</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="results">
+<h3>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h3>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">ab_hist</span></code> function to display a histogram of the simulated distribution for the statistic and compare 52, the observed number of Yes responses, to it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ab_hist</span><span class="p">(</span><span class="n">myArray</span><span class="p">,</span> <span class="n">observed_value</span><span class="p">):</span>
+    <span class="n">tab</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;A/B Differencs&#39;</span><span class="p">,</span><span class="n">myArray</span><span class="p">)</span>
+    <span class="n">tab</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">observed_value</span><span class="p">,</span> <span class="n">observed_value</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ab_hist</span><span class="p">(</span><span class="n">yes_count</span><span class="p">,</span><span class="mi">52</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_17_0.png" src="../_images/3_17_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_value</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">yes_count</span> <span class="o">&gt;=</span> <span class="mi">52</span><span class="p">)</span> <span class="o">/</span> <span class="n">reps</span>
+<span class="n">p_value</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.13772
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because the <span class="math notranslate nohighlight">\(p\)</span>-value is greater than 0.05, we fail to reject the null hypothesis. We have no evidence that Yes/No responses to the dating question depend on biological sex.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Dolphin study example</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
