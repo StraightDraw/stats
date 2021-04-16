@@ -277,6 +277,11 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dolphin-study-example">
+   Dolphin study example
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -451,25 +456,7 @@
     </thead>
     <tbody>
         <tr>
-            <td>F   </td> <td>N      </td>
-        </tr>
-        <tr>
-            <td>M   </td> <td>N      </td>
-        </tr>
-        <tr>
-            <td>F   </td> <td>N      </td>
-        </tr>
-        <tr>
-            <td>M   </td> <td>N      </td>
-        </tr>
-        <tr>
-            <td>M   </td> <td>N      </td>
-        </tr>
-        <tr>
-            <td>M   </td> <td>N      </td>
-        </tr>
-        <tr>
-            <td>M   </td> <td>N      </td>
+            <td>M   </td> <td>Y      </td>
         </tr>
         <tr>
             <td>M   </td> <td>Y      </td>
@@ -478,7 +465,25 @@
             <td>F   </td> <td>N      </td>
         </tr>
         <tr>
+            <td>F   </td> <td>Y      </td>
+        </tr>
+        <tr>
             <td>F   </td> <td>N      </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>Y      </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>N      </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>N      </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>N      </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>N      </td>
         </tr>
     </tbody>
 </table>
@@ -493,13 +498,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;,
-       &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;,
+       &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;,
+       &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;,
        &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;,
-       &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;,
-       &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;,
-       &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;,
-       &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;], dtype=&#39;&lt;U1&#39;)
+       &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;,
+       &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;,
+       &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;], dtype=&#39;&lt;U1&#39;)
 </pre></div>
 </div>
 </div>
@@ -567,20 +572,169 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.13772
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.13722
 </pre></div>
 </div>
 </div>
 </div>
 <p>Because the <span class="math notranslate nohighlight">\(p\)</span>-value is greater than 0.05, we fail to reject the null hypothesis. We have no evidence that Yes/No responses to the dating question depend on biological sex.</p>
+</div>
+</div>
+<div class="section" id="dolphin-study-example">
+<h2>Dolphin study example<a class="headerlink" href="#dolphin-study-example" title="Permalink to this headline">¶</a></h2>
+<p>A group of 30 patients experiencing chronic depression were invited to a Caribean island to take part in therapy. The researchers randomly split the group in two. Half of them received clinical treatment for their depression only (along with a huge dose of beach therapy, one presumes). The other half received the same clinical treatment (and beach therapy) plus they went swimming with dolphins.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Dolphin study example</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dolphin</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;http://faculty.ung.edu/rsinn/dolphin.csv&#39;</span><span class="p">)</span>
+<span class="n">dolphin</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Treatment</th> <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Dolphins </td> <td>Improved</td>
+        </tr>
+        <tr>
+            <td>Dolphins </td> <td>Improved</td>
+        </tr>
+        <tr>
+            <td>Dolphins </td> <td>Improved</td>
+        </tr>
+        <tr>
+            <td>Dolphins </td> <td>Improved</td>
+        </tr>
+        <tr>
+            <td>Dolphins </td> <td>Improved</td>
+        </tr>
+        <tr>
+            <td>Dolphins </td> <td>Improved</td>
+        </tr>
+        <tr>
+            <td>Dolphins </td> <td>Improved</td>
+        </tr>
+        <tr>
+            <td>Dolphins </td> <td>Improved</td>
+        </tr>
+        <tr>
+            <td>Dolphins </td> <td>Improved</td>
+        </tr>
+        <tr>
+            <td>Dolphins </td> <td>Improved</td>
+        </tr>
+    </tbody>
+</table>
+<p>... (20 rows omitted)</p></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dolphin</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="s1">&#39;Result&#39;</span><span class="p">,</span><span class="s1">&#39;Treatment&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Treatment</th> <th>Did Not</th> <th>Improved</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Control  </td> <td>12     </td> <td>3       </td>
+        </tr>
+        <tr>
+            <td>Dolphins </td> <td>5      </td> <td>10      </td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The Rossman-Chance <a class="reference external" href="http://www.rossmanchance.com/applets/ChiSqShuffle.html?dolphins=1">Dolphin Applet</a> provides a dynamic simulation with visualization. On left, set “Statistic” to “Cell 1 Count”, check “Show Shuffle Options” and run up to 100,000 shuffles per click. Set “Count Samples” to “greater than or equal 10” to match our work in this example.</p>
+</div>
+</div>
+<p>The researchers want to know whether there is enough evidence to show that the dolphin therapy is significantly better than the clinical and beach therapy option. What null hypothesis will test their claim?</p>
+<div class="math notranslate nohighlight">
+\[H_0: \text{Results are independent of treatment}\]</div>
+<p>How could we test it? We can randomly assign the outcomes of Improved or Did Not to a simulated dolphin group. We then check to see how often 10 or more successes land in the randomized dolphin group. The <code class="docutils literal notranslate"><span class="pre">sample</span></code> method creates a table, so we finish with a <code class="docutils literal notranslate"><span class="pre">column</span></code> to produce the output as an array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dolphin</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">with_replacement</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Improved&#39;, &#39;Did Not&#39;, &#39;Improved&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;,
+       &#39;Improved&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Improved&#39;, &#39;Improved&#39;,
+       &#39;Did Not&#39;, &#39;Improved&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;], dtype=&#39;&lt;U8&#39;)
 </pre></div>
 </div>
 </div>
 </div>
+<p>The following code block selects the simulated dolphin group and counts the number of participants in it who “Improved.”</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span> <span class="n">dolphin</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">with_replacement</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Improved&#39;</span> <span class="p">)</span>
+</pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">improved_count</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+
+<span class="c1"># Set reps to 2,000 or less especially if working the cloud</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="mi">25000</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+    <span class="n">new_samp</span> <span class="o">=</span> <span class="n">dolphin</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">with_replacement</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">new_count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">new_samp</span> <span class="o">==</span> <span class="s1">&#39;Improved&#39;</span><span class="p">)</span>
+    <span class="n">improved_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">improved_count</span><span class="p">,</span><span class="n">new_count</span><span class="p">)</span>
+
+<span class="c1"># Remove hashtag comment below to see the results array</span>
+<span class="c1"># improved_count</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ab_hist</span><span class="p">(</span><span class="n">improved_count</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_28_0.png" src="../_images/3_28_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_val</span> <span class="o">=</span> <span class="nb">sum</span> <span class="p">(</span><span class="n">improved_count</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">/</span> <span class="n">reps</span>
+<span class="n">p_val</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0126
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <span class="math notranslate nohighlight">\(p\)</span>-value is less than 0.05 which indicates the null hypothesis is unlikely to be true. Thus, we conclude the dolphin therapy appears to be beneficial to these patients, since a random distribution of the ‘Improved’ results would be unlikely to produce the observed pattern in the data.</p>
 </div>
 </div>
 

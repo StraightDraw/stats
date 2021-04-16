@@ -84,3 +84,47 @@ Because the $p$-value is greater than 0.05, we fail to reject the null hypothesi
 
 ## Dolphin study example
 
+A group of 30 patients experiencing chronic depression were invited to a Caribean island to take part in therapy. The researchers randomly split the group in two. Half of them received clinical treatment for their depression only (along with a huge dose of beach therapy, one presumes). The other half received the same clinical treatment (and beach therapy) plus they went swimming with dolphins.
+
+dolphin = Table.read_table('http://faculty.ung.edu/rsinn/dolphin.csv')
+dolphin
+
+dolphin.pivot('Result','Treatment')
+
+````{margin}
+```{seealso}
+The Rossman-Chance [Dolphin Applet](http://www.rossmanchance.com/applets/ChiSqShuffle.html?dolphins=1) provides a dynamic simulation with visualization. On left, set "Statistic" to "Cell 1 Count", check "Show Shuffle Options" and run up to 100,000 shuffles per click. Set "Count Samples" to "greater than or equal 10" to match our work in this example.
+```
+````
+
+The researchers want to know whether there is enough evidence to show that the dolphin therapy is significantly better than the clinical and beach therapy option. What null hypothesis will test their claim?
+
+$$H_0: \text{Results are independent of treatment}$$
+
+How could we test it? We can randomly assign the outcomes of Improved or Did Not to a simulated dolphin group. We then check to see how often 10 or more successes land in the randomized dolphin group. The `sample` method creates a table, so we finish with a `column` to produce the output as an array.
+
+dolphin.sample(15, with_replacement = False).column(1)
+
+The following code block selects the simulated dolphin group and counts the number of participants in it who "Improved."
+
+sum( dolphin.sample(15, with_replacement = False).column(1) == 'Improved' )
+
+improved_count = make_array()
+
+# Set reps to 2,000 or less especially if working the cloud
+reps = 25000
+
+for i in range(reps):
+    new_samp = dolphin.sample(15, with_replacement = False).column(1)
+    new_count = sum(new_samp == 'Improved')
+    improved_count = np.append(improved_count,new_count)
+
+# Remove hashtag comment below to see the results array
+# improved_count
+
+ab_hist(improved_count,10)
+
+p_val = sum (improved_count >= 10) / reps
+p_val
+
+The $p$-value is less than 0.05 which indicates the null hypothesis is unlikely to be true. Thus, we conclude the dolphin therapy appears to be beneficial to these patients, since a random distribution of the 'Improved' results would be unlikely to produce the observed pattern in the data.
