@@ -1,0 +1,765 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>25. Bootstrapping Examples &#8212; Intro to Applied Statistics</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="26. Calculating Descriptive Statistics" href="6.html" />
+    <link rel="prev" title="24. Bootstrapping Tools" href="4.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/UNG.logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Intro to Applied Statistics</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Introduction to Applied Statistics
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/01.html">
+   1. Analyzing Data using Personality Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/02.html">
+   2. Data Visualization with Bitcoin Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/03.html">
+   3. Writing Functions in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/04.html">
+   4. Historical Stock Prices Data Set
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/05.html">
+   5. Subsetting Tables using World Airport Data and GIS Maps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/06.html">
+   6. World Cities Data Set
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/07.html">
+   7. GIS Maps with National Parks Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/08.html">
+   8. Conducting
+   <span class="math notranslate nohighlight">
+    \(t\)
+   </span>
+   -tests using Caffeine and Sleep Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/09.html">
+   9. Functions and Subsetting using Chattahoochee National Forest Recreation Areas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sb/10.html">
+   10. Nighthawks Version of Lab 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="0.html">
+   20. A/B Testing Tools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.html">
+   21. A/B Testing Examples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.html">
+   22. Matched Pairs Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.html">
+   23. A/B Testing a Category Variable with 2 Levels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.html">
+   24. Bootstrapping Tools
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   25. Bootstrapping Examples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6.html">
+   26. Calculating Descriptive Statistics
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tests/5.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/StraightDraw/stats/master?urlpath=tree/content/tests/5.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bootstrapping-functions">
+   Bootstrapping functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1-narcissism">
+     Example 1: Narcissism
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-2-prestest-stress">
+   Example 2: Prestest Stress
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-2b-posttest-stress">
+   Example 2b: Posttest Stress
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="bootstrapping-examples">
+<h1>25. Bootstrapping Examples<a class="headerlink" href="#bootstrapping-examples" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datascience</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plots</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="bootstrapping-functions">
+<h2>Bootstrapping functions<a class="headerlink" href="#bootstrapping-functions" title="Permalink to this headline">¶</a></h2>
+<p>The function <code class="docutils literal notranslate"><span class="pre">boot_one</span></code> creates a single resample and find its average. The function <code class="docutils literal notranslate"><span class="pre">boot_hist</span></code> takes an array representing a bootstrap distribution, plots it and calculates the 95% confidence interval.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">boot_one</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">samp_size</span><span class="p">):</span>
+    <span class="n">resample</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">samp_size</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">resample</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">boot_hist</span> <span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">percentile</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">array</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">percentile</span><span class="p">(</span><span class="mf">97.5</span><span class="p">,</span> <span class="n">array</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">avg</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">array</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">tab</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;Bootstrapped Sample&#39;</span><span class="p">,</span><span class="n">array</span><span class="p">)</span>
+    <span class="n">tab</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;95% Confidence Interval&#39;</span><span class="p">)</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">left</span><span class="p">,</span> <span class="n">left</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">right</span><span class="p">,</span> <span class="n">right</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">avg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gold&quot;</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span><span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The 95</span><span class="si">% c</span><span class="s2">onfidence interval lies between &quot;</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span><span class="s2">&quot; and &quot;</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;and the gold dot at x = &quot;</span><span class="p">,</span> <span class="n">avg</span><span class="p">,</span> <span class="s2">&quot; is the mean of the bootstrapped sample distribution.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Often, creating a 90% confidence interval is useful. The code block below is indentical to the above except that it finds a 90% confidence interval instead.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">boot_hist_90</span> <span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">percentile</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">array</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">percentile</span><span class="p">(</span><span class="mi">95</span><span class="p">,</span> <span class="n">array</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">avg</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">array</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">tab</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;Bootstrapped Sample&#39;</span><span class="p">,</span><span class="n">array</span><span class="p">)</span>
+    <span class="n">tab</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;90% Confidence Interval&#39;</span><span class="p">)</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">left</span><span class="p">,</span> <span class="n">left</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">right</span><span class="p">,</span> <span class="n">right</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">avg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gold&quot;</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span><span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The 90</span><span class="si">% c</span><span class="s2">onfidence interval lies between &quot;</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span><span class="s2">&quot; and &quot;</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;and the gold dot at x = &quot;</span><span class="p">,</span> <span class="n">avg</span><span class="p">,</span> <span class="s2">&quot; is the mean of the bootstrapped sample distribution.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;http://faculty.ung.edu/rsinn/perfnarc.csv&#39;</span><span class="p">)</span>
+<span class="n">pers</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Sex</th> <th>G21</th> <th>Greek</th> <th>AccDate</th> <th>Stress1</th> <th>Stress2</th> <th>Perf</th> <th>Narc</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>F   </td> <td>N   </td> <td>N    </td> <td>N      </td> <td>9      </td> <td>7      </td> <td>99  </td> <td>3   </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>Y   </td> <td>N    </td> <td>Y      </td> <td>11     </td> <td>13     </td> <td>86  </td> <td>2   </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>N   </td> <td>Y    </td> <td>N      </td> <td>15     </td> <td>14     </td> <td>118 </td> <td>4   </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>N   </td> <td>N    </td> <td>Y      </td> <td>16     </td> <td>15     </td> <td>113 </td> <td>2   </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>Y   </td> <td>N    </td> <td>Y      </td> <td>17     </td> <td>17     </td> <td>107 </td> <td>8   </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (143 rows omitted)</p></div></div>
+</div>
+<div class="section" id="example-1-narcissism">
+<h3>Example 1: Narcissism<a class="headerlink" href="#example-1-narcissism" title="Permalink to this headline">¶</a></h3>
+<p>Estimate the average naricissism level for females undergraduates at UNG. We need to create a table with the correct numeric variable in the first column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fem_narc</span> <span class="o">=</span> <span class="n">pers</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Narc&#39;</span><span class="p">)</span>
+<span class="n">fem_narc</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Narc</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>3   </td>
+        </tr>
+        <tr>
+            <td>2   </td>
+        </tr>
+        <tr>
+            <td>4   </td>
+        </tr>
+        <tr>
+            <td>2   </td>
+        </tr>
+        <tr>
+            <td>8   </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (80 rows omitted)</p></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boot_samp</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+<span class="n">resamp_size</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="c1"># Never need more than 1k reps, use 500 or fewer if working the cloud.</span>
+<span class="n">resample_reps</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">resample_reps</span><span class="p">):</span>
+    <span class="n">new_boot</span> <span class="o">=</span> <span class="n">boot_one</span><span class="p">(</span><span class="n">fem_narc</span><span class="p">,</span><span class="n">resamp_size</span><span class="p">)</span>
+    <span class="n">boot_samp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">boot_samp</span><span class="p">,</span> <span class="n">new_boot</span><span class="p">)</span>
+    
+<span class="c1"># Remove the hashtag comment symbol to see the boot_samp results array</span>
+<span class="c1">#boot_samp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boot_hist</span><span class="p">(</span><span class="n">boot_samp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The 95% confidence interval lies between  3.06  and  4.52 ,
+and the gold dot at x =  3.79  is the mean of the bootstrapped sample distribution.
+</pre></div>
+</div>
+<img alt="../_images/5_12_1.png" src="../_images/5_12_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-2-prestest-stress">
+<h2>Example 2: Prestest Stress<a class="headerlink" href="#example-2-prestest-stress" title="Permalink to this headline">¶</a></h2>
+<p>Let’s create two bootstrap confidence interval, one for pretest Stress (measured 2nd week of classes), one for posttest Stress (measured 7th week).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pre</span> <span class="o">=</span> <span class="n">pers</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Stress1&#39;</span><span class="p">)</span>
+<span class="n">pre</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Stress1</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>9      </td>
+        </tr>
+        <tr>
+            <td>11     </td>
+        </tr>
+        <tr>
+            <td>15     </td>
+        </tr>
+        <tr>
+            <td>16     </td>
+        </tr>
+        <tr>
+            <td>17     </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (143 rows omitted)</p></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boot_one</span><span class="p">(</span><span class="n">pre</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13.6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boot_samp_pre</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+<span class="n">resamp_size</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="c1"># Never need more than 1k reps, use 500 or fewer if working the cloud.</span>
+<span class="n">resample_reps</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">resample_reps</span><span class="p">):</span>
+    <span class="n">new_boot</span> <span class="o">=</span> <span class="n">boot_one</span><span class="p">(</span><span class="n">pre</span><span class="p">,</span><span class="n">resamp_size</span><span class="p">)</span>
+    <span class="n">boot_samp_pre</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">boot_samp_pre</span><span class="p">,</span> <span class="n">new_boot</span><span class="p">)</span>
+    
+<span class="c1"># Remove the hashtag comment symbol to see the boot_samp results array</span>
+<span class="c1"># boot_samp_pre</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boot_hist</span><span class="p">(</span><span class="n">boot_samp_pre</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The 95% confidence interval lies between  12.08  and  14.0 ,
+and the gold dot at x =  13.05  is the mean of the bootstrapped sample distribution.
+</pre></div>
+</div>
+<img alt="../_images/5_18_1.png" src="../_images/5_18_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="example-2b-posttest-stress">
+<h2>Example 2b: Posttest Stress<a class="headerlink" href="#example-2b-posttest-stress" title="Permalink to this headline">¶</a></h2>
+<p>Let’s compare the boostrap distributions from Pre and Post.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">post</span> <span class="o">=</span> <span class="n">pers</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Stress2&#39;</span><span class="p">)</span>
+<span class="n">post</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Stress2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>7      </td>
+        </tr>
+        <tr>
+            <td>13     </td>
+        </tr>
+        <tr>
+            <td>14     </td>
+        </tr>
+        <tr>
+            <td>15     </td>
+        </tr>
+        <tr>
+            <td>17     </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (143 rows omitted)</p></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boot_samp_post</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+<span class="n">resamp_size</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="c1"># Never need more than 1k reps, use 500 or fewer if working the cloud.</span>
+<span class="n">resample_reps</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">resample_reps</span><span class="p">):</span>
+    <span class="n">new_boot</span> <span class="o">=</span> <span class="n">boot_one</span><span class="p">(</span><span class="n">pre</span><span class="p">,</span><span class="n">resamp_size</span><span class="p">)</span>
+    <span class="n">boot_samp_post</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">boot_samp_post</span><span class="p">,</span> <span class="n">new_boot</span><span class="p">)</span>
+    
+<span class="c1"># Remove the hashtag comment symbol to see the boot_samp results array</span>
+<span class="c1"># boot_samp_pre</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boot_hist</span><span class="p">(</span><span class="n">boot_samp_post</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The 95% confidence interval lies between  12.1  and  13.94 ,
+and the gold dot at x =  13.03  is the mean of the bootstrapped sample distribution.
+</pre></div>
+</div>
+<img alt="../_images/5_22_1.png" src="../_images/5_22_1.png" />
+</div>
+</div>
+<p>Comparing the bootstrap confidence intervals is like conducting an A/B test. Because the 95% confidence intervals overlap, we fail to the reject the null hypothesis at the 0.05 level. However, this is paired data. It would be interesting to bootstrap the <strong>gain score</strong> distribution to see typical gains are greater than zero.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gain_array</span> <span class="o">=</span> <span class="n">pers</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Stress2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">pers</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Stress1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">gain</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;Gain&#39;</span><span class="p">,</span><span class="n">gain_array</span><span class="p">)</span>
+<span class="n">gain</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Gain</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>-2  </td>
+        </tr>
+        <tr>
+            <td>2   </td>
+        </tr>
+        <tr>
+            <td>-1  </td>
+        </tr>
+        <tr>
+            <td>-1  </td>
+        </tr>
+        <tr>
+            <td>0   </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (143 rows omitted)</p></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boot_one</span><span class="p">(</span><span class="n">gain</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">gain</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boot_samp_gain</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+<span class="n">resamp_size</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="c1"># Never need more than 1k reps, use 500 or fewer if working the cloud.</span>
+<span class="n">resample_reps</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">resample_reps</span><span class="p">):</span>
+    <span class="n">new_boot</span> <span class="o">=</span> <span class="n">boot_one</span><span class="p">(</span><span class="n">gain</span><span class="p">,</span> <span class="n">resamp_size</span><span class="p">)</span>
+    <span class="n">boot_samp_gain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">boot_samp_gain</span><span class="p">,</span> <span class="n">new_boot</span><span class="p">)</span>
+    
+<span class="c1"># Remove the hashtag comment symbol to see the boot_samp results array</span>
+<span class="c1"># boot_samp_gain</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boot_hist_90</span><span class="p">(</span><span class="n">boot_samp_gain</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The 90% confidence interval lies between  0.04  and  1.58 ,
+and the gold dot at x =  0.83  is the mean of the bootstrapped sample distribution.
+</pre></div>
+</div>
+<img alt="../_images/5_27_1.png" src="../_images/5_27_1.png" />
+</div>
+</div>
+<p>Since the 90% confidence interval does not include zero, we can conclude that the Gain in the Stress variable is positive. This result is analogous to a one-tailed pre-post hypothesis test at the 0.05 level of significance.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tests"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="4.html" title="previous page">24. Bootstrapping Tools</a>
+    <a class='right-next' id="next-link" href="6.html" title="next page">26. Calculating Descriptive Statistics</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Robb Sinn<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
