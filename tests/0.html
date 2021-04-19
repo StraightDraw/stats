@@ -127,7 +127,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sb/07.html">
-   7. GIS Maps with National Parks Datga
+   7. GIS Maps with National Parks Data
   </a>
  </li>
  <li class="toctree-l1">
@@ -171,17 +171,17 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="4.html">
-   Bootstrap Confidence Intervals
+   24. Bootstrapping Tools
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="4.html#put-useful-functions-in-the-cell-below">
-   Put useful functions in the cell below
+  <a class="reference internal" href="5.html">
+   25. Bootstrapping Examples
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="4.html#confidence-intervals">
-   Confidence Intervals
+  <a class="reference internal" href="6.html">
+   26. Calculating Descriptive Statistics
   </a>
  </li>
 </ul>
@@ -583,19 +583,19 @@
     </thead>
     <tbody>
         <tr>
-            <td>F   </td> <td>4   </td>
-        </tr>
-        <tr>
-            <td>F   </td> <td>0   </td>
-        </tr>
-        <tr>
             <td>F   </td> <td>9   </td>
         </tr>
         <tr>
-            <td>M   </td> <td>1   </td>
+            <td>M   </td> <td>8   </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>4   </td>
         </tr>
         <tr>
             <td>F   </td> <td>1   </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>6   </td>
         </tr>
     </tbody>
 </table>
@@ -609,17 +609,17 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;,
-       &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;,
-       &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
-       &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;,
-       &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;,
-       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;,
-       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;,
-       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;,
-       &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;,
-       &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
-       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;,
+       &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
+       &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;,
+       &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
+       &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
+       &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
        &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;], dtype=&#39;&lt;U1&#39;)
 </pre></div>
 </div>
@@ -642,7 +642,7 @@
     </thead>
     <tbody>
         <tr>
-            <td>F   </td> <td>3   </td> <td>F                </td>
+            <td>F   </td> <td>3   </td> <td>M                </td>
         </tr>
         <tr>
             <td>F   </td> <td>2   </td> <td>M                </td>
@@ -651,7 +651,7 @@
             <td>F   </td> <td>4   </td> <td>F                </td>
         </tr>
         <tr>
-            <td>F   </td> <td>2   </td> <td>F                </td>
+            <td>F   </td> <td>2   </td> <td>M                </td>
         </tr>
         <tr>
             <td>F   </td> <td>8   </td> <td>M                </td>
@@ -676,7 +676,7 @@
     </thead>
     <tbody>
         <tr>
-            <td>F                </td> <td>3   </td>
+            <td>M                </td> <td>3   </td>
         </tr>
         <tr>
             <td>M                </td> <td>2   </td>
@@ -685,7 +685,7 @@
             <td>F                </td> <td>4   </td>
         </tr>
         <tr>
-            <td>F                </td> <td>2   </td>
+            <td>M                </td> <td>2   </td>
         </tr>
         <tr>
             <td>M                </td> <td>8   </td>
@@ -709,10 +709,10 @@
     </thead>
     <tbody>
         <tr>
-            <td>F                </td> <td>4.47059     </td>
+            <td>F                </td> <td>4.49412     </td>
         </tr>
         <tr>
-            <td>M                </td> <td>4.68254     </td>
+            <td>M                </td> <td>4.65079     </td>
         </tr>
     </tbody>
 </table></div></div>
@@ -743,7 +743,7 @@
             <td>F                </td> <td>3   </td>
         </tr>
         <tr>
-            <td>F                </td> <td>2   </td>
+            <td>M                </td> <td>2   </td>
         </tr>
         <tr>
             <td>F                </td> <td>4   </td>
@@ -752,19 +752,19 @@
             <td>F                </td> <td>2   </td>
         </tr>
         <tr>
-            <td>F                </td> <td>8   </td>
+            <td>M                </td> <td>8   </td>
         </tr>
         <tr>
             <td>F                </td> <td>1   </td>
         </tr>
         <tr>
-            <td>F                </td> <td>4   </td>
+            <td>M                </td> <td>4   </td>
         </tr>
         <tr>
             <td>F                </td> <td>7   </td>
         </tr>
         <tr>
-            <td>F                </td> <td>5   </td>
+            <td>M                </td> <td>5   </td>
         </tr>
         <tr>
             <td>F                </td> <td>1   </td>
@@ -793,10 +793,10 @@
     </thead>
     <tbody>
         <tr>
-            <td>F                </td> <td>4.47059     </td>
+            <td>F                </td> <td>4.49412     </td>
         </tr>
         <tr>
-            <td>M                </td> <td>4.68254     </td>
+            <td>M                </td> <td>4.65079     </td>
         </tr>
     </tbody>
 </table></div></div>
@@ -809,7 +809,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.470588235294118
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.4941176470588236
 </pre></div>
 </div>
 </div>
@@ -822,7 +822,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.682539682539683
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.650793650793651
 </pre></div>
 </div>
 </div>
@@ -835,7 +835,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.21195144724556503
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.1566760037348276
 </pre></div>
 </div>
 </div>
@@ -856,7 +856,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.21195144724556503
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.1566760037348276
 </pre></div>
 </div>
 </div>

@@ -56,7 +56,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bootstrap Confidence Intervals" href="4.html" />
+    <link rel="next" title="24. Bootstrapping Tools" href="4.html" />
     <link rel="prev" title="22. Matched Pairs Testing" href="2.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -127,7 +127,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sb/07.html">
-   7. GIS Maps with National Parks Datga
+   7. GIS Maps with National Parks Data
   </a>
  </li>
  <li class="toctree-l1">
@@ -171,17 +171,17 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="4.html">
-   Bootstrap Confidence Intervals
+   24. Bootstrapping Tools
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="4.html#put-useful-functions-in-the-cell-below">
-   Put useful functions in the cell below
+  <a class="reference internal" href="5.html">
+   25. Bootstrapping Examples
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="4.html#confidence-intervals">
-   Confidence Intervals
+  <a class="reference internal" href="6.html">
+   26. Calculating Descriptive Statistics
   </a>
  </li>
 </ul>
@@ -472,28 +472,28 @@
     </thead>
     <tbody>
         <tr>
+            <td>M   </td> <td>N      </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>Y      </td>
+        </tr>
+        <tr>
             <td>F   </td> <td>Y      </td>
         </tr>
         <tr>
-            <td>M   </td> <td>N      </td>
+            <td>F   </td> <td>Y      </td>
         </tr>
         <tr>
-            <td>M   </td> <td>N      </td>
-        </tr>
-        <tr>
-            <td>M   </td> <td>Y      </td>
-        </tr>
-        <tr>
-            <td>M   </td> <td>Y      </td>
+            <td>F   </td> <td>Y      </td>
         </tr>
         <tr>
             <td>F   </td> <td>N      </td>
         </tr>
         <tr>
-            <td>F   </td> <td>Y      </td>
+            <td>M   </td> <td>N      </td>
         </tr>
         <tr>
-            <td>F   </td> <td>Y      </td>
+            <td>M   </td> <td>Y      </td>
         </tr>
         <tr>
             <td>F   </td> <td>Y      </td>
@@ -514,13 +514,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;,
-       &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;,
-       &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;,
-       &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;,
-       &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;,
-       &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;,
-       &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;], dtype=&#39;&lt;U1&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;,
+       &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;,
+       &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;,
+       &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;,
+       &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;,
+       &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;,
+       &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;], dtype=&#39;&lt;U1&#39;)
 </pre></div>
 </div>
 </div>
@@ -532,7 +532,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>53
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42
 </pre></div>
 </div>
 </div>
@@ -588,7 +588,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.13638
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.13954
 </pre></div>
 </div>
 </div>
@@ -689,10 +689,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Improved&#39;, &#39;Improved&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;,
-       &#39;Improved&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Improved&#39;,
-       &#39;Improved&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;],
-      dtype=&#39;&lt;U8&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Did Not&#39;, &#39;Improved&#39;, &#39;Did Not&#39;, &#39;Improved&#39;, &#39;Improved&#39;,
+       &#39;Improved&#39;, &#39;Did Not&#39;, &#39;Improved&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;,
+       &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Improved&#39;, &#39;Did Not&#39;], dtype=&#39;&lt;U8&#39;)
 </pre></div>
 </div>
 </div>
@@ -705,7 +704,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 </div>
@@ -746,7 +745,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01284
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0126
 </pre></div>
 </div>
 </div>
@@ -784,7 +783,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="2.html" title="previous page">22. Matched Pairs Testing</a>
-    <a class='right-next' id="next-link" href="4.html" title="next page">Bootstrap Confidence Intervals</a>
+    <a class='right-next' id="next-link" href="4.html" title="next page">24. Bootstrapping Tools</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
