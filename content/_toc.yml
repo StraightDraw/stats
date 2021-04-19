@@ -16,3 +16,5 @@ sections:
 - file: tests/2
 - file: tests/3
 - file: tests/4
+- file: tests/5
+- file: tests/6
