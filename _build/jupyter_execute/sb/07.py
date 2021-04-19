@@ -1,4 +1,4 @@
-# 7. GIS Maps with National Parks Datga
+# 7. GIS Maps with National Parks Data
 
 from datascience import *
 import numpy as np
