@@ -31,4 +31,5 @@ tests/3
 tests/4
 tests/5
 tests/6
+tests/7
 ```

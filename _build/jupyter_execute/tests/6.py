@@ -1,4 +1,4 @@
-# 27. Correlation and Regression
+# 26. Descriptive Statistics
 
 from datascience import *
 import numpy as np
