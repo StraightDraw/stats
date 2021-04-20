@@ -86,7 +86,8 @@ neuroanx.show(5)
 
 Let's first check the association between the variables and set the correlation to `obs_r`
 
-obs_r = reg_r(neuroanx)
+obs_cor = reg_r(neuroanx)
+obs_cor
 
 reg_stat(neuroanx)
 
@@ -97,7 +98,7 @@ new_cor
 
 shuff_cor = make_array()
 
-reps = 100
+reps = 1000
 
 for i in range(reps):
     new_cor = reg_r(reg_shuffle(neuroanx))
@@ -106,3 +107,11 @@ for i in range(reps):
 # shuff_cor
 
 ab_hist(shuff_cor, obs_r)
+
+p_value = sum( shuff_cor >= obs_cor ) / reps
+p_value
+
+# Test for a significant correlation between
+# Neuroticism and Toxic Relationship Beliefs (TxRel).
+
+...
