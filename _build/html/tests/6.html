@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>26. Calculating Descriptive Statistics &#8212; Intro to Applied Statistics</title>
+    <title>27. Correlation and Regression &#8212; Intro to Applied Statistics</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -52,6 +52,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="25. Bootstrapping Examples" href="5.html" />
@@ -178,7 +180,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   26. Calculating Descriptive Statistics
+   27. Correlation and Regression
   </a>
  </li>
 </ul>
@@ -263,6 +265,105 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#standard-descriptives-for-numeric-variables">
+   Standard descriptives for numeric variables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mean-overline-x">
+     Mean (
+     <span class="math notranslate nohighlight">
+      \(\overline x\)
+     </span>
+     )
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sample-size-n">
+   Sample size (
+   <span class="math notranslate nohighlight">
+    \(n\)
+   </span>
+   )
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standard-deviation">
+     Standard deviation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#print-descriptives">
+     Print descriptives
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#standardized-scores">
+   Standardized scores
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-a-z-scores-function">
+     Creating a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       z_scores
+      </span>
+     </code>
+     function
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#correlation">
+   Correlation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-the-reg-r-and-reg-stat-function-to-calculate-regression-statistics-and-produce-a-scatter-plot">
+     Creating the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       reg_r
+      </span>
+     </code>
+     and
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       reg_stat
+      </span>
+     </code>
+     function to calculate regression statistics and produce a scatter plot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-the-reg-shuffle-function">
+     Creating the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       reg_shuffle
+      </span>
+     </code>
+     function
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -270,8 +371,8 @@
         
               <div>
                 
-  <div class="section" id="calculating-descriptive-statistics">
-<h1>26. Calculating Descriptive Statistics<a class="headerlink" href="#calculating-descriptive-statistics" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="correlation-and-regression">
+<h1>27. Correlation and Regression<a class="headerlink" href="#correlation-and-regression" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datascience</span> <span class="kn">import</span> <span class="o">*</span>
@@ -285,6 +386,404 @@
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 </pre></div>
 </div>
+</div>
+</div>
+<p>I keep some data frames in CSV format accessible from my website. One of them is called personality.csv and has, as you might imagine, personality variables. In this case, we are using the <code class="docutils literal notranslate"><span class="pre">neuroanx</span></code> subset which compares <a class="reference external" href="https://www.webmd.com/mental-health/neurotic-behavior-overview">neuroticism</a>, anxiety and several related variables:</p>
+<dl class="simple myst">
+<dt>G21</dt><dd><p>Y/N response to “are you 21 years old or older?”</p>
+</dd>
+<dt>SitClass</dt><dd><p>Front/middle/back response to “where do you prefer to sit in class?”</p>
+</dd>
+<dt>Friends</dt><dd><p>Same/opposite/no difference response to “which sex do you find it easiest to make friends with.”</p>
+</dd>
+<dt>TxRel</dt><dd><p>Toxic relationships beliefs, higher scores indicate more toxicity.</p>
+</dd>
+<dt>Opt</dt><dd><p>Optimism, higher scores indicate more optimism</p>
+</dd>
+<dt>SE</dt><dd><p>Self-esteem, higher score indicate higher levels of self-esteem</p>
+</dd>
+</dl>
+<div class="section" id="standard-descriptives-for-numeric-variables">
+<h2>Standard descriptives for numeric variables<a class="headerlink" href="#standard-descriptives-for-numeric-variables" title="Permalink to this headline">¶</a></h2>
+<p>For each statistic below, we need an array of numeric data as the input. Let’s grab some data from the <code class="docutils literal notranslate"><span class="pre">personality.csv</span></code> file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;http://faculty.ung.edu/rsinn/neuroanx.csv&#39;</span><span class="p">)</span>
+<span class="n">pers</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Sex</th> <th>G21</th> <th>SitClass</th> <th>Friends</th> <th>TxRel</th> <th>Anx</th> <th>Opt</th> <th>SE</th> <th>Neuro</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>M   </td> <td>N   </td> <td>F       </td> <td>O      </td> <td>26   </td> <td>23  </td> <td>20  </td> <td>70  </td> <td>10   </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>N   </td> <td>M       </td> <td>S      </td> <td>21   </td> <td>24  </td> <td>22  </td> <td>68  </td> <td>11   </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>Y   </td> <td>F       </td> <td>E      </td> <td>25   </td> <td>27  </td> <td>29  </td> <td>65  </td> <td>11   </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>Y   </td> <td>B       </td> <td>E      </td> <td>22   </td> <td>30  </td> <td>28  </td> <td>61  </td> <td>15   </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>N   </td> <td>M       </td> <td>E      </td> <td>23   </td> <td>40  </td> <td>26  </td> <td>64  </td> <td>16   </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (137 rows omitted)</p></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neuroanx</span> <span class="o">=</span> <span class="n">pers</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Neuro&#39;</span><span class="p">,</span><span class="s1">&#39;Anx&#39;</span><span class="p">)</span>
+<span class="n">neuro</span> <span class="o">=</span> <span class="n">neuroanx</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="mean-overline-x">
+<h3>Mean ( <span class="math notranslate nohighlight">\(\overline x\)</span> )<a class="headerlink" href="#mean-overline-x" title="Permalink to this headline">¶</a></h3>
+<p>Given an array, we simply use <code class="docutils literal notranslate"><span class="pre">np.average</span></code> or <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">neuro</span><span class="p">)</span>
+<span class="n">mean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42.66197183098591
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sample-size-n">
+<h2>Sample size ( <span class="math notranslate nohighlight">\(n\)</span> )<a class="headerlink" href="#sample-size-n" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">neuro</span><span class="p">)</span>
+<span class="n">n</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>142
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="standard-deviation">
+<h3>Standard deviation<a class="headerlink" href="#standard-deviation" title="Permalink to this headline">¶</a></h3>
+<p>A deviation is the distance between a data point and the mean. The <em>sample</em> standard deviation is the sum of the squared deviations divided by one less than the sample size (<span class="math notranslate nohighlight">\(n-1\)</span>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">devs_squared</span> <span class="o">=</span> <span class="p">(</span> <span class="n">neuro</span> <span class="o">-</span> <span class="n">mean</span> <span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">devs_squared</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13.946141246193354
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can test whether or not our formula is correct using the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> function <code class="docutils literal notranslate"><span class="pre">std</span></code> with the <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code> option on. You will notice some rounding error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">neuro</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13.946141246193347
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="print-descriptives">
+<h3>Print descriptives<a class="headerlink" href="#print-descriptives" title="Permalink to this headline">¶</a></h3>
+<p>The following three statistics are considered the <em>standard descriptives</em> by quantiative researchers. In a scientific report, each data set should be accompanied by these three descriptive statistics:</p>
+<ul class="simple">
+<li><p>mean</p></li>
+<li><p>sample size</p></li>
+<li><p>standard deviation</p></li>
+</ul>
+<p>To help detect skew and outliers, the median can be useful. Most researchers would not consider it a standard descriptive.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">describe</span> <span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="n">median</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The mean is&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The median is&#39;</span><span class="p">,</span> <span class="n">median</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The sample size is&#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The standard deviation is&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;Data&#39;</span><span class="p">,</span><span class="n">array</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">describe</span><span class="p">(</span><span class="n">neuro</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean is 42.66
+The median is 43.0
+The sample size is 142
+The standard deviation is 13.95
+</pre></div>
+</div>
+<img alt="../_images/6_17_1.png" src="../_images/6_17_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="standardized-scores">
+<h2>Standardized scores<a class="headerlink" href="#standardized-scores" title="Permalink to this headline">¶</a></h2>
+<p>The formula for the standardized score is:</p>
+<div class="math notranslate nohighlight">
+\[z = \frac{x-\mu}{\sigma}\]</div>
+<p>where <span class="math notranslate nohighlight">\(x\)</span> is the score from the data set and <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span> are the population mean and standard deviation respectively.</p>
+<div class="section" id="creating-a-z-scores-function">
+<h3>Creating a <code class="docutils literal notranslate"><span class="pre">z_scores</span></code> function<a class="headerlink" href="#creating-a-z-scores-function" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">z_scores</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="n">sd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">array</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span> <span class="o">/</span> <span class="n">sd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z_scores</span><span class="p">(</span><span class="n">neuro</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-2.35029814, -2.27833989, -2.27833989, -1.99050692, -1.91854867,
+       -1.84659043, -1.77463219, -1.70267394, -1.48679921, -1.41484097,
+       -1.34288272, -1.34288272, -1.34288272, -1.27092448, -1.27092448,
+       -1.19896623, -1.19896623, -1.12700799, -1.05504975, -1.05504975,
+       -1.05504975, -0.9830915 , -0.9830915 , -0.9830915 , -0.9830915 ,
+       -0.9830915 , -0.9830915 , -0.91113326, -0.91113326, -0.91113326,
+       -0.83917501, -0.83917501, -0.76721677, -0.76721677, -0.69525853,
+       -0.69525853, -0.62330028, -0.62330028, -0.62330028, -0.62330028,
+       -0.62330028, -0.62330028, -0.62330028, -0.62330028, -0.55134204,
+       -0.55134204, -0.55134204, -0.47938379, -0.47938379, -0.40742555,
+       -0.40742555, -0.40742555, -0.33546731, -0.33546731, -0.33546731,
+       -0.26350906, -0.26350906, -0.19155082, -0.19155082, -0.19155082,
+       -0.19155082, -0.19155082, -0.11959257, -0.11959257, -0.11959257,
+       -0.11959257, -0.11959257, -0.11959257, -0.04763433,  0.02432391,
+        0.02432391,  0.02432391,  0.09628216,  0.09628216,  0.09628216,
+        0.09628216,  0.09628216,  0.09628216,  0.09628216,  0.1682404 ,
+        0.1682404 ,  0.1682404 ,  0.24019865,  0.24019865,  0.24019865,
+        0.24019865,  0.31215689,  0.31215689,  0.38411513,  0.38411513,
+        0.38411513,  0.45607338,  0.45607338,  0.45607338,  0.45607338,
+        0.52803162,  0.52803162,  0.52803162,  0.52803162,  0.52803162,
+        0.59998987,  0.59998987,  0.67194811,  0.67194811,  0.67194811,
+        0.74390635,  0.74390635,  0.74390635,  0.74390635,  0.74390635,
+        0.74390635,  0.74390635,  0.8158646 ,  0.8158646 ,  0.8158646 ,
+        0.8158646 ,  0.88782284,  0.95978108,  0.95978108,  1.03173933,
+        1.03173933,  1.03173933,  1.03173933,  1.03173933,  1.03173933,
+        1.10369757,  1.17565582,  1.17565582,  1.17565582,  1.39153055,
+        1.46348879,  1.67936352,  1.67936352,  1.67936352,  1.67936352,
+        1.75132177,  1.82328001,  1.89523826,  1.9671965 ,  2.18307123,
+        2.18307123,  2.47090421])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="correlation">
+<h2>Correlation<a class="headerlink" href="#correlation" title="Permalink to this headline">¶</a></h2>
+<p>Let’s check to see if the two numeric variables of <code class="docutils literal notranslate"><span class="pre">neuro</span></code> (neuroticism) and <code class="docutils literal notranslate"><span class="pre">anx</span></code> (anxiety) are associated.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pers</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Neuro&#39;</span><span class="p">,</span><span class="s1">&#39;Anx&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Neuro</th> <th>Anx</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>10   </td> <td>23  </td>
+        </tr>
+        <tr>
+            <td>11   </td> <td>24  </td>
+        </tr>
+        <tr>
+            <td>11   </td> <td>27  </td>
+        </tr>
+        <tr>
+            <td>15   </td> <td>30  </td>
+        </tr>
+        <tr>
+            <td>16   </td> <td>40  </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (137 rows omitted)</p></div></div>
+</div>
+<p>The correlation can be calculated in terms of <span class="math notranslate nohighlight">\(z\)</span>-scores (standardized scores).</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{1}{n-1} \sum z_{x_i} z_{y_i}\]</div>
+<p>meaning we multiply all <span class="math notranslate nohighlight">\(xy\)</span>-pairs of standardized scores, sum them and divide by <span class="math notranslate nohighlight">\(n-1\)</span>.</p>
+<p>The line of best fit always passes through the point</p>
+<div class="math notranslate nohighlight">
+\[\left(\overline{x},\overline{y}\right)\]</div>
+<p>and has slope</p>
+<div class="math notranslate nohighlight">
+\[m = r \left(\frac{s_y}{s_x}\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(s_x\)</span> and <span class="math notranslate nohighlight">\(s_y\)</span> are the sample standard deviations for the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> variables respectively. In statistics, we write the line of best fit as</p>
+<div class="math notranslate nohighlight">
+\[y = a + bx\]</div>
+<p>where <span class="math notranslate nohighlight">\(a\)</span> is the <span class="math notranslate nohighlight">\(y\)</span>-intercept and <span class="math notranslate nohighlight">\(b\)</span> is the slope.</p>
+<div class="section" id="creating-the-reg-r-and-reg-stat-function-to-calculate-regression-statistics-and-produce-a-scatter-plot">
+<h3>Creating the <code class="docutils literal notranslate"><span class="pre">reg_r</span></code> and <code class="docutils literal notranslate"><span class="pre">reg_stat</span></code> function to calculate regression statistics and produce a scatter plot<a class="headerlink" href="#creating-the-reg-r-and-reg-stat-function-to-calculate-regression-statistics-and-produce-a-scatter-plot" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reg_r</span> <span class="p">(</span><span class="n">tab</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">z_scores</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">z_scores</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reg_stat</span> <span class="p">(</span><span class="n">tab</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">reg_r</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="n">b</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The correlation is &#39;</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The line of best fit is y =&#39;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">tab</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">fit_line</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg_stat</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The correlation is  0.7140323446533897
+The line of best fit is y = 16.8451 + 0.4833 x
+</pre></div>
+</div>
+<img alt="../_images/6_29_1.png" src="../_images/6_29_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="creating-the-reg-shuffle-function">
+<h3>Creating the <code class="docutils literal notranslate"><span class="pre">reg_shuffle</span></code> function<a class="headerlink" href="#creating-the-reg-shuffle-function" title="Permalink to this headline">¶</a></h3>
+<p>While not a descriptive statistic, we do need a test for significant correlation. The idea is similar to A/B testing. We can randomly shuffle the <span class="math notranslate nohighlight">\(y\)</span>-variable and determine a distribution that assumes a zero correlation. We can compare our observed correlation to that value.</p>
+<p>Let’s begin with the <code class="docutils literal notranslate"><span class="pre">ab_shuffle</span></code> function and tweak it slightly.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ab_shuffle</span><span class="p">(</span><span class="n">tab</span><span class="p">):</span>
+    <span class="n">shuffle_group</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">with_replacement</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">shuffled_tab</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s2">&quot;Shuffled Grouping&quot;</span><span class="p">,</span><span class="n">shuffle_group</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">shuffled_tab</span>
+</pre></div>
+</div>
+<p>We want to feed our function a two-column table with the <span class="math notranslate nohighlight">\(x\)</span>-variable listed in the first column, and shuffle the second column. (The <code class="docutils literal notranslate"><span class="pre">ab_shuffle</span></code> function shuffles the first column.) We also need to return the original <span class="math notranslate nohighlight">\(x\)</span> column with the shuffled <span class="math notranslate nohighlight">\(y\)</span>, e.g. the first and third columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reg_shuffle</span><span class="p">(</span><span class="n">tab</span><span class="p">):</span>
+    <span class="n">shuffled_y</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">with_replacement</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">shuffled_tab</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s2">&quot;Shuffled Y&quot;</span><span class="p">,</span><span class="n">shuffled_y</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">shuffled_tab</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg_shuffle</span><span class="p">(</span><span class="n">neuroanx</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Neuro</th> <th>Shuffled Y</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>10   </td> <td>30        </td>
+        </tr>
+        <tr>
+            <td>11   </td> <td>28        </td>
+        </tr>
+        <tr>
+            <td>11   </td> <td>30        </td>
+        </tr>
+        <tr>
+            <td>15   </td> <td>26        </td>
+        </tr>
+        <tr>
+            <td>16   </td> <td>53        </td>
+        </tr>
+        <tr>
+            <td>17   </td> <td>35        </td>
+        </tr>
+        <tr>
+            <td>18   </td> <td>25        </td>
+        </tr>
+        <tr>
+            <td>19   </td> <td>32        </td>
+        </tr>
+        <tr>
+            <td>22   </td> <td>27        </td>
+        </tr>
+        <tr>
+            <td>23   </td> <td>46        </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (132 rows omitted)</p></div></div>
+</div>
+<p>This will allow us to build a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and create the distribution of the test statistic that models a zero correlation.</p>
 </div>
 </div>
 </div>
