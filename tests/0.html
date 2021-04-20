@@ -181,7 +181,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6.html">
-   26. Calculating Descriptive Statistics
+   26. Descriptive Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.html">
+   27. Correlation and Regression
   </a>
  </li>
 </ul>
@@ -583,19 +588,19 @@
     </thead>
     <tbody>
         <tr>
-            <td>F   </td> <td>9   </td>
-        </tr>
-        <tr>
-            <td>M   </td> <td>8   </td>
-        </tr>
-        <tr>
-            <td>F   </td> <td>4   </td>
+            <td>F   </td> <td>6   </td>
         </tr>
         <tr>
             <td>F   </td> <td>1   </td>
         </tr>
         <tr>
-            <td>F   </td> <td>6   </td>
+            <td>M   </td> <td>5   </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>4   </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>4   </td>
         </tr>
     </tbody>
 </table>
@@ -609,18 +614,18 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;,
-       &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;,
-       &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
-       &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
-       &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
-       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;,
-       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;,
-       &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;,
-       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
-       &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
-       &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
-       &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;], dtype=&#39;&lt;U1&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
+       &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
+       &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;,
+       &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;,
+       &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;,
+       &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;,
+       &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;M&#39;, &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;, &#39;F&#39;,
+       &#39;F&#39;, &#39;M&#39;, &#39;M&#39;, &#39;F&#39;, &#39;F&#39;], dtype=&#39;&lt;U1&#39;)
 </pre></div>
 </div>
 </div>
@@ -642,13 +647,13 @@
     </thead>
     <tbody>
         <tr>
-            <td>F   </td> <td>3   </td> <td>M                </td>
+            <td>F   </td> <td>3   </td> <td>F                </td>
         </tr>
         <tr>
             <td>F   </td> <td>2   </td> <td>M                </td>
         </tr>
         <tr>
-            <td>F   </td> <td>4   </td> <td>F                </td>
+            <td>F   </td> <td>4   </td> <td>M                </td>
         </tr>
         <tr>
             <td>F   </td> <td>2   </td> <td>M                </td>
@@ -676,13 +681,13 @@
     </thead>
     <tbody>
         <tr>
-            <td>M                </td> <td>3   </td>
+            <td>F                </td> <td>3   </td>
         </tr>
         <tr>
             <td>M                </td> <td>2   </td>
         </tr>
         <tr>
-            <td>F                </td> <td>4   </td>
+            <td>M                </td> <td>4   </td>
         </tr>
         <tr>
             <td>M                </td> <td>2   </td>
@@ -709,10 +714,10 @@
     </thead>
     <tbody>
         <tr>
-            <td>F                </td> <td>4.49412     </td>
+            <td>F                </td> <td>4.8         </td>
         </tr>
         <tr>
-            <td>M                </td> <td>4.65079     </td>
+            <td>M                </td> <td>4.2381      </td>
         </tr>
     </tbody>
 </table></div></div>
@@ -749,10 +754,10 @@
             <td>F                </td> <td>4   </td>
         </tr>
         <tr>
-            <td>F                </td> <td>2   </td>
+            <td>M                </td> <td>2   </td>
         </tr>
         <tr>
-            <td>M                </td> <td>8   </td>
+            <td>F                </td> <td>8   </td>
         </tr>
         <tr>
             <td>F                </td> <td>1   </td>
@@ -764,7 +769,7 @@
             <td>F                </td> <td>7   </td>
         </tr>
         <tr>
-            <td>M                </td> <td>5   </td>
+            <td>F                </td> <td>5   </td>
         </tr>
         <tr>
             <td>F                </td> <td>1   </td>
@@ -793,10 +798,10 @@
     </thead>
     <tbody>
         <tr>
-            <td>F                </td> <td>4.49412     </td>
+            <td>F                </td> <td>4.8         </td>
         </tr>
         <tr>
-            <td>M                </td> <td>4.65079     </td>
+            <td>M                </td> <td>4.2381      </td>
         </tr>
     </tbody>
 </table></div></div>
@@ -809,7 +814,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.4941176470588236
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.8
 </pre></div>
 </div>
 </div>
@@ -822,7 +827,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.650793650793651
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.238095238095238
 </pre></div>
 </div>
 </div>
@@ -835,7 +840,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.1566760037348276
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5619047619047617
 </pre></div>
 </div>
 </div>
@@ -856,7 +861,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.1566760037348276
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5619047619047617
 </pre></div>
 </div>
 </div>
