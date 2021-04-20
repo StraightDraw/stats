@@ -476,7 +476,13 @@
 <p>Let’s first check the association between the variables and set the correlation to <code class="docutils literal notranslate"><span class="pre">obs_r</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obs_r</span> <span class="o">=</span> <span class="n">reg_r</span><span class="p">(</span><span class="n">neuroanx</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obs_cor</span> <span class="o">=</span> <span class="n">reg_r</span><span class="p">(</span><span class="n">neuroanx</span><span class="p">)</span>
+<span class="n">obs_cor</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7140323446533897
 </pre></div>
 </div>
 </div>
@@ -504,7 +510,7 @@ The line of best fit is y = 16.8451 + 0.4833 x
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0792252810557115
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.1444572694282837
 </pre></div>
 </div>
 </div>
@@ -513,7 +519,7 @@ The line of best fit is y = 16.8451 + 0.4833 x
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shuff_cor</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
 
-<span class="n">reps</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="mi">1000</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
     <span class="n">new_cor</span> <span class="o">=</span> <span class="n">reg_r</span><span class="p">(</span><span class="n">reg_shuffle</span><span class="p">(</span><span class="n">neuroanx</span><span class="p">))</span>
@@ -531,7 +537,42 @@ The line of best fit is y = 16.8451 + 0.4833 x
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7_18_0.png" src="../_images/7_18_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="n">a6c96557add1</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ab_hist</span><span class="p">(</span><span class="n">shuff_cor</span><span class="p">,</span> <span class="n">obs_r</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;obs_r&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_value</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">shuff_cor</span> <span class="o">&gt;=</span> <span class="n">obs_cor</span> <span class="p">)</span> <span class="o">/</span> <span class="n">reps</span>
+<span class="n">p_value</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test for a significant correlation between</span>
+<span class="c1"># Neuroticism and Toxic Relationship Beliefs (TxRel).</span>
+
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ellipsis
+</pre></div>
+</div>
 </div>
 </div>
 </div>
