@@ -1,6 +1,5 @@
 file: Introduction
 sections:
-- file: sb/0
 - file: sb/01
 - file: sb/02
 - file: sb/03
@@ -19,3 +18,4 @@ sections:
 - file: tests/5
 - file: tests/6
 - file: tests/7
+- file: tests/8

@@ -189,6 +189,11 @@
    27. Correlation and Regression
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8.html">
+   30. Homework 10
+  </a>
+ </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -480,12 +485,6 @@
             <td>F   </td> <td>Y      </td>
         </tr>
         <tr>
-            <td>M   </td> <td>N      </td>
-        </tr>
-        <tr>
-            <td>F   </td> <td>N      </td>
-        </tr>
-        <tr>
             <td>M   </td> <td>Y      </td>
         </tr>
         <tr>
@@ -493,15 +492,21 @@
         </tr>
         <tr>
             <td>M   </td> <td>N      </td>
-        </tr>
-        <tr>
-            <td>M   </td> <td>Y      </td>
-        </tr>
-        <tr>
-            <td>F   </td> <td>N      </td>
         </tr>
         <tr>
             <td>F   </td> <td>Y      </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>N      </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>Y      </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>Y      </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>N      </td>
         </tr>
         <tr>
             <td>M   </td> <td>N      </td>
@@ -519,13 +524,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;,
-       &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;,
-       &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;,
-       &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;,
-       &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;,
-       &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;,
-       &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;], dtype=&#39;&lt;U1&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;,
+       &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;,
+       &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;,
+       &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;,
+       &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;,
+       &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;,
+       &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;], dtype=&#39;&lt;U1&#39;)
 </pre></div>
 </div>
 </div>
@@ -537,7 +542,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>48
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
 </pre></div>
 </div>
 </div>
@@ -593,7 +598,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.13992
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1383
 </pre></div>
 </div>
 </div>
@@ -694,9 +699,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Improved&#39;, &#39;Did Not&#39;, &#39;Improved&#39;, &#39;Improved&#39;, &#39;Improved&#39;,
        &#39;Improved&#39;, &#39;Improved&#39;, &#39;Improved&#39;, &#39;Improved&#39;, &#39;Did Not&#39;,
-       &#39;Improved&#39;, &#39;Improved&#39;, &#39;Improved&#39;, &#39;Improved&#39;], dtype=&#39;&lt;U8&#39;)
+       &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Improved&#39;, &#39;Did Not&#39;],
+      dtype=&#39;&lt;U8&#39;)
 </pre></div>
 </div>
 </div>
@@ -709,7 +715,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
 </div>
@@ -750,7 +756,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01304
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01264
 </pre></div>
 </div>
 </div>

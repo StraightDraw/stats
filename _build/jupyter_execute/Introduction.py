@@ -13,7 +13,6 @@ A sandbox is digital playground, an environment created for experimentation and 
 :titlesonly:
 
 
-sb/0
 sb/01
 sb/02
 sb/03
@@ -32,4 +31,5 @@ tests/4
 tests/5
 tests/6
 tests/7
+tests/8
 ```
