@@ -397,10 +397,10 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ab_hist</span><span class="p">(</span><span class="n">myArray</span><span class="p">,</span> <span class="n">observed_value</span><span class="p">):</span>
-    <span class="n">tab</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;A/B Differencs&#39;</span><span class="p">,</span><span class="n">myArray</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reg_hist</span><span class="p">(</span><span class="n">myArray</span><span class="p">,</span> <span class="n">observed_value</span><span class="p">):</span>
+    <span class="n">tab</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;Simulated Correlation&#39;</span><span class="p">,</span><span class="n">myArray</span><span class="p">)</span>
     <span class="n">tab</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">observed_value</span><span class="p">,</span> <span class="n">observed_value</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">observed_value</span><span class="p">,</span> <span class="n">observed_value</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -516,7 +516,7 @@ The line of best fit is y = 16.8451 + 0.4833 x
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.0008512274367398634
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.09573863485767305
 </pre></div>
 </div>
 </div>
@@ -538,19 +538,12 @@ The line of best fit is y = 16.8451 + 0.4833 x
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ab_hist</span><span class="p">(</span><span class="n">shuff_cor</span><span class="p">,</span> <span class="n">obs_r</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg_hist</span><span class="p">(</span><span class="n">shuff_cor</span><span class="p">,</span> <span class="n">obs_cor</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="n">a6c96557add1</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ab_hist</span><span class="p">(</span><span class="n">shuff_cor</span><span class="p">,</span> <span class="n">obs_r</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;obs_r&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/7_18_0.png" src="../_images/7_18_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
