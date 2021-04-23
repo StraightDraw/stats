@@ -348,7 +348,7 @@
 </div>
 </div>
 </div>
-<p>I keep some data frames in CSV format accessible from my website. One of them is called personality.csv and has, as you might imagine, personality variables. We will pull different subsets of that data frame for the work below. Here’s a description of the different variables you will see.</p>
+<p>An undergraduate statistics research project several years ago studied humor styles and personality. The data set from that study is called <code class="docutils literal notranslate"><span class="pre">personality.csv</span></code>. We will pull different subsets of that data frame for the work below. Here’s a description of the different variables you will see.</p>
 <dl class="simple myst">
 <dt>Sex</dt><dd><p>M/F response to question about biological sex</p>
 </dd>
@@ -377,7 +377,7 @@
 <dt>Narc</dt><dd><p>Narcissism, higher scores indicate higher levels of narcissism.</p>
 </dd>
 </dl>
-<p>You will recognize several data sets that we used in class examples and labs, too.</p>
+<p>You will likely recognize several data sets that we used in class examples and labs, too.</p>
 <div class="section" id="data-for-examples">
 <h2>Data for examples<a class="headerlink" href="#data-for-examples" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -393,7 +393,7 @@
 </div>
 <div class="section" id="task-1">
 <h2>Task 1<a class="headerlink" href="#task-1" title="Permalink to this headline">¶</a></h2>
-<p>Using the <code class="docutils literal notranslate"><span class="pre">perfnarc</span></code> table, conduct an exploratory data analysis of the <code class="docutils literal notranslate"><span class="pre">Stress1</span></code> values. Be sure to find the mean, median, sample size and standard deviation, and to display a histogram of the variable.</p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">perfnarc</span></code> table, conduct an <strong>exploratory data analysis</strong> of the <code class="docutils literal notranslate"><span class="pre">Stress1</span></code> values. Be sure to find the mean, median, sample size and standard deviation, and to display a histogram of the variable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">perfnarc</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -427,11 +427,11 @@
 </table>
 <p>... (143 rows omitted)</p></div></div>
 </div>
-<p>Remember, you may use the tools from <a class="reference external" href="https://straightdraw.github.io/stats/tests/6.html">notebook 26</a>.</p>
+<p>Remember, you may use the descriptive statistics tools from <a class="reference external" href="https://straightdraw.github.io/stats/tests/6.html">notebook 26</a>.</p>
 </div>
 <div class="section" id="task-2">
 <h2>Task 2<a class="headerlink" href="#task-2" title="Permalink to this headline">¶</a></h2>
-<p>Using the <code class="docutils literal notranslate"><span class="pre">perfnarc</span></code> table, conduct an A/B test on <code class="docutils literal notranslate"><span class="pre">Stress1</span></code> values using the grouping variable <code class="docutils literal notranslate"><span class="pre">Greek</span></code>. The research question is whether students involved in Greek life would be more stressed during the 2nd week of the semester. Many social Greek organizations have meetings, socials and philanthropy events early in the semester, so perhaps they experience higher levels of stess.</p>
+<p>Using data from the <code class="docutils literal notranslate"><span class="pre">perfnarc</span></code> table, conduct an <strong>A/B test</strong> on <code class="docutils literal notranslate"><span class="pre">Stress1</span></code> values using the grouping variable <code class="docutils literal notranslate"><span class="pre">Greek</span></code>. The research question is whether students involved in Greek life would be more stressed during the 2nd week of the semester. Many social Greek organizations have meetings, socials and philanthropy events early in the semester, so perhaps they experience higher levels of stess.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">perfnarc</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -465,12 +465,12 @@
 </table>
 <p>... (143 rows omitted)</p></div></div>
 </div>
-<p>Be sure to include your null hypothesis and a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that simulates the null hypothesis test statistic. After displaying the simulated distrubtion and calculating your <span class="math notranslate nohighlight">\(p\)</span>-value, write a sentence or two about the real world conclusions you can draw based on your results.</p>
-<p>Remember, you may use the tools from <a class="reference external" href="https://straightdraw.github.io/stats/tests/0.html">notebook 20</a> and <a class="reference external" href="https://straightdraw.github.io/stats/tests/.html">notebook 21</a>.</p>
+<p>Be sure to include your null hypothesis and a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that simulates the null hypothesis test statistic. After displaying the simulated distrubtion and calculating your <span class="math notranslate nohighlight">\(p\)</span>-value, write a sentence or two about the real world conclusions you can draw based on your investigation.</p>
+<p>Remember, you may use the A/B testing tools from <a class="reference external" href="https://straightdraw.github.io/stats/tests/0.html">notebook 20</a> and <a class="reference external" href="https://straightdraw.github.io/stats/tests/1.html">notebook 21</a>.</p>
 </div>
 <div class="section" id="task-3">
 <h2>Task 3<a class="headerlink" href="#task-3" title="Permalink to this headline">¶</a></h2>
-<p>Using the <code class="docutils literal notranslate"><span class="pre">nba_salary</span></code> table, conduct an A/B test to determine if power forwards (PF) are paid more than shooting guards (SG).</p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">nba_salary</span></code> table, conduct an <strong>A/B test</strong> to determine if power forwards (PF) are paid more than shooting guards (SG).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nba</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -504,12 +504,12 @@
 </table>
 <p>... (412 rows omitted)</p></div></div>
 </div>
-<p>Be sure to include your null hypothesis and a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that simulates the null hypothesis test statistic. After displaying the simulated distrubtion and calculating your <span class="math notranslate nohighlight">\(p\)</span>-value, write a sentence or two about the real world conclusions you can draw based on your results.</p>
-<p>Remember, you may use the tools from <a class="reference external" href="https://straightdraw.github.io/stats/tests/0.html">notebook 20</a> and <a class="reference external" href="https://straightdraw.github.io/stats/tests/1.html">notebook 21</a></p>
+<p>Be sure to include your null hypothesis and a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that simulates the null hypothesis test statistic. After displaying the simulated distrubtion and calculating your <span class="math notranslate nohighlight">\(p\)</span>-value, write a sentence or two about the real world conclusions you can draw based on your investigation.</p>
+<p>Remember, you may use the tools from <a class="reference external" href="https://straightdraw.github.io/stats/tests/0.html">notebook 20</a> and <a class="reference external" href="https://straightdraw.github.io/stats/tests/1.html">notebook 21</a>.</p>
 </div>
 <div class="section" id="task-4">
 <h2>Task 4<a class="headerlink" href="#task-4" title="Permalink to this headline">¶</a></h2>
-<p>Using the violent crime data set called <code class="docutils literal notranslate"><span class="pre">crime_rates</span></code>, conduct an exploratory data analysis as well as a bootstrapping confidence interval estimate of the mean <code class="docutils literal notranslate"><span class="pre">Aggravated</span> <span class="pre">Assault</span> <span class="pre">Rate</span></code> in Georgia between 1960 and 1990.</p>
+<p>Using the violent crime data set called <code class="docutils literal notranslate"><span class="pre">crime_rates</span></code>, conduct an <strong>exploratory data analysis</strong> as well as a <strong>bootstrapping confidence interval estimate</strong> of the mean <code class="docutils literal notranslate"><span class="pre">Aggravated</span> <span class="pre">Assault</span> <span class="pre">Rate</span></code> in Georgia between 1960 and 1990.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">assault</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -543,11 +543,11 @@
 </table>
 <p>... (2195 rows omitted)</p></div></div>
 </div>
-<p>Discuss your findings. Remember, you may use the tools from <a class="reference external" href="https://straightdraw.github.io/stats/tests/4.html">notebook 24</a> and <a class="reference external" href="https://straightdraw.github.io/stats/tests/5.html">notebook 25</a></p>
+<p>Discuss your findings. Remember, you may use the bootstrapping tools from <a class="reference external" href="https://straightdraw.github.io/stats/tests/4.html">notebook 24</a> and <a class="reference external" href="https://straightdraw.github.io/stats/tests/5.html">notebook 25</a> along with the descriptive statistics tools in <a class="reference external" href="https://straightdraw.github.io/stats/tests/6.html">notebook 26</a></p>
 </div>
 <div class="section" id="task-5">
 <h2>Task 5<a class="headerlink" href="#task-5" title="Permalink to this headline">¶</a></h2>
-<p>Using the violent crime data set called <code class="docutils literal notranslate"><span class="pre">crime_rates</span></code>, conduct comparison of the Aggravated Assaults in Georgia and Alabama from 1960 to 1990. Use a 95% confidence interval for both means using a bootstrapped confidence interval with resample size of 30 and 1,000 repetitions of your <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
+<p>Using the violent crime data set called <code class="docutils literal notranslate"><span class="pre">crime_rates</span></code>, conduct comparison of the Aggravated Assaults in Georgia and Alabama from 1960 to 1990. Use a 95% confidence interval for both means using a <strong>bootstrap confidence interval</strong> with resample size of 30 and 1,000 repetitions of your <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
 <p>With the null hypothesis that the aggravated assault rate distribution will be the same in both GA and AL, we can conduct a hypothesis test. If the confidence intervals do not overlap, we have evidence of a difference in aggravated assault rates between these two states. If the confidence intervals do overlap, there is no evidence for a difference in means.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -582,10 +582,12 @@
 </table>
 <p>... (2195 rows omitted)</p></div></div>
 </div>
+<p>Compare and contrast your two bootstrap distributions, and write a sentence or two about the real world conclusions you can draw based on your investigation.</p>
+<p>Remember, you may use the tools from <a class="reference external" href="https://straightdraw.github.io/stats/tests/4.html">notebook 24</a> and <a class="reference external" href="https://straightdraw.github.io/stats/tests/5.html">notebook 25</a>.</p>
 </div>
 <div class="section" id="task-6">
 <h2>Task 6<a class="headerlink" href="#task-6" title="Permalink to this headline">¶</a></h2>
-<p>Using the <code class="docutils literal notranslate"><span class="pre">personality</span></code> data set, test for a significant correlation between Anxiety and Optimism. Be sure to to display descriptive statistics for regression, a scatter plot, and a simulation of the null hypothesis test statistic. Be sure to discuss your findings in terms of the <span class="math notranslate nohighlight">\(p\)</span> calculated in your <code class="docutils literal notranslate"><span class="pre">for</span></code> loop using 2,000 to 5,000 repititions.</p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">personality</span></code> data set, <strong>test for a significant correlation</strong> between Anxiety and Optimism. Be sure to to display descriptive statistics for regression, a scatter plot, and a simulation of the null hypothesis test statistic calculated using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop with 2,000 to 5,000 repititions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neuroanx</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -619,11 +621,12 @@
 </table>
 <p>... (137 rows omitted)</p></div></div>
 </div>
-<p>Discuss your findings. Remember, you may use the tools from <a class="reference external" href="https://straightdraw.github.io/stats/tests/6.html">notebook 26</a> and <a class="reference external" href="https://straightdraw.github.io/stats/tests/7.html">notebook 27</a></p>
+<p>Be sure to include your null hypothesis and a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that simulates the null hypothesis test statistic. After displaying the simulated distrubtion and calculating your <span class="math notranslate nohighlight">\(p\)</span>-value, write a sentence or two about the real world conclusions you can draw based on your investigation.</p>
+<p>Remember, you may use the correlation and regression tools from <a class="reference external" href="https://straightdraw.github.io/stats/tests/6.html">notebook 26</a> and <a class="reference external" href="https://straightdraw.github.io/stats/tests/7.html">notebook 27</a></p>
 </div>
 <div class="section" id="task-7">
 <h2>Task 7<a class="headerlink" href="#task-7" title="Permalink to this headline">¶</a></h2>
-<p>Conduct an investigation that interests you using one of the included data sets. Describe your null hypothesis and how you plan to test it. Have fun. Be creative. Yet try to keep it very similar to one of the investigations we have have examples for. You should finish with a hypothesis test and discussion of your calculated <span class="math notranslate nohighlight">\(p\)</span>-value.</p>
+<p>Conduct an investigation that interests you using one of the included data sets. Describe your null hypothesis and how you plan to test it. Have fun. Be creative. Yet try to keep your ideas very similar to one of the example investigations shown. You should include a hypothesis test and discussion of your calculated <span class="math notranslate nohighlight">\(p\)</span>-value. An exploratory data analysis of a single numeric variable <em>is not sufficient</em> for this task but would be an excellent additional component to one of the hypothesis tests.</p>
 </div>
 </div>
 

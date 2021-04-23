@@ -69,10 +69,10 @@ def reg_shuffle(tab):
     shuffled_tab = tab.with_column("Shuffled Y",shuffled_y).select(0,2)
     return shuffled_tab
 
-def ab_hist(myArray, observed_value):
-    tab = Table().with_column('A/B Differencs',myArray)
+def reg_hist(myArray, observed_value):
+    tab = Table().with_column('Simulated Correlation',myArray)
     tab.hist(0)
-    _ = plots.plot([observed_value, observed_value], [0, 0.1], color='red', lw=2)
+    _ = plots.plot([observed_value, observed_value], [0, 1], color='red', lw=2)
 
 ## Data for examples
 
@@ -106,7 +106,7 @@ for i in range(reps):
 # Remove hashtag comment to see the shuff_cor results array    
 # shuff_cor
 
-ab_hist(shuff_cor, obs_r)
+reg_hist(shuff_cor, obs_cor)
 
 p_value = sum( shuff_cor >= obs_cor ) / reps
 p_value
