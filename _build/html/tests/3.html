@@ -194,6 +194,11 @@
    30. Homework 10
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9.html">
+   29. Mixed Hypothesis Testing Practice
+  </a>
+ </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -482,34 +487,34 @@
     </thead>
     <tbody>
         <tr>
-            <td>F   </td> <td>Y      </td>
-        </tr>
-        <tr>
-            <td>M   </td> <td>Y      </td>
+            <td>M   </td> <td>N      </td>
         </tr>
         <tr>
             <td>F   </td> <td>N      </td>
         </tr>
         <tr>
-            <td>M   </td> <td>N      </td>
-        </tr>
-        <tr>
             <td>F   </td> <td>Y      </td>
-        </tr>
-        <tr>
-            <td>M   </td> <td>N      </td>
-        </tr>
-        <tr>
-            <td>F   </td> <td>Y      </td>
-        </tr>
-        <tr>
-            <td>M   </td> <td>Y      </td>
         </tr>
         <tr>
             <td>F   </td> <td>N      </td>
         </tr>
         <tr>
+            <td>F   </td> <td>Y      </td>
+        </tr>
+        <tr>
             <td>M   </td> <td>N      </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>N      </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>Y      </td>
+        </tr>
+        <tr>
+            <td>M   </td> <td>N      </td>
+        </tr>
+        <tr>
+            <td>F   </td> <td>Y      </td>
         </tr>
     </tbody>
 </table>
@@ -524,13 +529,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;,
-       &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;,
-       &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;,
-       &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;,
-       &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;,
-       &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;,
-       &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;], dtype=&#39;&lt;U1&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;,
+       &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;,
+       &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;,
+       &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;,
+       &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;,
+       &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;N&#39;,
+       &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;N&#39;, &#39;Y&#39;], dtype=&#39;&lt;U1&#39;)
 </pre></div>
 </div>
 </div>
@@ -542,7 +547,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46
 </pre></div>
 </div>
 </div>
@@ -598,7 +603,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1383
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.13446
 </pre></div>
 </div>
 </div>
@@ -699,10 +704,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Improved&#39;, &#39;Did Not&#39;, &#39;Improved&#39;, &#39;Improved&#39;, &#39;Improved&#39;,
-       &#39;Improved&#39;, &#39;Improved&#39;, &#39;Improved&#39;, &#39;Improved&#39;, &#39;Did Not&#39;,
-       &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Improved&#39;, &#39;Did Not&#39;],
-      dtype=&#39;&lt;U8&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Improved&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;,
+       &#39;Improved&#39;, &#39;Improved&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;,
+       &#39;Improved&#39;, &#39;Did Not&#39;, &#39;Did Not&#39;, &#39;Improved&#39;], dtype=&#39;&lt;U8&#39;)
 </pre></div>
 </div>
 </div>
@@ -715,7 +719,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
 </pre></div>
 </div>
 </div>
@@ -756,7 +760,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01264
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0126
 </pre></div>
 </div>
 </div>
